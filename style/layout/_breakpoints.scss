@@ -1,0 +1,23 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+@mixin media-breakpoint-up($breakpoint) {
+    $min: map-get($grid-breakpoints, $breakpoint);
+  
+    @if $min != null and $min != 0 {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else if $min == 0 {
+      @content; 
+    } @else {
+      @warn "Breakpoint '#{$breakpoint}' não foi definido no mapa.";
+    }
+  }
+  
