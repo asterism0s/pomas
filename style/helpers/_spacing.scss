@@ -1,0 +1,56 @@
+//basic spacers
+$spacers: (
+    sm: 8px,
+    md: 16px,
+    lg: 24px,
+    xl: 32px,
+    xxl: 40px
+);
+
+
+//margin, padding and gap spacing
+@mixin spacing($property, $size) {
+    #{$property}: map-get($spacers, $size);
+  }  
+
+@each $key, $value in $spacers {
+    .margin-#{$key} {
+        @include spacing(margin, $key);
+    }
+    .padding-#{$key} {
+        @include spacing(padding, $key);
+    }
+    .gap-#{$key} {
+        @include spacing(gap, $key);
+    }
+}
+
+//y-axis spacing
+@mixin spacing-y($property, $size) {
+    #{$property}-top: map-get($spacers, $size);
+    #{$property}-bottom: map-get($spacers, $size);
+}
+
+@each $key, $value in $spacers {
+    .margin-y-#{$key} {
+        @include spacing-y(margin, $key);
+    }
+    .padding-y-#{$key} {
+        @include spacing-y(padding, $key);
+    }
+}
+
+//x-axis spacing
+@mixin spacing-x($property, $size) {
+    #{$property}-left: map-get($spacers, $size);
+    #{$property}-right: map-get($spacers, $size);
+}
+
+@each $key, $value in $spacers {
+    .margin-x-#{$key} {
+        @include spacing-x(margin, $key);
+    }
+    .padding-x-#{$key} {
+        @include spacing-x(padding, $key);
+    }
+}
