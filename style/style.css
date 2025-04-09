@@ -165,4 +165,13 @@ a {
 .padding-x-xxl {
   padding-left: 40px;
   padding-right: 40px;
+}
+
+.test {
+  background-color: red;
+}
+@media (min-width: 576px) {
+  .test {
+    background-color: blue;
+  }
 }/*# sourceMappingURL=style.css.map */

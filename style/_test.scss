@@ -1,0 +1,10 @@
+@import 'layout/breakpoints';
+
+.test {
+    background-color: red;
+  
+    @include media-breakpoint-up(sm) {
+      background-color: blue;
+    }
+  }
+  
