@@ -9,7 +9,7 @@ $grid-breakpoints: (
 
 
 
-// Mixin breakpoint up
+//mixin breakpoint up
 @mixin media-breakpoint-up($breakpoint) {
     $min: map-get($grid-breakpoints, $breakpoint);
   
@@ -25,3 +25,40 @@ $grid-breakpoints: (
   }
   
 //mixin breakpoint down
+@mixin media-breakpoint-down($breakpoint) {
+    $breakpoints: map-keys($grid-breakpoints);
+    $index: index($breakpoints, $breakpoint);
+  
+    @if $index != null and $index < length($breakpoints) {
+      $next-breakpoint: nth($breakpoints, $index + 1);
+      $max: map-get($grid-breakpoints, $next-breakpoint);
+      $max: $max - 0.02px;
+  
+      @media (max-width: $max) {
+        @content;
+      }
+    } @else if $index == length($breakpoints) {
+      @warn "Não existe 'down' para o último breakpoint: #{$breakpoint}";
+    } @else {
+      @warn "Breakpoint '#{$breakpoint}' não encontrado.";
+    }
+  }
+
+//mixin breakpoint between
+
+@mixin media-breakpoint-between($lower, $upper) {
+    $min: map-get($grid-breakpoints, $lower);
+    $upper-breakpoints: map-keys($grid-breakpoints);
+    $upper-index: index($upper-breakpoints, $upper);
+    $next-upper: nth($upper-breakpoints, $upper-index + 1);
+    $max: map-get($grid-breakpoints, $next-upper);
+    $max: $max - 0.02px;
+  
+    @if $min != null and $max != null {
+      @media (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    } @else {
+      @warn "Breakpoints '#{$lower}' ou '#{$upper}' inválidos.";
+    }
+  }  
