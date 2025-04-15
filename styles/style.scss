@@ -1,7 +1,15 @@
-@import 'helpers/base';
-@import 'helpers/spacing';
+@import 'abstracts/breakpoints';
+@import 'abstracts/mixins';
+@import 'abstracts/spacing';
+@import 'abstracts/variables';
 
-@import 'content/typography';
 
-@import 'layout/breakpoints';
-@import 'test';
+@import 'base/base';
+@import 'base/fonts';
+@import 'base/typography';
+
+@import 'components/timer';
+
+@import 'layout/grid';
+
+@import 'pages/home';
