@@ -174,12 +174,4 @@ a {
 @font-face {
   font-family: "SevenSegment", sans-serif;
   src: url(../../assets/fonts/sevensegment.ttf) format("truetype");
-}
-.test {
-  background-color: red;
-}
-@media (min-width: 576px) {
-  .test {
-    background-color: blue;
-  }
 }/*# sourceMappingURL=style.css.map */
