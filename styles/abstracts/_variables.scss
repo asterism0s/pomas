@@ -1,4 +1,18 @@
+@import '../base/typography';
+
 //colors
+$color-primary: #ffcb66;
+$color-primary-dark: #ffc24d;
+
+$color-secondary-light: #f2a297;
+$color-secondary-medium: #ef8d80;
+$color-secondary-dark: #55170f;
+
+$color-tertiary: #b74c3e;
+$color-tertiary-dark: #4d2e18;
+
 
 //fonts
-$font-family: "Karla", sans-serif;
+$font-primary: "Karla", sans-serif;
+$font-display: "SevenSegment", monospace;
+
