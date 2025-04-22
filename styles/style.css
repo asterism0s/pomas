@@ -158,17 +158,18 @@
   padding-right: 40px;
 }
 
-@font-face {
-  font-family: "SevenSegment", sans-serif;
-  src: url(../../assets/fonts/sevensegment.ttf) format("truetype");
-}
-/* Bubble gum */
-/* Lake */
-/* Sunset */
 /* Elevated / Auxiliary */
 /* Elevated / Background / Base */
 /* Elevated / Background / Highlight */
 /* Elevated / Text and Icons */
+/* Receeded / Auxiliary */
+/* Receeded / Background / Base */
+/* Receeded / Background / Highlight */
+/* Receeded / Text and Icons */
+/* Surface / Auxiliary */
+/* Surface / Background / Base */
+/* Surface / Background / Highlight */
+/* Surface / Text and Icons */
 body {
   height: 100vh;
   width: 100%;
