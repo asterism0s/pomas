@@ -1,19 +1,83 @@
 @import '../base/typography';
 
-//colors
-$color-primary: #ffcb66;
-$color-primary-medium: #ffc24d;
-$color-primary-dark: #f0af2f;
-
-$color-secondary-light: #f2a297;
-$color-secondary-medium: #ef8d80;
-$color-secondary-dark: #55170f;
-
-$color-tertiary: #b74c3e;
-$color-tertiary-dark: #4d2e18;
-
-
-//fonts
+//Fonts
 $font-primary: "Karla", sans-serif;
 $font-display: "SevenSegment", monospace;
 
+
+//Colors
+
+/* Elevated / Auxiliary */
+$elevated-auxiliary-strong: #be5547;
+$elevated-auxiliary-subtle: #f2a297;
+
+/* Elevated / Background / Base */
+$elevated-background-base-active-1: #fbe3e0;
+$elevated-background-base-active-2: #f5bcb4;
+$elevated-background-base-idle-1: #f2a297;
+$elevated-background-base-idle-2: #ef8d80;
+$elevated-background-base-hover-1: #ef8d80;
+$elevated-background-base-hover-2: #e47668;
+$elevated-background-base-pressed-1: #f5bcb4;
+$elevated-background-base-pressed-2: #f2a297;
+$elevated-background-base-disabled: #755a57;
+
+
+/* Elevated / Background / Highlight */
+$elevated-background-highlight-active: #fbe3e0;
+$elevated-background-highlight-idle: #f5bcb4;
+$elevated-background-highlight-hover: #ef8d80;
+$elevated-background-highlight-pressed: #f5bcb4;
+$elevated-background-highlight-disabled: #f5bcb4;
+
+/* Elevated / Text and Icons */
+$elevated-text-and-icons-active: #56170f;
+$elevated-text-and-icons-idle: #852418;
+$elevated-text-and-icons-hover: #be5547;
+$elevated-text-and-icons-pressed: #de5441;
+$elevated-text-and-icons-disabled: #4d2e18;
+
+/* Receeded / Auxiliary */
+$receeded-auxiliary-strong: #64826e;
+$receeded-auxiliary-subtle: #a0b0a5;
+
+/* Receeded / Background / Base */
+$receeded-background-base-idle-1: #d6ebdc;
+$receeded-background-base-idle-2: #f8fcf9;
+$receeded-background-base-disabled: #a0b0a5;
+
+/* Receeded / Background / Highlight */
+$receeded-background-highlight-active: #4f6657;
+$receeded-background-highlight-idle: #a0b0a5;
+$receeded-background-highlight-disabled: #f8fcf9;
+
+/* Receeded / Text and Icons */
+$receeded-text-and-icons-active: #4f6657;
+$receeded-text-and-icons-disabled: #c1e1ca;
+
+/* Surface / Auxiliary */
+$surface-auxiliary-strong: #7f5c1e;
+$surface-auxiliary-subtle: #ffcb66;
+
+/* Surface / Background / Base */
+$surface-background-base-idle-1:  #ffcb66;
+$surface-background-base-idle-2: #ffc24d;
+$surface-background-base-hover-1: #ffdc99;
+$surface-background-base-hover-2: #ffdc99;
+$surface-background-base-pressed-1: #b28d45;
+$surface-background-base-pressed-2: #7f5c1e;
+$surface-background-base-disabled: #d5bd8d;
+
+/* Surface / Background / Highlight */
+$surface-background-highlight-active: #f0af2f;
+$surface-background-highlight-idle: rgba(240, 175, 47, 0);
+$surface-background-highlight-hover: #ffdc99;
+$surface-background-highlight-pressed: #b28d45;
+$surface-background-highlight-disabled: #d5bd8d;
+
+/* Surface / Text and Icons */
+$surface-text-and-icons-active: #4d2e18;
+$surface-text-and-icons-idle: #b28d45;
+$surface-text-and-icons-hover: #7f5c1e;
+$surface-text-and-icons-pressed: #7f5c1e;
+$surface-text-and-icons-disabled: #7a6d52;
