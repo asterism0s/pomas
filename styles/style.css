@@ -1,3 +1,15 @@
+/* Elevated / Auxiliary */
+/* Elevated / Background / Base */
+/* Elevated / Background / Highlight */
+/* Elevated / Text and Icons */
+/* Receeded / Auxiliary */
+/* Receeded / Background / Base */
+/* Receeded / Background / Highlight */
+/* Receeded / Text and Icons */
+/* Surface / Auxiliary */
+/* Surface / Background / Base */
+/* Surface / Background / Highlight */
+/* Surface / Text and Icons */
 .margin-sm {
   margin: 8px;
 }
@@ -158,18 +170,10 @@
   padding-right: 40px;
 }
 
-/* Elevated / Auxiliary */
-/* Elevated / Background / Base */
-/* Elevated / Background / Highlight */
-/* Elevated / Text and Icons */
-/* Receeded / Auxiliary */
-/* Receeded / Background / Base */
-/* Receeded / Background / Highlight */
-/* Receeded / Text and Icons */
-/* Surface / Auxiliary */
-/* Surface / Background / Base */
-/* Surface / Background / Highlight */
-/* Surface / Text and Icons */
+@font-face {
+  font-family: "SevenSegment", sans-serif;
+  src: url(../../assets/fonts/sevensegment.ttf) format("truetype");
+}
 body {
   height: 100vh;
   width: 100%;
