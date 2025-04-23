@@ -1,16 +1,5 @@
-@import 'abstracts/breakpoints';
-@import 'abstracts/colors';
-@import 'abstracts/mixins';
-@import 'abstracts/spacing';
-@import 'abstracts/variables';
-
-
-@import 'base/base';
-@import 'base/fonts';
-@import 'base/typography';
-
-@import 'components/timer';
-
-@import 'layout/grid';
-
-@import 'pages/home';
+@use './abstracts' as *;
+@use './base' as *;
+@use './components' as *;
+@use './layout' as *;
+@use './pages' as *;
