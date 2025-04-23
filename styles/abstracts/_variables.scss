@@ -1,5 +1,12 @@
-@import '../base/fonts';
+@use '../base/fonts';
 
-//Fonts
+/* Fonts */
 $font-primary: "Karla", sans-serif;
 $font-display: "SevenSegment", monospace;
+
+
+/* Modules */
+%main-size {
+    height: 719px;
+    width: 414px;
+}
