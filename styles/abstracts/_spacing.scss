@@ -1,9 +1,20 @@
 //basic spacers
 $spacers: (
-    sm: 8px,
-    md: 16px,
-    lg: 24px,
-    xl: 32px,
-    xxl: 40px
+    min: 0.25rem,
+    quark: 0.5rem,
+    nano: 0.75rem,
+    micro:0.875rem,
+    baseline: 1rem,
+    3xs: 1.5rem,
+    2xs: 2rem,
+    xs: 2.5rem,
+    sm: 3rem,
+    md: 4rem,
+    lg: 4.5rem,
+    xl: 5rem,
+    2xl: 6rem,
+    3xl: 6.5rem,
+    mega: 8rem,
+    max:10rem
 );
 
