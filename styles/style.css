@@ -545,9 +545,12 @@ a {
 .header__nav .header__nav-list {
   display: flex;
   font-family: "Karla", sans-serif;
-  font-weight: bold;
   justify-content: space-between;
   width: 100%;
+}
+.header__nav .header__nav-list .header__logo {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .tab__nav {
@@ -558,7 +561,6 @@ a {
   align-items: center;
   display: flex;
   font-family: "Karla", sans-serif;
-  font-weight: bold;
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;

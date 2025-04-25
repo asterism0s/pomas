@@ -13,10 +13,13 @@
     .header__nav-list {
         display: flex;
         font-family: variables.$font-primary;
-        font-weight: bold;
         justify-content: space-between;
         width: 100%;
         
+        .header__logo{
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -27,7 +30,6 @@
         align-items: center;
         display: flex;
         font-family: variables.$font-primary;
-        font-weight: bold;
         flex-direction: row;
         justify-content: flex-start;
         width: 100%;
