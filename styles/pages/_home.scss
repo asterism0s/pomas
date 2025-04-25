@@ -1,3 +1,5 @@
+@use '../abstracts/variables';
+@use '../abstracts/spacing';
 // .main__bg-hero {
 //     flex-direction: column;
 //     justify-content: flex-start;
@@ -9,10 +11,26 @@
     justify-content: center;
     
     .header__nav-list {
-        
         display: flex;
+        font-family: variables.$font-primary;
+        font-weight: bold;
         justify-content: space-between;
         width: 100%;
         
+    }
+}
+
+.tab__nav {
+    display: flex;
+    justify-content: center;
+    .tab__nav-list {
+        align-items: center;
+        display: flex;
+        font-family: variables.$font-primary;
+        font-weight: bold;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+
     }
 }

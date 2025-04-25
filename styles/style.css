@@ -544,6 +544,22 @@ a {
 }
 .header__nav .header__nav-list {
   display: flex;
+  font-family: "Karla", sans-serif;
+  font-weight: bold;
   justify-content: space-between;
+  width: 100%;
+}
+
+.tab__nav {
+  display: flex;
+  justify-content: center;
+}
+.tab__nav .tab__nav-list {
+  align-items: center;
+  display: flex;
+  font-family: "Karla", sans-serif;
+  font-weight: bold;
+  flex-direction: row;
+  justify-content: flex-start;
   width: 100%;
 }/*# sourceMappingURL=style.css.map */
