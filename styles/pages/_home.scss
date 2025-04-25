@@ -1,5 +1,18 @@
-.main__bg-hero {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+// .main__bg-hero {
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: center;
+// }
+
+.header__nav {
+    display: flex;
+    justify-content: center;
+    
+    .header__nav-list {
+        
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        
+    }
 }
