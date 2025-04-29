@@ -538,6 +538,10 @@ a {
   text-decoration: none;
 }
 
+.home__bg {
+  background: linear-gradient(to bottom, #ffcb66, #ffc24d);
+}
+
 .header__nav {
   display: flex;
   justify-content: center;

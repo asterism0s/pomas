@@ -1,10 +1,15 @@
 @use '../abstracts/variables';
 @use '../abstracts/spacing';
+@use '../abstracts/colors';
 // .main__bg-hero {
 //     flex-direction: column;
 //     justify-content: flex-start;
 //     align-items: center;
 // }
+
+.home__bg {
+    background: linear-gradient(to bottom, colors.$surface-background-base-idle-1, colors.$surface-background-base-idle-2);
+}
 
 .header__nav {
     display: flex;
