@@ -1,11 +1,6 @@
 @use '../abstracts/variables';
 @use '../abstracts/spacing';
 @use '../abstracts/colors';
-// .main__bg-hero {
-//     flex-direction: column;
-//     justify-content: flex-start;
-//     align-items: center;
-// }
 
 .home__bg {
     background: linear-gradient(to bottom, colors.$surface-background-base-idle-1, colors.$surface-background-base-idle-2);
@@ -16,16 +11,25 @@
     justify-content: center;
     
     .header__nav-list {
+        align-items: center;
         display: flex;
         font-family: variables.$font-primary;
         justify-content: space-between;
         width: 100%;
         
         .header__logo{
-            font-weight: bold;
+            color: colors.$surface-text-and-icons-active;
             font-size: variables.$font-size-3xs;
+            font-weight: bold;
         }
     }
+}
+
+.button {
+    align-items: center;
+    background: none;
+    border: none;
+    display: flex;
 }
 
 .tab__nav {

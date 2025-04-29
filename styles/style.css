@@ -547,14 +547,23 @@ a {
   justify-content: center;
 }
 .header__nav .header__nav-list {
+  align-items: center;
   display: flex;
   font-family: "Karla", sans-serif;
   justify-content: space-between;
   width: 100%;
 }
 .header__nav .header__nav-list .header__logo {
-  font-weight: bold;
+  color: #4d2e18;
   font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.button {
+  align-items: center;
+  background: none;
+  border: none;
+  display: flex;
 }
 
 .tab__nav {
