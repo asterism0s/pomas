@@ -6,24 +6,6 @@
     background: linear-gradient(to bottom, colors.$surface-background-base-idle-1, colors.$surface-background-base-idle-2);
 }
 
-.header__nav {
-    display: flex;
-    justify-content: center;
-    
-    .header__nav-list {
-        align-items: center;
-        display: flex;
-        font-family: variables.$font-primary;
-        justify-content: space-between;
-        width: 100%;
-        
-        .header__logo{
-            color: colors.$surface-text-and-icons-active;
-            font-size: variables.$font-size-3xs;
-            font-weight: bold;
-        }
-    }
-}
 
 .button {
     align-items: center;
@@ -38,12 +20,12 @@
     .tab__nav-list {
         align-items: center;
         display: flex;
-        font-family: variables.$font-primary;
         flex-direction: row;
         justify-content: flex-start;
         width: 100%;
 
         .tab__nav-text {
+            font-size: variables.$font-size-baseline;
             color: colors.$surface-text-and-icons-active;
         }
 
