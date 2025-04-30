@@ -43,5 +43,9 @@
         justify-content: flex-start;
         width: 100%;
 
+        .tab__nav-text {
+            color: colors.$surface-text-and-icons-active;
+        }
+
     }
 }

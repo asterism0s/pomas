@@ -577,4 +577,7 @@ a {
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
+}
+.tab__nav .tab__nav-list .tab__nav-text {
+  color: #4d2e18;
 }/*# sourceMappingURL=style.css.map */
