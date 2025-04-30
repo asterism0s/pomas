@@ -539,6 +539,13 @@ a {
   text-decoration: none;
 }
 
+.button {
+  align-items: center;
+  background: none;
+  border: none;
+  display: flex;
+}
+
 .header__nav {
   display: flex;
   justify-content: center;
@@ -557,13 +564,6 @@ a {
 
 .home__bg {
   background: linear-gradient(to bottom, #ffcb66, #ffc24d);
-}
-
-.button {
-  align-items: center;
-  background: none;
-  border: none;
-  display: flex;
 }
 
 .tab__nav {
