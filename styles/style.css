@@ -546,6 +546,23 @@ a {
   display: flex;
 }
 
+.timer-card {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+.timer-card__box {
+  background: linear-gradient(to bottom, #d6ebdc, #d6ebdc);
+  border-radius: 1rem;
+  height: 15.75rem;
+  width: 22.375rem;
+  z-index: 1;
+}
+.timer-card__shadow {
+  border: solid 1px #64826e;
+  border-radius: 1rem;
+}
+
 .header__nav {
   display: flex;
   justify-content: center;
