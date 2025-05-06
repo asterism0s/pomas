@@ -598,14 +598,21 @@ a {
   display: flex;
   justify-content: center;
 }
-.tab__nav .tab__nav-list {
+.tab__nav-list {
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
 }
-.tab__nav .tab__nav-list .tab__nav-text {
+.tab__nav-list .tab__nav-text {
   font-size: 1rem;
   color: #4d2e18;
+}
+.tab__nav-list-item {
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+.tab__nav-list-item:hover {
+  background-color: red;
 }/*# sourceMappingURL=style.css.map */

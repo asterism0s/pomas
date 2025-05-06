@@ -10,7 +10,7 @@
 .tab__nav {
     display: flex;
     justify-content: center;
-    .tab__nav-list {
+    &-list {
         align-items: center;
         display: flex;
         flex-direction: row;
@@ -21,6 +21,16 @@
             font-size: variables.$font-size-baseline;
             color: colors.$surface-text-and-icons-active;
         }
+
+    &-item{
+        
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.5rem;
+
+        &:hover {
+            background-color: red;
+        }
+    }
 
     }
 }
