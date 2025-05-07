@@ -594,6 +594,12 @@ a {
   background: linear-gradient(to bottom, #ffcb66, #ffc24d);
 }
 
+.app-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .tab__nav {
   display: flex;
   justify-content: center;
@@ -605,14 +611,18 @@ a {
   justify-content: flex-start;
   width: 100%;
 }
-.tab__nav-list .tab__nav-text {
-  font-size: 1rem;
-  color: #4d2e18;
-}
 .tab__nav-list-item {
+  align-items: center;
   border-radius: 0.5rem;
-  padding: 0.25rem 0.5rem;
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+  width: 3.313rem;
 }
 .tab__nav-list-item:hover {
   background-color: red;
+}
+.tab__nav-list-item-text {
+  font-size: 1rem;
+  color: #4d2e18;
 }/*# sourceMappingURL=style.css.map */

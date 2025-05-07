@@ -6,6 +6,12 @@
     background: linear-gradient(to bottom, colors.$surface-background-base-idle-1, colors.$surface-background-base-idle-2);
 }
 
+.app-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
 
 .tab__nav {
     display: flex;
@@ -17,19 +23,24 @@
         justify-content: flex-start;
         width: 100%;
 
-        .tab__nav-text {
-            font-size: variables.$font-size-baseline;
-            color: colors.$surface-text-and-icons-active;
-        }
-
-    &-item{
-        
+    &-item {
+        align-items: center;
         border-radius: 0.5rem;
-        padding: 0.25rem 0.5rem;
+        display: flex;
+        justify-content: center;
+        height: 2rem;
+        // padding: 0.25rem 0.5rem;
+        width: 3.313rem;
 
         &:hover {
             background-color: red;
         }
+
+        &-text {
+            font-size: variables.$font-size-baseline;
+            color: colors.$surface-text-and-icons-active;  
+        }
+        
     }
 
     }
