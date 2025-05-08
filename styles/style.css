@@ -10,6 +10,7 @@
 /* Surface / Background / Base */
 /* Surface / Background / Highlight */
 /* Surface / Text and Icons */
+/* button reset mixin */
 /* spacings mixins */
 .margin-min {
   margin: 0.25rem;
@@ -609,10 +610,21 @@ a {
   height: 2rem;
   padding: 0.2rem 0.5rem;
 }
-.tab-nav__list-item-text {
-  display: flex;
-  align-items: center;
+.tab-nav__list-item-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   color: #4d2e18;
+  display: inline-block;
   font-size: 1rem;
 }
 

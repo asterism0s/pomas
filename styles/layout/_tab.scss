@@ -1,0 +1,35 @@
+@use '../abstracts/variables';
+@use '../abstracts/spacing';
+@use '../abstracts/colors';
+@use '../abstracts/mixins' as mixins;
+
+
+.tab-nav {
+    display: flex;
+    justify-content: center;
+
+    &__list {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    &__list-item {
+        justify-content: center;
+        background-color: colors.$surface-background-highlight-active;
+        border-radius: 0.5rem;
+        display: flex;
+        height: 2rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    &__list-item-button {
+        @include mixins.button-reset;
+
+        color: colors.$surface-text-and-icons-active;
+        display: inline-block;
+        font-size: variables.$font-size-baseline;
+    }
+}
