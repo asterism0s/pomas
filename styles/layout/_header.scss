@@ -1,20 +1,20 @@
 @use '../abstracts/variables';
 @use '../abstracts/colors';
 
-.header__nav {
+.header-nav {
     display: flex;
     justify-content: center;
     
-    .header__nav-list {
+    &__list {
         align-items: center;
         display: flex;
         justify-content: space-between;
         width: 100%;
-        
-        .header__logo{
-            color: colors.$surface-text-and-icons-active;
-            font-size: variables.$font-size-3xs;
-            font-weight: bold;
-        }
+    }
+
+    &__list-logo{
+        color: colors.$surface-text-and-icons-active;
+        font-size: variables.$font-size-3xs;
+        font-weight: bold;
     }
 }
