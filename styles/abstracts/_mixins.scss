@@ -1,20 +1,40 @@
 @use 'spacing';
-@use 'breakpoints'; 
+@use 'breakpoints';
+
+/* button reset mixin */
+
+@mixin button-reset {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 
 /* spacings mixins */
 
 //margin, padding and gap spacing
 @mixin spacing($property, $size) {
     #{$property}: map-get(spacing.$spacers, $size);
-  }  
+}
 
 @each $key, $value in spacing.$spacers {
     .margin-#{$key} {
         @include spacing(margin, $key);
     }
+
     .padding-#{$key} {
         @include spacing(padding, $key);
     }
+
     .gap-#{$key} {
         @include spacing(gap, $key);
     }
@@ -30,6 +50,7 @@
     .margin-y-#{$key} {
         @include spacing-y(margin, $key);
     }
+
     .padding-y-#{$key} {
         @include spacing-y(padding, $key);
     }
@@ -45,6 +66,7 @@
     .margin-x-#{$key} {
         @include spacing-x(margin, $key);
     }
+
     .padding-x-#{$key} {
         @include spacing-x(padding, $key);
     }
@@ -56,37 +78,45 @@
 //mixin breakpoint up
 @mixin media-breakpoint-up($breakpoint) {
     $min: map-get(breakpoints.$grid-breakpoints, $breakpoint);
-  
-    @if $min != null and $min != 0 {
-      @media (min-width: $min) {
-        @content;
-      }
-    } @else if $min == 0 {
-      @content; 
-    } @else {
-      @warn "Breakpoint '#{$breakpoint}' não definido.";
+
+    @if $min !=null and $min !=0 {
+        @media (min-width: $min) {
+            @content;
+        }
     }
-  }
-  
+
+    @else if $min ==0 {
+        @content;
+    }
+
+    @else {
+        @warn "Breakpoint '#{$breakpoint}' não definido.";
+    }
+}
+
 //mixin breakpoint down
 @mixin media-breakpoint-down($breakpoint) {
     $breakpoints: map-keys(breakpoints.$grid-breakpoints);
     $index: index($breakpoints, $breakpoint);
-  
-    @if $index != null and $index < length($breakpoints) {
-      $next-breakpoint: nth($breakpoints, $index + 1);
-      $max: map-get(breakpoints.$grid-breakpoints, $next-breakpoint);
-      $max: $max - 0.02px;
-  
-      @media (max-width: $max) {
-        @content;
-      }
-    } @else if $index == length($breakpoints) {
-      @warn "Não existe 'down' para o último breakpoint: #{$breakpoint}";
-    } @else {
-      @warn "Breakpoint '#{$breakpoint}' não encontrado.";
+
+    @if $index !=null and $index < length($breakpoints) {
+        $next-breakpoint: nth($breakpoints, $index + 1);
+        $max: map-get(breakpoints.$grid-breakpoints, $next-breakpoint);
+        $max: $max - 0.02px;
+
+        @media (max-width: $max) {
+            @content;
+        }
     }
-  }
+
+    @else if $index ==length($breakpoints) {
+        @warn "Não existe 'down' para o último breakpoint: #{$breakpoint}";
+    }
+
+    @else {
+        @warn "Breakpoint '#{$breakpoint}' não encontrado.";
+    }
+}
 
 //mixin breakpoint between
 @mixin media-breakpoint-between($lower, $upper) {
@@ -96,12 +126,14 @@
     $next-upper: nth($upper-breakpoints, $upper-index + 1);
     $max: map-get(breakpoints.$grid-breakpoints, $next-upper);
     $max: $max - 0.02px;
-  
-    @if $min != null and $max != null {
-      @media (min-width: $min) and (max-width: $max) {
-        @content;
-      }
-    } @else {
-      @warn "Breakpoints '#{$lower}' ou '#{$upper}' inválidos.";
+
+    @if $min !=null and $max !=null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
     }
-  }  
+
+    @else {
+        @warn "Breakpoints '#{$lower}' ou '#{$upper}' inválidos.";
+    }
+}
