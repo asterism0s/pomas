@@ -1,0 +1,44 @@
+@use '../abstracts/variables';
+@use '../abstracts/spacing';
+@use '../abstracts/colors';
+
+
+.tab__nav {
+    display: flex;
+    justify-content: center;
+    &-list {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+
+    &-item {
+
+
+        justify-content: center;
+
+        background-color: colors.$surface-background-highlight-active;
+        border-radius: 0.5rem;
+        display: flex;
+        height: 2rem;
+        padding: 0.2rem 0.5rem;
+
+
+        // &:hover {
+        //     background-color: colors.$surface-background-highlight-active;
+        // }
+
+        &-text {
+            display: flex;
+            align-items: center;
+            color: colors.$surface-text-and-icons-active;  
+            font-size: variables.$font-size-baseline;
+            
+           
+        }
+        
+    }
+
+    }
+}

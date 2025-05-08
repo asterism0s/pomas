@@ -12,36 +12,3 @@
     gap: 1.5rem;
 
 }
-
-.tab__nav {
-    display: flex;
-    justify-content: center;
-    &-list {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        width: 100%;
-
-    &-item {
-        align-items: center;
-        border-radius: 0.5rem;
-        display: flex;
-        justify-content: center;
-        height: 2rem;
-        // padding: 0.25rem 0.5rem;
-        width: 3.313rem;
-
-        &:hover {
-            background-color: red;
-        }
-
-        &-text {
-            font-size: variables.$font-size-baseline;
-            color: colors.$surface-text-and-icons-active;  
-        }
-        
-    }
-
-    }
-}
