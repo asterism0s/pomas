@@ -9,9 +9,9 @@
     justify-content: center;
 
     &__list {
-        align-items: center;
+        // align-items: center;
         display: flex;
-        flex-direction: row;
+        // flex-direction: row;
         justify-content: flex-start;
         width: 100%;
     }
@@ -22,14 +22,14 @@
         border-radius: 0.5rem;
         display: flex;
         height: 2rem;
-        padding: 0.2rem 0.5rem;
+        
     }
 
     &__list-item-button {
-        @include mixins.button-reset;
+        @include mixins.btn-reset;
 
         color: colors.$surface-text-and-icons-active;
         display: inline-block;
-        font-size: variables.$font-size-baseline;
+        
     }
 }
