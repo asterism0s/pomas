@@ -2,6 +2,7 @@
 @use 'breakpoints';
 @use 'colors';
 
+
 /* button mixins */
 
 //button reset
@@ -19,6 +20,32 @@
     -moz-appearance: none;
     appearance: none;
 }
+
+//button states
+
+@mixin btn-state($state, $active: false) {
+    @include btn-reset;
+    @extend %btn-base;
+
+    $config: map-get($btn-states, $state);
+
+    $suffix: if($active, 'true', 'false');
+    $bg-key: unquote('bg-#{$suffix}');
+    $text-key: unquote('text-#{$suffix}');
+
+    background-color: map-get($config, $bg-key);
+    color: map-get($config, $text-key);
+
+//     @if $state == pressed and $active {
+//     transform: translateY(1px);
+//   }
+
+    @if $state == disabled {
+        cursor: not-allowed;
+    }
+}
+
+
 
 
 //tab-button active/true

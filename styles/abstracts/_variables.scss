@@ -1,6 +1,6 @@
 @use '../base/fonts';
-@use './mixins';
-@use './colors';
+@use 'mixins';
+@use 'colors';
 
 /* Fonts */
 $font-primary: "Karla", sans-serif;
