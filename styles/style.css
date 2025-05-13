@@ -596,9 +596,7 @@ a {
   justify-content: center;
 }
 .tab-nav__list {
-  align-items: center;
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   width: 100%;
 }
@@ -608,7 +606,6 @@ a {
   border-radius: 0.5rem;
   display: flex;
   height: 2rem;
-  padding: 0.2rem 0.5rem;
 }
 .tab-nav__list-item-button {
   background: none;
@@ -625,7 +622,6 @@ a {
   appearance: none;
   color: #4d2e18;
   display: inline-block;
-  font-size: 1rem;
 }
 
 .home__bg {
