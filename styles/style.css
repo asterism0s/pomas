@@ -533,8 +533,6 @@
 .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover {
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
   color: inherit;
   font: inherit;
   text-align: inherit;
@@ -543,6 +541,8 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   align-items: center;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -623,7 +623,6 @@ a {
 }
 .tab-nav__list-item {
   justify-content: center;
-  background-color: #f0af2f;
   border-radius: 0.5rem;
   display: flex;
   height: 2rem;
@@ -631,8 +630,6 @@ a {
 .tab-nav__list-item-button {
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
   color: inherit;
   font: inherit;
   text-align: inherit;
@@ -641,14 +638,11 @@ a {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  color: #4d2e18;
   display: inline-block;
 }
 .tab-nav__list-item-button--start {
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
   color: inherit;
   font: inherit;
   text-align: inherit;
@@ -663,8 +657,6 @@ a {
 .tab-nav__list-item-button--stats {
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
   color: inherit;
   font: inherit;
   text-align: inherit;
@@ -679,8 +671,6 @@ a {
 .tab-nav__list-item-button:hover {
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
   color: inherit;
   font: inherit;
   text-align: inherit;
