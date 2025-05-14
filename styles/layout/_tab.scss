@@ -1,7 +1,8 @@
 @use '../abstracts/variables';
 @use '../abstracts/spacing';
 @use '../abstracts/colors';
-@use '../abstracts/mixins' as mixins;
+@use '../abstracts/mixins';
+@use '../abstracts/button/state' as state;
 
 
 .tab-nav {
@@ -30,6 +31,10 @@
 
         color: colors.$surface-text-and-icons-active;
         display: inline-block;
+
+        &--start {
+            @include state.btn-state(idle, true);
+        }
         
     }
 }

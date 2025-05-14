@@ -1,0 +1,15 @@
+@use '../mixins';
+@use '../variables';
+
+
+%btn-base {
+    @include mixins.btn-reset;
+    align-items: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: variables.$font-size-baseline;
+    justify-content: center;
+    padding: 0.2rem 0.5rem;
+    
+}

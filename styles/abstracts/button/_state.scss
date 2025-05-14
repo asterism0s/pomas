@@ -1,0 +1,34 @@
+@use '../mixins';
+@use '../variables';
+@use '../colors';
+@use './base';
+
+
+//button states
+@mixin btn-state($state, $active: false) {
+    @include mixins.btn-reset;
+    @extend %btn-base;
+
+    $config: map-get(variables.$btn-states, $state);
+
+    @if $state == idle or $state == pressed {
+        $suffix: if($active, 'true', 'false');
+        $bg-key: unquote('bg-#{$suffix}');
+        $text-key: unquote('text-#{$suffix}');
+
+        background-color: map-get($config, $bg-key);
+        color: map-get($config, $text-key);
+
+    @if $state == pressed and $active {
+        transform: translateY(1px);
+        }
+    } @else {
+        background-color: map-get($config, bg);
+        color: map-get($config, text);
+
+        @if $state == disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+}
