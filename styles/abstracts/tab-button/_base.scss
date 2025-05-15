@@ -5,6 +5,7 @@
 %btn-base {
     @include mixins.btn-reset;
     @include mixins.spacing-x(padding, quark);
+    
     align-items: center;
     border-radius: 0.5rem;
     cursor: pointer;

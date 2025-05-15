@@ -530,27 +530,6 @@
 }
 
 /* breakpoints mixins */
-.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  align-items: center;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  display: inline-flex;
-  font-size: 1rem;
-  justify-content: center;
-}
-
 body {
   font-family: "Karla", sans-serif;
   height: 100vh;
@@ -610,6 +589,27 @@ a {
   color: #4d2e18;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  justify-content: center;
 }
 
 .tab-nav {
