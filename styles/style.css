@@ -582,7 +582,7 @@ a {
   appearance: none;
   background-color: rgba(240, 175, 47, 0);
   color: #b28d45;
-  background-image: url(assets/icons/config-status-idle.svg);
+  background-image: url(/assets/icons/config-status-idle.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2.5rem 2.5rem;
@@ -603,7 +603,7 @@ a {
   appearance: none;
   background-color: #ffdc99;
   color: #7f5c1e;
-  background-image: url(assets/icons/config-status-hover.svg);
+  background-image: url(/assets/icons/config-status-hover.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2.5rem 2.5rem;
@@ -622,7 +622,7 @@ a {
   background-color: #f0af2f;
   color: #4d2e18;
   transform: translateY(1px);
-  background-image: url(assets/icons/config-status-pressed.svg);
+  background-image: url(/assets/icons/config-status-pressed.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2.5rem 2.5rem;
@@ -642,7 +642,7 @@ a {
   color: #7a6d52;
   cursor: not-allowed;
   opacity: 0.5;
-  background-image: url(assets/icons/config-status-disabled.svg);
+  background-image: url(/assets/icons/config-status-disabled.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2.5rem 2.5rem;

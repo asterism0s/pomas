@@ -57,8 +57,8 @@ $btn-states: (
 /* config buttons stats*/
 
 $icon-button-svgs: (
-  idle: 'assets/icons/config-status-idle.svg',
-  hover: 'assets/icons/config-status-hover.svg',
-  pressed: 'assets/icons/config-status-pressed.svg',
-  disabled: 'assets/icons/config-status-disabled.svg'
+  idle: '/assets/icons/config-status-idle.svg',
+  hover: '/assets/icons/config-status-hover.svg',
+  pressed: '/assets/icons/config-status-pressed.svg',
+  disabled: '/assets/icons/config-status-disabled.svg'
 );
