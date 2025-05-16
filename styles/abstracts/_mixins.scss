@@ -22,12 +22,12 @@
 
 //config-button stas
 
-@mixin icon-state($state) {
+@mixin config-icon-state($state) {
   $url: map-get(variables.$icon-button-svgs, $state);
   background-image: url(#{$url});
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 1.25rem 1.25rem;
+  background-size: 2.5rem 2.5rem;
 }
 
 

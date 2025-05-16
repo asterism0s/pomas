@@ -1,5 +1,6 @@
 @use '../abstracts/variables';
 @use '../abstracts/colors';
+@use '../abstracts/mixins';
 
 .header-nav {
     display: flex;
@@ -10,6 +11,10 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+
+        .button--icon {
+
+        }
     }
 
     &__list-logo{
