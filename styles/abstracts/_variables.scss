@@ -22,6 +22,9 @@ $font-size-3xl: 6.5rem;
 $font-size-mega: 8rem;
 $font-size-max:10rem;
 
+
+/* button stats */
+
 $btn-states: (
     idle: (
         bg-false: colors.$surface-background-highlight-idle,
@@ -48,4 +51,14 @@ $btn-states: (
         bg:   colors.$surface-background-highlight-disabled,
         text: colors.$surface-text-and-icons-disabled,
     ),
+);
+
+
+/* config buttons stats*/
+
+$icon-button-svgs: (
+  idle: 'assets/icons/config-status-idle.svg',
+  hover: 'assets/icons/config-status-hover.svg',
+  pressed: 'assets/icons/config-status-pressed.svg',
+  disabled: 'assets/icons/config-status-disabled.svg'
 );

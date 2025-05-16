@@ -1,6 +1,7 @@
 @use './spacing';
 @use './breakpoints';
 @use './colors';
+@use './variables';
 
 
 /* button mixin */
@@ -17,6 +18,16 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+//config-button stas
+
+@mixin icon-state($state) {
+  $url: map-get(variables.$icon-button-svgs, $state);
+  background-image: url(#{$url});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.25rem 1.25rem;
 }
 
 
