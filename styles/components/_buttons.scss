@@ -30,4 +30,32 @@
         }   
     }
 
+    &--play {
+        @include btn.btn-state(idle, false);
+
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+
+
+        svg {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        &[aria-pressed="true"] {
+            @include btn.btn-state(idle, true);
+        }
+
+        &:hover { 
+            @include btn.btn-state(hover);
+        }
+        &:active {
+            @include btn.btn-state(pressed, true);
+        }
+        &:disabled {
+            @include btn.btn-state(disabled);
+        }
+    }
+
 }

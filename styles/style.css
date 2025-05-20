@@ -532,7 +532,7 @@
 }
 
 /* breakpoints mixins */
-.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .button--icon, .button--icon:hover, .button--icon:active, .button--icon:disabled {
+.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .button--icon, .button--icon:hover, .button--icon:active, .button--icon:disabled, .button--play, .button--play[aria-pressed=true], .button--play:hover, .button--play:active, .button--play:disabled {
   background: none;
   border: none;
   color: inherit;
@@ -646,6 +646,86 @@ a {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2.5rem 2.5rem;
+}
+.button--play {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: rgba(240, 175, 47, 0);
+  color: #b28d45;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+.button--play svg {
+  width: 3rem;
+  height: 3rem;
+}
+.button--play[aria-pressed=true] {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #f0af2f;
+  color: #4d2e18;
+}
+.button--play:hover {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #ffdc99;
+  color: #7f5c1e;
+}
+.button--play:active {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #f0af2f;
+  color: #4d2e18;
+  transform: translateY(1px);
+}
+.button--play:disabled {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #d5bd8d;
+  color: #7a6d52;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .timer-card {
