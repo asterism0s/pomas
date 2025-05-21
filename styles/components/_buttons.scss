@@ -2,33 +2,10 @@
 @use '../abstracts/mixins';
 @use '../abstracts/spacing';
 
+
+
 .button {
-    align-items: center;
-    background: none;
-    border: none;
-    display: flex;
 
-    &--icon {
-        @include btn.btn-state(idle, false);
-        @include mixins.icon-state(idle);
-
-        padding: 0.5rem;
-        height: 2.5rem;
-        width: 2.5rem;
-
-        &:hover {
-            @include btn.btn-state(hover);
-            @include mixins.icon-state(hover);
-        }
-        &:active {
-            @include btn.btn-state(pressed, true);
-            @include mixins.icon-state(pressed);
-        }
-        &:disabled {
-            @include btn.btn-state(disabled);
-            @include mixins.icon-state(disabled);
-        }   
-    }
 
     &--play {
         @include btn.btn-state(idle, false);

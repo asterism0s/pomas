@@ -1,6 +1,7 @@
 @use '../abstracts/variables';
 @use '../abstracts/colors';
 @use '../abstracts/mixins';
+@use '../abstracts/button' as btn;
 
 .header-nav {
     display: flex;
@@ -17,5 +18,35 @@
         color: colors.$surface-text-and-icons-active;
         font-size: variables.$font-size-3xs;
         font-weight: bold;
+    }
+
+    &__button {
+        @include mixins.btn-reset;
+
+        align-items: center;
+        display: flex;
+        
+        &--config-icon {
+            @include btn.btn-state(idle, false);
+            @include mixins.icon-state(idle);
+
+            padding: 0.5rem;
+            height: 2.5rem;
+            width: 2.5rem;
+
+            &:hover {
+                @include btn.btn-state(hover);
+                @include mixins.icon-state(hover);
+            }
+            &:active {
+                @include btn.btn-state(pressed, true);
+                @include mixins.icon-state(pressed);
+            }
+            &:disabled {
+                @include btn.btn-state(disabled);
+                @include mixins.icon-state(disabled);
+            }
+        }
+
     }
 }
