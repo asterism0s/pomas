@@ -532,7 +532,7 @@
 }
 
 /* breakpoints mixins */
-.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled, .button--play, .button--play[aria-pressed=true], .button--play:hover, .button--play:active, .button--play:disabled {
+.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled, .button--play, .button--play[aria-pressed=true], .button--play[aria-pressed=false], .button--play:hover, .button--play:active, .button--play:disabled {
   background: none;
   border: none;
   color: inherit;
@@ -609,6 +609,32 @@ a {
   appearance: none;
   background-color: #f0af2f;
   color: #4d2e18;
+}
+.button--play[aria-pressed=true] svg:nth-of-type(1) {
+  display: none;
+}
+.button--play[aria-pressed=true] svg:nth-of-type(2) {
+  display: block;
+}
+.button--play[aria-pressed=false] {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: rgba(240, 175, 47, 0);
+  color: #b28d45;
+}
+.button--play[aria-pressed=false] svg:nth-of-type(1) {
+  display: block;
+}
+.button--play[aria-pressed=false] svg:nth-of-type(2) {
+  display: none;
 }
 .button--play:hover {
   background: none;
