@@ -2,13 +2,6 @@
 @use '../abstracts/mixins';
 @use '../abstracts/spacing';
 
-.header-nav__button {
-    align-items: center;
-    background: none;
-    border: none;
-    display: flex;
-}
-
 .button {
     align-items: center;
     background: none;
