@@ -658,7 +658,7 @@ a {
 
 .timer-card {
   display: flex;
-  height: 17rem;
+  height: 16.5rem;
   position: relative;
   width: auto;
 }
@@ -678,7 +678,7 @@ a {
   height: 16.25rem;
   justify-content: flex-end;
   position: relative;
-  width: 1100%;
+  width: 100%;
 }
 
 .play-controls {
