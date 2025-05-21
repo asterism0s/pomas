@@ -4,8 +4,10 @@
 
 
 
+
 .button {
 
+    @include mixins.btn-reset;
 
     &--play {
         @include btn.btn-state(idle, false);
