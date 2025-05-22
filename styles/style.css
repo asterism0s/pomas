@@ -593,6 +593,7 @@ a {
   justify-content: center;
 }
 .button--play svg {
+  flex-shrink: 0;
   width: 3rem;
   height: 3rem;
 }
@@ -609,6 +610,8 @@ a {
   appearance: none;
   background-color: #f0af2f;
   color: #4d2e18;
+  background-color: #fbe3e0;
+  box-shadow: 0.4rem #f5bcb4;
 }
 .button--play[aria-pressed=true] svg:nth-of-type(1) {
   display: none;
@@ -629,6 +632,8 @@ a {
   appearance: none;
   background-color: rgba(240, 175, 47, 0);
   color: #b28d45;
+  background-color: #f2a297;
+  box-shadow: 0 0.4rem #ef8d80;
 }
 .button--play[aria-pressed=false] svg:nth-of-type(1) {
   display: block;
@@ -649,6 +654,8 @@ a {
   appearance: none;
   background-color: #ffdc99;
   color: #7f5c1e;
+  background-color: #ef8d80;
+  box-shadow: 0 0.4rem #e47668;
 }
 .button--play:active {
   background: none;
@@ -664,6 +671,8 @@ a {
   background-color: #f0af2f;
   color: #4d2e18;
   transform: translateY(1px);
+  background-color: #f5bcb4;
+  box-shadow: 0 0.4rem #f2a297;
 }
 .button--play:disabled {
   background: none;
@@ -680,6 +689,7 @@ a {
   color: #7a6d52;
   cursor: not-allowed;
   opacity: 0.5;
+  background-color: #755a57;
 }
 
 .timer-card {
