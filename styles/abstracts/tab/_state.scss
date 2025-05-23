@@ -4,10 +4,10 @@
 @use './base';
 
 
-//button states
-@mixin btn-state($state, $active: false) {
+//tab nav states
+@mixin tab-state($state, $active: false) {
     @include mixins.btn-reset;
-    @extend %btn-base;
+    @extend %tab-base;
 
     $config: map-get(variables.$btn-states, $state);
 

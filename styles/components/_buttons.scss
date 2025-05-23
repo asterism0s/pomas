@@ -1,4 +1,4 @@
-@use '../abstracts/button/' as btn;
+@use '../abstracts/tab/' as tab;
 @use '../abstracts/mixins';
 @use '../abstracts/spacing';
 @use '../abstracts/colors';
@@ -10,22 +10,58 @@
     @include mixins.btn-reset;
 
     &--play {
-        @include btn.btn-state(idle, false);
+    
 
         align-items: center;
+        border-radius: 50%;
         display: inline-flex;
         justify-content: center;
+        width: 4.5rem;
+        height: 4.5rem;
 
 
         svg {
-            flex-shrink: 0; //?
+            flex-shrink: 0; 
             width: 3rem;
             height: 3rem;
         }
         
+
+        //estado play
+        &[aria-pressed="false"] {
+
+            @include tab.tab-state(idle, false);
+
+            background-color: colors.$elevated-background-base-idle-1;
+            box-shadow: 0.4rem colors.$elevated-background-base-idle-2;
+
+
+            svg:nth-of-type(1) { 
+                display: block;
+            }
+            
+            svg:nth-of-type(2) { 
+                display: none;  
+            }
+
+            &:hover {
+                @include tab.tab-state(hover);
+
+                background-color: colors.$elevated-background-base-hover-1;
+                box-shadow: 0.4rem colors.$elevated-background-base-hover-2;
+            }
+
+            &:active {
+                @include tab.tab-state(pressed, false);
+                background-color: colors.$elevated-background-base-pressed-1;
+                box-shadow: 0.4rem colors.$elevated-background-base-pressed-2;
+            }
+        }
+
+
         //estado pause
         &[aria-pressed="true"] {
-            @include btn.btn-state(idle, true);
+            @include tab.tab-state(idle, true);
             background-color: colors.$elevated-background-base-active-1;
             box-shadow: 0.4rem colors.$elevated-background-base-active-2;
 
@@ -36,40 +72,26 @@
             svg:nth-of-type(2) { 
                 display: block;
             }
-        }
 
-        //estado play
-        &[aria-pressed="false"] {
-            @include btn.btn-state(idle, false);
-            background-color: colors.$elevated-background-base-idle-1;
-            box-shadow: 0 .4rem colors.$elevated-background-base-idle-2;
-
-
-            svg:nth-of-type(1) { 
-                display: block;
+            &:hover {
+                @include tab.tab-state(hover);
+                background-color: colors.$elevated-background-base-hover-1;
+                box-shadow:0.4rem colors.$elevated-background-base-hover-2;
             }
-            
-            svg:nth-of-type(2) { 
-                display: none;  
+
+            &:active {
+                @include tab.tab-state(pressed, true);
+                background-color: colors.$elevated-background-base-pressed-1;
+                box-shadow:0.4rem colors.$elevated-background-base-pressed-2;
             }
-        }
 
-        &:hover { 
-            @include btn.btn-state(hover);
-            background-color: colors.$elevated-background-base-hover-1;
-            box-shadow: 0 .4rem colors.$elevated-background-base-hover-2;
-        }
-
-        &:active {
-            @include btn.btn-state(pressed, true);
-            background-color: colors.$elevated-background-base-pressed-1;
-            box-shadow: 0 .4rem colors.$elevated-background-base-pressed-2;
         }
 
         &:disabled {
-            @include btn.btn-state(disabled);
+            @include tab.tab-state(disabled);
             background-color: colors.$elevated-background-base-disabled;
         }
+
     }
 
 }

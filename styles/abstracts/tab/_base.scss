@@ -2,7 +2,8 @@
 @use '../variables';
 
 
-%btn-base {
+// base for tab nav
+%tab-base {
     @include mixins.btn-reset;
     @include mixins.spacing-x(padding, quark);
     

@@ -2,7 +2,7 @@
 @use '../abstracts/spacing';
 @use '../abstracts/colors';
 @use '../abstracts/mixins';
-@use '../abstracts/button' as button;
+@use '../abstracts/tab/' as tab;
 
 
 .tab-nav {
@@ -32,15 +32,15 @@
         display: inline-block;
 
         &--start {
-            @include button.btn-state(idle, true);
+            @include tab.tab-state(idle, true);
         }
 
         &--stats {
-            @include button.btn-state(idle, false);
+            @include tab.tab-state(idle, false);
         }
 
         &:hover {
-            @include button.btn-state(hover);
+            @include tab.tab-state(hover);
         }
 
 
