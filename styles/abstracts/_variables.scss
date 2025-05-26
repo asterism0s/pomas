@@ -35,20 +35,20 @@ $btn-states: (
     ),
 
     pressed: (
-        bg-false:  colors.$surface-background-highlight-pressed,
+        bg-false: colors.$surface-background-highlight-pressed,
         text-false: colors.$surface-text-and-icons-pressed,
 
-        bg-true:   colors.$surface-background-highlight-active,
-        text-true:  colors.$surface-text-and-icons-active,
+        bg-true: colors.$surface-background-highlight-active,
+        text-true: colors.$surface-text-and-icons-active,
     ),
 
     hover: (
-        bg:   colors.$surface-background-highlight-hover,
+        bg: colors.$surface-background-highlight-hover,
         text: colors.$surface-text-and-icons-hover,
     ),
 
     disabled: (
-        bg:   colors.$surface-background-highlight-disabled,
+        bg: colors.$surface-background-highlight-disabled,
         text: colors.$surface-text-and-icons-disabled,
     ),
 );
@@ -57,8 +57,33 @@ $btn-states: (
 /* config buttons stats*/
 
 $icon-button-svgs: (
-  idle: '/assets/icons/config-status-idle.svg',
-  hover: '/assets/icons/config-status-hover.svg',
-  pressed: '/assets/icons/config-status-pressed.svg',
-  disabled: '/assets/icons/config-status-disabled.svg'
+    idle: '/assets/icons/config-status-idle.svg',
+    hover: '/assets/icons/config-status-hover.svg',
+    pressed: '/assets/icons/config-status-pressed.svg',
+    disabled: '/assets/icons/config-status-disabled.svg'
+);
+
+
+
+/* play buttons stats*/
+
+$play-btn-states: (
+    disabled: (
+        bg: colors.$elevated-background-base-disabled,
+        box-shadow: 0.4rem colors.$elevated-background-base-disabled, 
+    ),
+    hover: (
+        bg: colors.$elevated-background-base-hover-1,
+        box-shadow: 0.4rem colors.$elevated-background-base-hover-2,
+    ),
+    idle: (
+        bg-false: colors.$elevated-background-base-idle-1,
+        box-shadow-false: 0.4rem colors.$elevated-background-base-idle-2,
+        bg-true: colors.$elevated-background-base-active-1,
+        box-shadow-true: 0.4rem colors.$elevated-background-base-active-2,
+    ),
+    pressed: (
+        bg: colors.$elevated-background-base-pressed-1,
+        box-shadow: 0.4rem colors.$elevated-background-base-pressed-2,
+    ),
 );

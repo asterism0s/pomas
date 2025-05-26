@@ -1,0 +1,26 @@
+@use '../colors';
+@use '../variables';
+
+@mixin play-state($state, $pressed: false) {
+    $map: map-get(state.$play-btn-states, $state);
+
+    @if $state ==idle {
+        @if $pressed {
+            $bg: map-get($map, bg-true);
+            $shadow: map-get($map, box-shadow-true);
+        }
+
+        @else {
+            $bg: map-get($map, bg-false);
+            $shadow: map-get($map, box-shadow-false);
+        }
+    }
+
+    @else {
+        $bg: map-get($map, bg);
+        $shadow: map-get($map, box-shadow);
+    }
+
+    background: $bg;  
+    box-shadow: $shadow;
+}
