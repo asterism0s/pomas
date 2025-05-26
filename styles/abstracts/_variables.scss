@@ -72,16 +72,22 @@ $play-btn-states: (
         bg: colors.$elevated-background-base-disabled,
         box-shadow: 0.4rem colors.$elevated-background-base-disabled, 
     ),
+
     hover: (
         bg: colors.$elevated-background-base-hover-1,
         box-shadow: 0.4rem colors.$elevated-background-base-hover-2,
     ),
+    
     idle: (
-        bg-false: colors.$elevated-background-base-idle-1,
-        box-shadow-false: 0.4rem colors.$elevated-background-base-idle-2,
-        bg-true: colors.$elevated-background-base-active-1,
+        bg-false: radial-gradient(circle at center, colors.$elevated-background-base-idle-1, colors.$elevated-background-base-idle-2 70%), 
+        border-false: solid 0.5rem colors.$elevated-auxiliary-strong,
+        box-shadow-false: 0.4rem colors.$surface-auxiliary-strong,
+
+        bg-true: radial-gradient(circle at center, colors.$elevated-background-base-active-1, colors.$elevated-background-base-idle-2 70%),
+        border-true: solid 0.5rem colors.$elevated-auxiliary-subtle,
         box-shadow-true: 0.4rem colors.$elevated-background-base-active-2,
     ),
+
     pressed: (
         bg: colors.$elevated-background-base-pressed-1,
         box-shadow: 0.4rem colors.$elevated-background-base-pressed-2,

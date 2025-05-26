@@ -1,9 +1,13 @@
-@use '../variables';
+@use '../colors';
 @use '../mixins';
+@use '../variables';
 
 %play-base {
     @include mixins.btn-reset;
 
+    border-radius: 90rem;
+
     height: 6.5rem;
     width: 6.5rem;
+
 }
