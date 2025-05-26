@@ -4,23 +4,27 @@
 @mixin play-state($state, $pressed: false) {
     $map: map-get(state.$play-btn-states, $state);
 
-    @if $state ==idle {
+    @if $state == idle {
         @if $pressed {
             $bg: map-get($map, bg-true);
+            $border: map-get($map, border-true);
             $shadow: map-get($map, box-shadow-true);
         }
 
         @else {
             $bg: map-get($map, bg-false);
+            $border: map-get($map, border-false);
             $shadow: map-get($map, box-shadow-false);
         }
     }
 
     @else {
         $bg: map-get($map, bg);
+        $border: map-get($map, border);
         $shadow: map-get($map, box-shadow);
     }
 
-    background: $bg;  
+    background: $bg;
+    border: $border; 
     box-shadow: $shadow;
 }
