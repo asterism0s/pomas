@@ -2,12 +2,13 @@
 @use '../abstracts/mixins';
 @use '../abstracts/spacing';
 @use '../abstracts/colors';
+@use '../abstracts/placeholders';
 
 
 
 .button {
 
-    @include mixins.btn-reset;
+    @extend %btn-reset;
 
     &--play {
     

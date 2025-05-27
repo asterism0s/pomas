@@ -1,7 +1,7 @@
 @use '../abstracts/variables';
 @use '../abstracts/colors';
 @use '../abstracts/mixins';
-@use '../abstracts/tab/' as tab;
+@use '../abstracts/placeholders';
 
 .header-nav {
     display: flex;
@@ -21,13 +21,13 @@
     }
 
     &__button {
-        @include mixins.btn-reset;
+        @extend %btn-reset;
 
         align-items: center;
         display: flex;
         
         &--config-icon {
-            @include tab.tab-state(idle, false);
+            @include mixins.tab-state(idle, false);
             @include mixins.icon-state(idle);
 
             padding: 0.5rem;
@@ -35,15 +35,15 @@
             width: 2.5rem;
 
             &:hover {
-                @include tab.tab-state(hover);
+                @include mixins.tab-state(hover);
                 @include mixins.icon-state(hover);
             }
             &:active {
-                @include tab.tab-state(pressed, true);
+                @include mixins.tab-state(pressed, true);
                 @include mixins.icon-state(pressed);
             }
             &:disabled {
-                @include tab.tab-state(disabled);
+                @include mixins.tab-state(disabled);
                 @include mixins.icon-state(disabled);
             }
         }

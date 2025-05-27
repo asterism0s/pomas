@@ -17,7 +17,31 @@
 /* Fonts */
 /* button stats */
 /* config buttons stats*/
-/* button mixin */
+.tab-nav__list-item-button, .header-nav__button, .button, .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: none;
+  text-align: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
+  align-items: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+/* button mixins */
+/* tab mixins */
 /* spacings mixins */
 .margin-min {
   margin: 0.25rem;
@@ -532,27 +556,6 @@
 }
 
 /* breakpoints mixins */
-.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  align-items: center;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  display: inline-flex;
-  font-size: 1rem;
-  justify-content: center;
-}
-
 body {
   font-family: "Karla", sans-serif;
   height: 100vh;
@@ -563,18 +566,6 @@ a {
   text-decoration: none;
 }
 
-.button {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
 .button--play {
   align-items: center;
   border-radius: 50%;
@@ -630,30 +621,10 @@ a {
   font-weight: bold;
 }
 .header-nav__button {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   align-items: center;
   display: flex;
 }
 .header-nav__button--config-icon {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background-color: rgba(240, 175, 47, 0);
   color: #b28d45;
   background-image: url(/assets/icons/config-status-idle.svg);
@@ -665,16 +636,6 @@ a {
   width: 2.5rem;
 }
 .header-nav__button--config-icon:hover {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background-color: #ffdc99;
   color: #7f5c1e;
   background-image: url(/assets/icons/config-status-hover.svg);
@@ -683,16 +644,6 @@ a {
   background-size: 2.5rem 2.5rem;
 }
 .header-nav__button--config-icon:active {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background-color: #f0af2f;
   color: #4d2e18;
   transform: translateY(1px);
@@ -702,16 +653,6 @@ a {
   background-size: 2.5rem 2.5rem;
 }
 .header-nav__button--config-icon:disabled {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background-color: #d5bd8d;
   color: #7a6d52;
   cursor: not-allowed;
@@ -738,57 +679,17 @@ a {
   height: 2rem;
 }
 .tab-nav__list-item-button {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   display: inline-block;
 }
 .tab-nav__list-item-button--start {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background-color: #f0af2f;
   color: #4d2e18;
 }
 .tab-nav__list-item-button--stats {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background-color: rgba(240, 175, 47, 0);
   color: #b28d45;
 }
 .tab-nav__list-item-button:hover {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background-color: #ffdc99;
   color: #7f5c1e;
 }

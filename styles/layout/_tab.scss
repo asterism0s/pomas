@@ -2,7 +2,8 @@
 @use '../abstracts/spacing';
 @use '../abstracts/colors';
 @use '../abstracts/mixins';
-@use '../abstracts/tab/' as tab;
+@use '../abstracts/placeholders';
+
 
 
 .tab-nav {
@@ -26,21 +27,21 @@
     }
 
     &__list-item-button {
-        @include mixins.btn-reset;
+        @extend %btn-reset;
 
     
         display: inline-block;
 
         &--start {
-            @include tab.tab-state(idle, true);
+            @include mixins.tab-state(idle, true);
         }
 
         &--stats {
-            @include tab.tab-state(idle, false);
+            @include mixins.tab-state(idle, false);
         }
 
         &:hover {
-            @include tab.tab-state(hover);
+            @include mixins.tab-state(hover);
         }
 
 

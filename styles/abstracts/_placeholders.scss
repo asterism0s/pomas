@@ -1,2 +1,29 @@
+@use './colors';
+@use './variables';
 
+%btn-reset {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    outline: none;
+    text-align: inherit;
 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+%tab-base {
+    @extend %btn-reset;
+    
+    align-items: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: variables.$font-size-baseline;
+    justify-content: center;
+    padding: 0.5rem;
+    
+}
