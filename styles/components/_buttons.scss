@@ -6,7 +6,7 @@
 
 
 
-.button {
+.play-controls__button {
 
     @extend %btn-reset;
 
@@ -14,13 +14,11 @@
     
         @extend %play-base;
 
-        border: solid 0.05rem colors.$elevated-auxiliary-strong;
         align-items: center;
-        border-radius: 50%;
+        background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-idle-1, colors.$elevated-background-base-idle-2 71%);
+        border: solid 0.05rem colors.$elevated-auxiliary-strong;
         display: inline-flex;
         justify-content: center;
-        width: 4.5rem;
-        height: 4.5rem;
 
     }
 
