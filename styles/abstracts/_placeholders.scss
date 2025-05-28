@@ -17,11 +17,9 @@
 
 %play-base {
     border-radius: 50%;
-    display: block;
     height: calc(4rem + 5vw);
     width:  calc(4rem + 5vw);
 }
-
 
 %tab-base {
     @extend %btn-reset;
