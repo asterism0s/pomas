@@ -12,7 +12,9 @@
 
     &--play {
     
+        @extend %play-base;
 
+        border: solid 0.05rem colors.$elevated-auxiliary-strong;
         align-items: center;
         border-radius: 50%;
         display: inline-flex;

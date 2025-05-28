@@ -30,6 +30,13 @@
   appearance: none;
 }
 
+.button--play {
+  border-radius: 50%;
+  display: block;
+  height: calc(4rem + 5vw);
+  width: calc(4rem + 5vw);
+}
+
 .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
   align-items: center;
   border-radius: 0.5rem;
@@ -567,6 +574,7 @@ a {
 }
 
 .button--play {
+  border: solid 0.05rem #be5547;
   align-items: center;
   border-radius: 50%;
   display: inline-flex;
