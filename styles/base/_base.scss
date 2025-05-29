@@ -1,5 +1,9 @@
 @use "../abstracts/variables";
 
+html {
+    font-size: 16px;
+}
+
 body {
     font-family: variables.$font-primary;
     height: 100vh;

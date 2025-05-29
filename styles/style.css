@@ -32,8 +32,8 @@
 
 .play-controls__button--play {
   border-radius: 50%;
-  height: calc(4rem + 5vw);
-  width: calc(4rem + 5vw);
+  height: 6.5rem;
+  width: 6.5rem;
 }
 
 .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
@@ -562,6 +562,10 @@
 }
 
 /* breakpoints mixins */
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: "Karla", sans-serif;
   height: 100vh;
@@ -583,11 +587,23 @@ a {
   border: solid 0.05rem #be5547;
   display: inline-flex;
   justify-content: center;
-  padding-left: 0.8rem;
+  padding-left: 0.9rem;
+  position: relative;
+}
+.play-controls__button--play:after {
+  background-color: #7f5c1e;
+  border-radius: 50%;
+  content: "";
+  height: 100%;
+  left: 0.25rem;
+  position: absolute;
+  top: 0.25rem;
+  width: 100%;
+  z-index: -1;
 }
 .play-controls__button-icon {
-  height: calc((4rem + 5vw) * 0.4);
-  width: calc((4rem + 5vw) * 0.4);
+  height: 2rem;
+  width: 1.5rem;
 }
 
 .timer-card {
