@@ -67,8 +67,77 @@
         }
 
     }
+
+    &--hover {
+
+        @extend %play-base;
+
+        align-items: center;
+        background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-hover-1, colors.$elevated-background-base-hover-2 71%);
+        border: solid 0.05rem colors.$elevated-auxiliary-strong;
+        display: inline-flex;
+        justify-content: center;
+        position: relative;
+
+
+        &:after {
+            background-color: colors.$surface-auxiliary-strong;
+            border-radius: 50%;
+            content: "";
+            height: 100%;
+            left: 0.25rem;
+            opacity: 0.3;
+            position: absolute;
+            top: 0.25rem;
+            width: 100%;
+            z-index: -1;            
+        }
+
+    }
+
+
+    &--pressed {
+
+        @extend %play-base;
+
+        align-items: center;
+        background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-pressed-1, colors.$elevated-background-base-pressed-2 71%);
+        border: solid 0.05rem colors.$elevated-auxiliary-strong;
+        display: inline-flex;
+        justify-content: center;
+        position: relative;
+
+
+        &:after {
+            background-color: colors.$surface-auxiliary-strong;
+            border-radius: 50%;
+            content: "";
+            height: 100%;
+            left: 0;
+            opacity: 0.1;
+            position: absolute;
+            top: 0.25rem;
+            width: 100%;
+            z-index: -1;            
+        }
+
+    }
+
     
-    &-highlight{
+    
+    &-highlight {
+        position: absolute;
+        top: 0.25rem;
+        left: 0.25rem;
+    }
+
+    &-highlight-hover {
+        position: absolute;
+        top: 0.25rem;
+        left: 0.25rem;
+    }
+
+    &-highlight-pressed {
         position: absolute;
         top: 0.25rem;
         left: 0.25rem;
@@ -78,15 +147,22 @@
         padding-left: 0.325rem;
         height: 2rem;
         width: 1.5rem;
-        // height: calc((4rem + 5vw) * 0.4);
-        // width:  calc((4rem + 5vw) * 0.4);
+
+        &.pressed {
+            -webkit-filter: blur(1rem);
+             filter: blur(1rem)
+        }
+
     }
 
     &-pause-icon {
-        
-        padding-left: 0.25rem;
         height: 2rem;
         width: 1.5rem;
+
+        &.pressed {
+            -webkit-filter: blur(1rem);
+             filter: blur(1rem)
+        }
     }
 
 }
