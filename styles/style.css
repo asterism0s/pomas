@@ -580,6 +580,7 @@ a {
   align-items: center;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 .play-controls__button--play {
   align-items: center;
@@ -600,6 +601,11 @@ a {
   top: 0.25rem;
   width: 100%;
   z-index: -1;
+}
+.play-controls__button-highlight {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
 }
 .play-controls__button-icon {
   height: 2rem;
