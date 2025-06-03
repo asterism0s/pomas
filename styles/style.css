@@ -706,6 +706,34 @@ a {
   width: 100%;
 }
 
+.timer-card__display {
+  align-items: center;
+  gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.timer-card__status {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer-card__timer {
+  display: flex;
+  flex-direction: row;
+}
+
+.timer-card__counter {
+  display: flex;
+  flex-direction: row;
+}
+.timer-card__counter--bar {
+  background-color: #4f6657;
+  border-radius: 1rem;
+  height: 4rem;
+  width: 0.25rem;
+}
+
 .play-controls {
   display: flex;
   justify-content: center;

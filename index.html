@@ -63,18 +63,22 @@
 
                         <div class="timer-card__display">
 
-                            <div class="timer-card__status-container">
+                            <div class="timer-card__status">
                                 <div class="timer-card__status--work">
-                                    <img class="timer-card__work-icon" src="" alt="Work icon">
+                                    <img class="timer-card__work-icon active" src="/assets/icons/work-icon-active.svg" alt="Work icon">
+
+                                    <!-- <img class="timer-card__work-icon disabled" src="/assets/icons/work-icon-disabled.svg" alt="Work icon"> -->
                                     <p class="timer-card__work-text">Work time</p>
                                 </div>
                                 <div class="timer-card__status--pause">
-                                    <img class="timer-card__pause-icon" src="" alt="Pause icon">
+                                    <!-- <img class="timer-card__pause-icon active" src="/assets/icons/pause-icon-active.svg" alt="Pause icon"> -->
+                                    
+                                    <img class="timer-card__pause-icon disabled" src="/assets/icons/pause-icon-disabled.svg" alt="Pause icon">
                                     <p class="timer-card__pause-text">Pause</p>
                                 </div>
                             </div>
 
-                            <div class="timer-card__timer-container">
+                            <div class="timer-card__timer">
 
                                 <div class="timer-card__minutes">
                                     <p>Minutes</p>
@@ -95,8 +99,16 @@
                         </div>
 
                         <div class="timer-card__counter">
-                            <div class="timer-card__counter-bar"></div>
-                            <div class="timer-card__counter-pomas"></div>
+                            <div class="timer-card__counter--bar">
+
+                            </div>
+
+                            <div class="timer-card__counter--pomas">
+                                <div class="timer-card__counter-">
+                                    <p>Seconds</p>
+                                    <p>00</p>
+                                </div>
+                            </div>
                         </div>
 
                     </div>

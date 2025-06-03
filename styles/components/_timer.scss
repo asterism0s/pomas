@@ -32,3 +32,33 @@
             
         }
 }
+
+.timer-card__display {
+    align-items: center;
+    gap: 1.5rem;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.timer-card__status {
+    display: flex;
+    flex-direction: column;
+}
+
+.timer-card__timer {
+    display: flex;
+    flex-direction: row;
+}
+
+.timer-card__counter {
+    display: flex;
+    flex-direction: row;
+    
+    &--bar {
+        background-color: colors.$receeded-text-and-icons-active;
+        border-radius: 1rem;
+        height: 4rem;
+        width: 0.25rem;
+    }
+}
