@@ -31,8 +31,12 @@
 }
 
 .play-controls__button--play, .play-controls__button--pause, .play-controls__button--hover, .play-controls__button--pressed {
+  align-items: center;
   border-radius: 50%;
+  display: inline-flex;
   height: 6.5rem;
+  justify-content: center;
+  position: relative;
   width: 6.5rem;
 }
 
@@ -583,12 +587,8 @@ a {
   position: relative;
 }
 .play-controls__button--play {
-  align-items: center;
   background-image: radial-gradient(circle at 50% 50%, #f2a297, #ef8d80 71%);
   border: solid 0.05rem #be5547;
-  display: inline-flex;
-  justify-content: center;
-  position: relative;
 }
 .play-controls__button--play:after {
   background-color: #7f5c1e;
@@ -602,12 +602,8 @@ a {
   z-index: -1;
 }
 .play-controls__button--pause {
-  align-items: center;
   background-image: radial-gradient(circle at 50% 50%, #fbe3e0, #f5bcb4 71%);
   border: solid 0.05rem #f2a297;
-  display: inline-flex;
-  justify-content: center;
-  position: relative;
 }
 .play-controls__button--pause:after {
   background-color: #7f5c1e;
@@ -623,12 +619,8 @@ a {
   z-index: -1;
 }
 .play-controls__button--hover {
-  align-items: center;
   background-image: radial-gradient(circle at 50% 50%, #ef8d80, #e47668 71%);
   border: solid 0.05rem #be5547;
-  display: inline-flex;
-  justify-content: center;
-  position: relative;
 }
 .play-controls__button--hover:after {
   background-color: #7f5c1e;
@@ -643,12 +635,8 @@ a {
   z-index: -1;
 }
 .play-controls__button--pressed {
-  align-items: center;
   background-image: radial-gradient(circle at 50% 50%, #f5bcb4, #f2a297 71%);
   border: solid 0.05rem #be5547;
-  display: inline-flex;
-  justify-content: center;
-  position: relative;
 }
 .play-controls__button--pressed:after {
   background-color: #7f5c1e;

@@ -16,12 +16,18 @@
 }
 
 %play-base {
+    align-items: center;
     border-radius: 50%;
+    display: inline-flex;
     height: 6.5rem;
+    justify-content: center;
+    position: relative;
     width: 6.5rem;
     // height: calc(4rem + 5vw);
     // width:  calc(4rem + 5vw);
 }
+
+
 
 %tab-base {
     @extend %btn-reset;
@@ -35,3 +41,4 @@
     padding: 0.5rem;
     
 }
+
