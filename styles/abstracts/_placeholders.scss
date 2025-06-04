@@ -1,5 +1,5 @@
 @use './colors';
-@use './variables';
+@use '../base/fonts';
 
 %btn-reset {
     background: none;
@@ -36,9 +36,33 @@
     border-radius: 0.5rem;
     cursor: pointer;
     display: inline-flex;
-    font-size: variables.$font-size-baseline;
+    font-size: fonts.$font-size-baseline;
     justify-content: center;
     padding: 0.5rem;
     
 }
 
+%timer-text {
+    font-family: fonts.$font-primary;
+    font-size: 0.75rem;
+    letter-spacing: -0.72px;
+}
+
+%timer-status-size {
+    height: 2rem;
+    width: 2rem;
+}
+
+%timer-numbers {
+    color: colors.$receeded-text-and-icons-active;
+    font-family: fonts.$font-display;
+    font-size: 7rem;
+    letter-spacing: -3.39px;
+}
+
+%timer-backlight {
+    content: "88";
+    position: absolute;
+    color: colors.$receeded-text-and-icons-disabled;
+    z-index: -1;
+}

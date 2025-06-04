@@ -83,19 +83,62 @@
     flex-direction: row;
 }
 
-.timer-card__minutes {
+.timer-card__minutes, .timer-card__seconds {
     @extend %timer-text;
 
     &--number {
-        font-family: fonts.$font-display;
-        font-size: 7rem;
-        letter-spacing: -3.39px;
+        @extend %timer-numbers;
+
+        position: relative;
+        z-index: 0;
+
+        &:before {
+            
+            @extend %timer-backlight;
+        }
+    }
+
+    
+}
+
+.timer-card__separator {
+    position: relative;
+
+    &--number {
+        @extend %timer-numbers;
+
+        position: relative;
+        z-index: 0;
+        // color: rgba(0,0,0,0);
+        // colocar a cor transparente para fazer sumir
+
+        &:before {
+            
+            @extend %timer-backlight;
+
+            content: ":";
+        }
+
     }
 }
 
-.timer-card__seconds {
-    @extend %timer-text; 
-}
+
+// .timer-card__seconds {
+//     @extend %timer-text;
+
+//     position: relative;
+
+//     &--number {
+//         @extend %timer-text-numbers;
+//         @extend %timer-backlight;
+
+//     }
+// }
+
+// .backlight {
+//     position: absolute;
+//     color: colors.$receeded-text-and-icons-disabled;
+// }
 
 .timer-card__counter {
     display: flex;

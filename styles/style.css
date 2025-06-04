@@ -1,7 +1,28 @@
-@font-face {
-  font-family: "SevenSegment", sans-serif;
-  src: url(../../assets/fonts/sevensegment.ttf) format("truetype");
+body {
+  height: 100vh;
+  width: 100%;
 }
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "SevenSegment";
+  src: url("../assets/fonts/SevenSegmentRegular.woff2") format("woff2"), url("../assets/fonts/SevenSegmentRegular.woff") format("woff"), url("../assets/fonts/sevensegment.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* Fonts */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+}
+
 /* Elevated / Auxiliary */
 /* Elevated / Background / Base */
 /* Elevated / Background / Highlight */
@@ -14,7 +35,6 @@
 /* Surface / Background / Base */
 /* Surface / Background / Highlight */
 /* Surface / Text and Icons */
-/* Fonts */
 /* button stats */
 /* config buttons stats*/
 .tab-nav__list-item-button, .header-nav__button, .play-controls__button, .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
@@ -50,8 +70,41 @@
   padding: 0.5rem;
 }
 
+.timer-card__status--work, .timer-card__status--pause, .timer-card__minutes, .timer-card__seconds {
+  font-family: "Karla", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: -0.72px;
+}
+
+.timer-card__work-icon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.timer-card__minutes--number, .timer-card__seconds--number, .timer-card__separator--number {
+  color: #4f6657;
+  font-family: "SevenSegment", monospace;
+  font-size: 7rem;
+  letter-spacing: -3.39px;
+}
+
+.timer-card__minutes--number:before, .timer-card__seconds--number:before, .timer-card__separator--number:before {
+  content: "88";
+  position: absolute;
+  color: #c1e1ca;
+  z-index: -1;
+}
+
 /* button mixins */
 /* tab mixins */
+.status--active {
+  color: #4f6657;
+}
+
+.status--disabled {
+  color: #c1e1ca;
+}
+
 /* spacings mixins */
 .margin-min {
   margin: 0.25rem;
@@ -566,20 +619,6 @@
 }
 
 /* breakpoints mixins */
-html {
-  font-size: 16px;
-}
-
-body {
-  font-family: "Karla", sans-serif;
-  height: 100vh;
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
-}
-
 .play-controls__button {
   align-items: center;
   display: flex;
@@ -690,6 +729,9 @@ a {
 .timer-card__box {
   background: linear-gradient(to bottom, #d6ebdc, #d6ebdc);
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   height: 15.75rem;
   position: absolute;
   width: calc(100% - 0.5rem);
@@ -708,19 +750,49 @@ a {
 
 .timer-card__display {
   align-items: center;
-  gap: 1.5rem;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: space-around;
+  padding-top: 1.5rem;
 }
 
 .timer-card__status {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+}
+.timer-card__status--work {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.timer-card__status--pause {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .timer-card__timer {
   display: flex;
   flex-direction: row;
+}
+
+.timer-card__minutes--number, .timer-card__seconds--number {
+  position: relative;
+  z-index: 0;
+}
+.timer-card__separator {
+  position: relative;
+}
+.timer-card__separator--number {
+  position: relative;
+  z-index: 0;
+}
+.timer-card__separator--number:before {
+  content: ":";
 }
 
 .timer-card__counter {
