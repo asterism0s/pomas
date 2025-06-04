@@ -1,6 +1,12 @@
 @font-face {
-    font-family: "SevenSegment", sans-serif;
-    src: url(../../assets/fonts/sevensegment.ttf) format('truetype');
+    font-family: 'SevenSegment';
+
+    src: url('../assets/fonts/SevenSegmentRegular.woff2') format('woff2'),
+    url('../assets/fonts/SevenSegmentRegular.woff') format('woff'),
+    url('../assets/fonts/sevensegment.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* Fonts */
