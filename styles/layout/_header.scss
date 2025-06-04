@@ -2,6 +2,7 @@
 @use '../abstracts/colors';
 @use '../abstracts/mixins';
 @use '../abstracts/placeholders';
+@use '../base/fonts';
 
 .header-nav {
     display: flex;
@@ -16,7 +17,7 @@
 
     &__list-logo{
         color: colors.$surface-text-and-icons-active;
-        font-size: variables.$font-size-3xs;
+        font-size: fonts.$font-size-3xs;
         font-weight: bold;
     }
 

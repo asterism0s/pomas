@@ -1,5 +1,6 @@
 @use '../abstracts/colors';
-@use '../abstracts/variables';
+@use '../abstracts/placeholders';
+@use '../base/fonts';
 
 .timer-card  {
     display: flex;
@@ -11,6 +12,9 @@
         &__box {
             background: linear-gradient(to bottom, colors.$receeded-background-base-idle-1, colors.$receeded-background-base-idle-1);
             border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
             height: 15.75rem;
             position: absolute;
 
@@ -35,20 +39,62 @@
 
 .timer-card__display {
     align-items: center;
-    gap: 1.5rem;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: space-around;
+    padding-top: 1.5rem;
     
 }
 
 .timer-card__status {
     display: flex;
     flex-direction: column;
+
+    gap: 0.5rem;
+
+    &--work {
+        @extend %timer-text;
+
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    &--pause {
+        @extend %timer-text;
+
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
 }
+
+.timer-card__work-icon {
+    @extend %timer-status-size;
+}
+
 
 .timer-card__timer {
     display: flex;
     flex-direction: row;
+}
+
+.timer-card__minutes {
+    @extend %timer-text;
+
+    &--number {
+        font-family: fonts.$font-display;
+        font-size: 7rem;
+        letter-spacing: -3.39px;
+    }
+}
+
+.timer-card__seconds {
+    @extend %timer-text; 
 }
 
 .timer-card__counter {
