@@ -42,3 +42,11 @@ $icon-button-svgs: (
     disabled: '/assets/icons/config-status-disabled.svg'
 );
 
+
+/* statuses for class generation*/
+
+$statuses: (
+  active: colors.$receeded-text-and-icons-active,
+  inactive: colors.$receeded-text-and-icons-disabled
+);
+

@@ -47,19 +47,25 @@
     }
 }
 
-//color mixin for active/disabled text
-@mixin status($color) {
+//color mixin for active/inactive text
+@mixin font-status($color) {
   color: $color;
 }
 
-$statuses: (
-  active: colors.$receeded-text-and-icons-active,
-  disabled: colors.$receeded-text-and-icons-disabled
-);
-
-@each $key, $value in $statuses {
+@each $key, $value in variables.$statuses {
   .status--#{$key} {
-    @include status($value);
+    @include font-status($value);
+  }
+}
+
+//color mixin for enabled/disabled div-bar
+@mixin bg-status($color) {
+  background-color: $color;
+}
+
+@each $key, $value in variables.$statuses {
+  .bar-#{$key} {
+    @include bg-status($value);
   }
 }
 

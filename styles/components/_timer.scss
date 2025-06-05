@@ -10,6 +10,7 @@
 
 
         &__box {
+            
             background: linear-gradient(to bottom, colors.$receeded-background-base-idle-1, colors.$receeded-background-base-idle-1);
             border-radius: 1rem;
             display: flex;
@@ -24,6 +25,7 @@
         }
 
         &__shadow {
+        
             align-items: flex-end;
             background: colors.$receeded-background-highlight-idle;
             border: solid 1px colors.$receeded-auxiliary-strong;
@@ -53,27 +55,33 @@
 
     gap: 0.5rem;
 
-    &--work {
-        @extend %timer-text;
+    &-work {
 
         align-items: center;
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+
+        &-text {
+            @extend %timer-text;
+        }
     }
 
-    &--pause {
-        @extend %timer-text;
+    &-pause {
 
         align-items: center;
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+
+        &-text {
+            @extend %timer-text;
+        }
     }
 
 }
 
-.timer-card__work-icon {
+.timer-card__status-work-icon, .timer-card__status-pause-icon {
     @extend %timer-status-size;
 }
 
@@ -82,6 +90,7 @@
     display: flex;
     flex-direction: row;
 }
+
 
 .timer-card__minutes, .timer-card__seconds {
 
@@ -111,6 +120,7 @@
     
 }
 
+//dois pontos
 .timer-card__separator {
     position: relative;
 
@@ -133,31 +143,21 @@
 }
 
 
-// .timer-card__seconds {
-//     @extend %timer-text;
 
-//     position: relative;
-
-//     &--number {
-//         @extend %timer-text-numbers;
-//         @extend %timer-backlight;
-
-//     }
-// }
-
-// .backlight {
-//     position: absolute;
-//     color: colors.$receeded-text-and-icons-disabled;
-// }
-
-.timer-card__counter {
+.timer-card__counter{
     display: flex;
     flex-direction: row;
+
+    &-container {
+        display: flex;
+        flex-direction: row;
+        gap: 0.2rem;
+    }
     
     &--bar {
-        background-color: colors.$receeded-text-and-icons-active;
+
         border-radius: 1rem;
         height: 4rem;
-        width: 0.25rem;
+        width: 1px;
     }
 }
