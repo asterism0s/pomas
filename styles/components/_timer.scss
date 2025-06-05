@@ -40,9 +40,9 @@
 .timer-card__display {
     align-items: center;
     display: flex;
-    flex-direction: row;
+    flex-wrap: nowrap;
     gap: 1.5rem;
-    justify-content: space-around;
+    justify-content: center;
     padding-top: 1.5rem;
     
 }
@@ -84,8 +84,18 @@
 }
 
 .timer-card__minutes, .timer-card__seconds {
-    @extend %timer-text;
 
+    &--text {
+        @extend %timer-text; 
+
+        align-items: center;
+        color: colors.$receeded-text-and-icons-active;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    
     &--number {
         @extend %timer-numbers;
 

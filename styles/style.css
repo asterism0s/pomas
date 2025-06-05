@@ -70,7 +70,7 @@ body {
   padding: 0.5rem;
 }
 
-.timer-card__status--work, .timer-card__status--pause, .timer-card__minutes, .timer-card__seconds {
+.timer-card__status--work, .timer-card__status--pause, .timer-card__minutes--text, .timer-card__seconds--text {
   font-family: "Karla", sans-serif;
   font-size: 0.75rem;
   letter-spacing: -0.72px;
@@ -751,9 +751,9 @@ body {
 .timer-card__display {
   align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 1.5rem;
-  justify-content: space-around;
+  justify-content: center;
   padding-top: 1.5rem;
 }
 
@@ -780,6 +780,12 @@ body {
   flex-direction: row;
 }
 
+.timer-card__minutes--text, .timer-card__seconds--text {
+  align-items: center;
+  color: #4f6657;
+  display: flex;
+  justify-content: center;
+}
 .timer-card__minutes--number, .timer-card__seconds--number {
   position: relative;
   z-index: 0;
