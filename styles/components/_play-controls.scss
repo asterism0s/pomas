@@ -8,7 +8,12 @@
 .play-controls {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 
     &__button {
         @extend %btn-reset;
@@ -109,27 +114,27 @@
         }
 
         &-highlight {
-        position: absolute;
-        top: 0.25rem;
-        left: 0.25rem;
+            position: absolute;
+            top: 0.25rem;
+            left: 0.25rem;
         }
 
         &-highlight-hover {
-        position: absolute;
-        top: 0.25rem;
-        left: 0.25rem;
+            position: absolute;
+            top: 0.25rem;
+            left: 0.25rem;
         }
 
         &-highlight-pressed {
-        position: absolute;
-        top: 0.25rem;
-        left: 0.25rem;
+            position: absolute;
+            top: 0.25rem;
+            left: 0.25rem;
         }
 
         &-play-icon {
-        padding-left: 0.325rem;
-        height: 2rem;
-        width: 1.5rem;
+            padding-left: 0.325rem;
+            height: 2rem;
+            width: 1.5rem;
 
             &.pressed {
                 -webkit-filter: blur(1rem);
@@ -139,8 +144,8 @@
         }
 
         &-pause-icon {
-        height: 2rem;
-        width: 1.5rem;
+            height: 2rem;
+            width: 1.5rem;
 
             &.pressed {
                 -webkit-filter: blur(1rem);

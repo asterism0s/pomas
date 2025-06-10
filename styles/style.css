@@ -707,7 +707,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .timer-card__status {
@@ -787,7 +787,11 @@ body {
 .play-controls {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+}
+.play-controls__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .play-controls__button {
   align-items: center;
