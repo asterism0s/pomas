@@ -76,6 +76,7 @@
 
         &-text {
             @extend %timer-text;
+            
         }
     }
 
@@ -101,6 +102,7 @@
         color: colors.$receeded-text-and-icons-active;
         display: flex;
         justify-content: center;
+        text-align: center;
 
     }
 
@@ -120,7 +122,7 @@
     
 }
 
-//dois pontos
+
 .timer-card__separator {
     position: relative;
 
@@ -147,6 +149,7 @@
 .timer-card__counter{
     display: flex;
     flex-direction: row;
+    gap: 1.5rem;
 
     &-container {
         display: flex;
@@ -160,4 +163,17 @@
         height: 4rem;
         width: 1px;
     }
+
+    &-text {
+        @extend %timer-text;
+
+        color: colors.$receeded-text-and-icons-active;
+    }
+
+    &-number {
+        @extend %timer-numbers;
+
+        font-size: 3rem;
+    }
 }
+
