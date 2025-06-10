@@ -21,33 +21,4 @@
         font-weight: bold;
     }
 
-    &__button {
-        @extend %btn-reset;
-
-        align-items: center;
-        display: flex;
-        
-        &--config-icon {
-            @include mixins.tab-state(idle, false);
-            @include mixins.icon-state(idle);
-
-            padding: 0.5rem;
-            height: 2.5rem;
-            width: 2.5rem;
-
-            &:hover {
-                @include mixins.tab-state(hover);
-                @include mixins.icon-state(hover);
-            }
-            &:active {
-                @include mixins.tab-state(pressed, true);
-                @include mixins.icon-state(pressed);
-            }
-            &:disabled {
-                @include mixins.tab-state(disabled);
-                @include mixins.icon-state(disabled);
-            }
-        }
-
-    }
 }

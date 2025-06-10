@@ -38,7 +38,7 @@ body {
 /* button stats */
 /* config buttons stats*/
 /* statuses for class generation*/
-.tab-nav__list-item-button, .header-nav__button, .play-controls__button, .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
+.tab-nav__list-item-button, .play-controls__button, .header-nav__button, .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
   background: none;
   border: none;
   color: inherit;
@@ -629,105 +629,47 @@ body {
 }
 
 /* breakpoints mixins */
-.play-controls__button {
+.header-nav__button {
   align-items: center;
   display: flex;
-  justify-content: center;
-  position: relative;
 }
-.play-controls__button--play {
-  background-image: radial-gradient(circle at 50% 50%, #f2a297, #ef8d80 71%);
-  border: solid 0.05rem #be5547;
+.header-nav__button--config-icon {
+  background-color: rgba(240, 175, 47, 0);
+  color: #b28d45;
+  background-image: url(/assets/icons/config-status-idle.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2.5rem 2.5rem;
+  padding: 0.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }
-.play-controls__button--play:after {
-  background-color: #7f5c1e;
-  border-radius: 50%;
-  content: "";
-  height: 100%;
-  left: 0.25rem;
-  position: absolute;
-  top: 0.25rem;
-  width: 100%;
-  z-index: -1;
+.header-nav__button--config-icon:hover {
+  background-color: #ffdc99;
+  color: #7f5c1e;
+  background-image: url(/assets/icons/config-status-hover.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2.5rem 2.5rem;
 }
-.play-controls__button--pause {
-  background-image: radial-gradient(circle at 50% 50%, #fbe3e0, #f5bcb4 71%);
-  border: solid 0.05rem #f2a297;
+.header-nav__button--config-icon:active {
+  background-color: #f0af2f;
+  color: #4d2e18;
+  transform: translateY(1px);
+  background-image: url(/assets/icons/config-status-pressed.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2.5rem 2.5rem;
 }
-.play-controls__button--pause:after {
-  background-color: #7f5c1e;
-  border-radius: 50%;
-  content: "";
-  height: 100%;
-  left: 0;
+.header-nav__button--config-icon:disabled {
+  background-color: #d5bd8d;
+  color: #7a6d52;
+  cursor: not-allowed;
   opacity: 0.5;
-  position: absolute;
-  transform: scale(1.03);
-  top: 0;
-  width: 100%;
-  z-index: -1;
-}
-.play-controls__button--hover {
-  background-image: radial-gradient(circle at 50% 50%, #ef8d80, #e47668 71%);
-  border: solid 0.05rem #be5547;
-}
-.play-controls__button--hover:after {
-  background-color: #7f5c1e;
-  border-radius: 50%;
-  content: "";
-  height: 100%;
-  left: 0.25rem;
-  opacity: 0.3;
-  position: absolute;
-  top: 0.25rem;
-  width: 100%;
-  z-index: -1;
-}
-.play-controls__button--pressed {
-  background-image: radial-gradient(circle at 50% 50%, #f5bcb4, #f2a297 71%);
-  border: solid 0.05rem #be5547;
-}
-.play-controls__button--pressed:after {
-  background-color: #7f5c1e;
-  border-radius: 50%;
-  content: "";
-  height: 100%;
-  left: 0;
-  opacity: 0.1;
-  position: absolute;
-  top: 0.25rem;
-  width: 100%;
-  z-index: -1;
-}
-.play-controls__button-highlight {
-  position: absolute;
-  top: 0.25rem;
-  left: 0.25rem;
-}
-.play-controls__button-highlight-hover {
-  position: absolute;
-  top: 0.25rem;
-  left: 0.25rem;
-}
-.play-controls__button-highlight-pressed {
-  position: absolute;
-  top: 0.25rem;
-  left: 0.25rem;
-}
-.play-controls__button-play-icon {
-  padding-left: 0.325rem;
-  height: 2rem;
-  width: 1.5rem;
-}
-.play-controls__button-play-icon.pressed {
-  filter: blur(1rem);
-}
-.play-controls__button-pause-icon {
-  height: 2rem;
-  width: 1.5rem;
-}
-.play-controls__button-pause-icon.pressed {
-  filter: blur(1rem);
+  background-image: url(/assets/icons/config-status-disabled.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2.5rem 2.5rem;
 }
 
 .timer-card {
@@ -847,6 +789,106 @@ body {
   justify-content: center;
   align-items: flex-end;
 }
+.play-controls__button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.play-controls__button--play {
+  background-image: radial-gradient(circle at 50% 50%, #f2a297, #ef8d80 71%);
+  border: solid 0.05rem #be5547;
+}
+.play-controls__button--play:after {
+  background-color: #7f5c1e;
+  border-radius: 50%;
+  content: "";
+  height: 100%;
+  left: 0.25rem;
+  position: absolute;
+  top: 0.25rem;
+  width: 100%;
+  z-index: -1;
+}
+.play-controls__button--pause {
+  background-image: radial-gradient(circle at 50% 50%, #fbe3e0, #f5bcb4 71%);
+  border: solid 0.05rem #f2a297;
+}
+.play-controls__button--pause:after {
+  background-color: #7f5c1e;
+  border-radius: 50%;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.5;
+  position: absolute;
+  transform: scale(1.03);
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.play-controls__button--hover {
+  background-image: radial-gradient(circle at 50% 50%, #ef8d80, #e47668 71%);
+  border: solid 0.05rem #be5547;
+}
+.play-controls__button--hover:after {
+  background-color: #7f5c1e;
+  border-radius: 50%;
+  content: "";
+  height: 100%;
+  left: 0.25rem;
+  opacity: 0.3;
+  position: absolute;
+  top: 0.25rem;
+  width: 100%;
+  z-index: -1;
+}
+.play-controls__button--pressed {
+  background-image: radial-gradient(circle at 50% 50%, #f5bcb4, #f2a297 71%);
+  border: solid 0.05rem #be5547;
+}
+.play-controls__button--pressed:after {
+  background-color: #7f5c1e;
+  border-radius: 50%;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.1;
+  position: absolute;
+  top: 0.25rem;
+  width: 100%;
+  z-index: -1;
+}
+.play-controls__button-highlight {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+}
+.play-controls__button-highlight-hover {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+}
+.play-controls__button-highlight-pressed {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+}
+.play-controls__button-play-icon {
+  padding-left: 0.325rem;
+  height: 2rem;
+  width: 1.5rem;
+}
+.play-controls__button-play-icon.pressed {
+  filter: blur(1rem);
+}
+.play-controls__button-pause-icon {
+  height: 2rem;
+  width: 1.5rem;
+}
+.play-controls__button-pause-icon.pressed {
+  filter: blur(1rem);
+}
 
 .header-nav {
   display: flex;
@@ -862,48 +904,6 @@ body {
   color: #4d2e18;
   font-size: 1.5rem;
   font-weight: bold;
-}
-.header-nav__button {
-  align-items: center;
-  display: flex;
-}
-.header-nav__button--config-icon {
-  background-color: rgba(240, 175, 47, 0);
-  color: #b28d45;
-  background-image: url(/assets/icons/config-status-idle.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 2.5rem 2.5rem;
-  padding: 0.5rem;
-  height: 2.5rem;
-  width: 2.5rem;
-}
-.header-nav__button--config-icon:hover {
-  background-color: #ffdc99;
-  color: #7f5c1e;
-  background-image: url(/assets/icons/config-status-hover.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 2.5rem 2.5rem;
-}
-.header-nav__button--config-icon:active {
-  background-color: #f0af2f;
-  color: #4d2e18;
-  transform: translateY(1px);
-  background-image: url(/assets/icons/config-status-pressed.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 2.5rem 2.5rem;
-}
-.header-nav__button--config-icon:disabled {
-  background-color: #d5bd8d;
-  color: #7a6d52;
-  cursor: not-allowed;
-  opacity: 0.5;
-  background-image: url(/assets/icons/config-status-disabled.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 2.5rem 2.5rem;
 }
 
 .tab-nav {

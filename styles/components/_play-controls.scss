@@ -1,5 +1,152 @@
+
+@use '../abstracts/mixins';
+@use '../abstracts/spacing';
+@use '../abstracts/colors';
+@use '../abstracts/placeholders';
+
+
 .play-controls {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+
+    &__button {
+        @extend %btn-reset;
+
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        &--play {
+    
+        @extend %play-base;
+
+        background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-idle-1, colors.$elevated-background-base-idle-2 71%);
+        border: solid 0.05rem colors.$elevated-auxiliary-strong;
+        
+            &:after {
+                background-color: colors.$surface-auxiliary-strong;
+                border-radius: 50%;
+                content: "";
+                height: 100%;
+                left: 0.25rem;
+                position: absolute;
+                top: 0.25rem;
+                width: 100%;
+                z-index: -1;
+                
+                
+            }
+
+        }
+
+        &--pause {
+
+            @extend %play-base;
+
+            background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-active-1, colors.$elevated-background-base-active-2 71%);
+            border: solid 0.05rem colors.$elevated-auxiliary-subtle;
+
+            &:after {
+                background-color: colors.$surface-auxiliary-strong;
+                border-radius: 50%;
+                content: "";
+                height: 100%;
+                left: 0;
+                opacity: 0.5;
+                position: absolute;
+                transform: scale(1.03);
+                top: 0;
+                width: 100%;
+                z-index: -1;            
+            }
+
+        }
+
+        &--hover {
+
+            @extend %play-base;
+
+            background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-hover-1, colors.$elevated-background-base-hover-2 71%);
+            border: solid 0.05rem colors.$elevated-auxiliary-strong;
+
+            &:after {
+                background-color: colors.$surface-auxiliary-strong;
+                border-radius: 50%;
+                content: "";
+                height: 100%;
+                left: 0.25rem;
+                opacity: 0.3;
+                position: absolute;
+                top: 0.25rem;
+                width: 100%;
+                z-index: -1;            
+            }
+
+        }
+
+        &--pressed {
+
+        @extend %play-base;
+
+        background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-pressed-1, colors.$elevated-background-base-pressed-2 71%);
+        border: solid 0.05rem colors.$elevated-auxiliary-strong;
+
+            &:after {
+                background-color: colors.$surface-auxiliary-strong;
+                border-radius: 50%;
+                content: "";
+                height: 100%;
+                left: 0;
+                opacity: 0.1;
+                position: absolute;
+                top: 0.25rem;
+                width: 100%;
+                z-index: -1;            
+            }
+
+        }
+
+        &-highlight {
+        position: absolute;
+        top: 0.25rem;
+        left: 0.25rem;
+        }
+
+        &-highlight-hover {
+        position: absolute;
+        top: 0.25rem;
+        left: 0.25rem;
+        }
+
+        &-highlight-pressed {
+        position: absolute;
+        top: 0.25rem;
+        left: 0.25rem;
+        }
+
+        &-play-icon {
+        padding-left: 0.325rem;
+        height: 2rem;
+        width: 1.5rem;
+
+            &.pressed {
+                -webkit-filter: blur(1rem);
+                filter: blur(1rem)
+            }
+
+        }
+
+        &-pause-icon {
+        height: 2rem;
+        width: 1.5rem;
+
+            &.pressed {
+                -webkit-filter: blur(1rem);
+                filter: blur(1rem)
+            }
+        }
+    
+    }
 }
