@@ -150,11 +150,13 @@
 
 
 .timer-card__counter{
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     gap: 1.5rem;
  
+
     &-bar {
         display: flex;
         flex-direction: row;

@@ -239,7 +239,7 @@
 
                                 </div>
                                 <div>
-                                    <p class="timer-card__counter-text">Seconds</p>
+                                    <p class="timer-card__counter-text">Pomas</p>
                                     <p class="timer-card__counter-number">00</p>
                                 </div>
 
@@ -256,7 +256,7 @@
                 <div class="play-controls__container">
 
                     <!-- paused/stop -->
-                    <button class="play-controls__button play-controls__button--stop">
+                    <button class="play-controls__button play-controls__button--stop" id="show-form">
                         <img src="/assets/icons/stop-icon.svg"> 
                     </button>
                     
@@ -282,7 +282,7 @@
                     <button class="play-controls__button play-controls__button--skip">
                         <img src="/assets/icons/skip-icon.svg"> 
                     </button>
-                    
+
                     <!-- hover -->
                     <!-- <button class="play-controls__button play-controls__button--hover" aria-label="play/pause" aria-pressed="false">
 
@@ -310,6 +310,18 @@
                 </div>
             </section>
             
+            <section>
+                <form class="hidden" id="name-pomas" >
+                    <div>
+                        <input class="form-input" type="text" placeholder="Name your Pomas:">
+                    <button type="submit">Confirm</button>
+                    <button type="submit">Skip</button>
+                     <button type="submit">Cancel</button>
+
+                    </div>
+                    
+                </form>
+            </section>
 
         </article>
     </main>

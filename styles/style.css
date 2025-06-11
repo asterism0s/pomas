@@ -758,6 +758,7 @@ body {
 }
 
 .timer-card__counter {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -767,6 +768,12 @@ body {
   display: flex;
   flex-direction: row;
   gap: 0.2rem;
+}
+.timer-card__counter-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 .timer-card__counter-text {
   color: #4f6657;
