@@ -789,15 +789,23 @@ body {
   justify-content: center;
 }
 .play-controls__container {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 2rem;
 }
 .play-controls__button {
   align-items: center;
   display: flex;
   justify-content: center;
   position: relative;
+}
+.play-controls__button--stop {
+  background-color: #f0af2f;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 .play-controls__button--play {
   background-image: radial-gradient(circle at 50% 50%, #f2a297, #ef8d80 71%);
@@ -830,6 +838,13 @@ body {
   top: 0;
   width: 100%;
   z-index: -1;
+}
+.play-controls__button--skip {
+  background-color: #f0af2f;
+  border-radius: 50%;
+  height: 2.5rem;
+  padding-left: 0.5rem;
+  width: 2.5rem;
 }
 .play-controls__button--hover {
   background-image: radial-gradient(circle at 50% 50%, #ef8d80, #e47668 71%);
