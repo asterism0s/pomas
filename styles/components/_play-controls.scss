@@ -26,10 +26,30 @@
         position: relative;
 
         &--stop {
+
+            @include mixins.config-state(idle, false);
+
             background-color: colors.$surface-background-highlight-active;
             border-radius: 50%;
             height: 2.5rem;
             width: 2.5rem;
+
+            &:hover {
+                @include mixins.config-state(hover);
+                
+                border-radius: 50%;
+            }
+
+            &:active {
+                @include mixins.config-state(pressed, true);
+                
+            }
+
+            &:disabled {
+                @include mixins.config-state(disabled);
+                
+            }
+
         }
 
         &--play {
@@ -79,11 +99,30 @@
         }
 
         &--skip {
+
+            @include mixins.config-state(idle, false);
+
             background-color: colors.$surface-background-highlight-active;
             border-radius: 50%;
             height: 2.5rem;
-            padding-left: 0.5rem;
             width: 2.5rem;
+
+            &:hover {
+                @include mixins.config-state(hover);
+                
+                border-radius: 50%;
+            }
+
+            &:active {
+                @include mixins.config-state(pressed, true);
+                
+            }
+
+            &:disabled {
+                @include mixins.config-state(disabled);
+                
+            }
+            
         }
 
         &--hover {

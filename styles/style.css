@@ -39,7 +39,7 @@ body {
 /* icon states */
 /* config buttons stats*/
 /* statuses for class generation*/
-.tab-nav__list-item-button, .play-controls__button, .header-nav__button, .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
+.tab-nav__list-item-button, .play-controls__button, .header-nav__button, .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .play-controls__button--stop, .play-controls__button--stop:hover, .play-controls__button--stop:active, .play-controls__button--stop:disabled, .play-controls__button--skip, .play-controls__button--skip:hover, .play-controls__button--skip:active, .play-controls__button--skip:disabled, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
   background: none;
   border: none;
   color: inherit;
@@ -62,9 +62,9 @@ body {
   width: 6.5rem;
 }
 
-.header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
+.play-controls__button--stop, .play-controls__button--stop:hover, .play-controls__button--stop:active, .play-controls__button--stop:disabled, .play-controls__button--skip, .play-controls__button--skip:hover, .play-controls__button--skip:active, .play-controls__button--skip:disabled, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 50%;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -805,10 +805,28 @@ body {
   position: relative;
 }
 .play-controls__button--stop {
+  background-color: rgba(240, 175, 47, 0);
+  color: #b28d45;
   background-color: #f0af2f;
   border-radius: 50%;
   height: 2.5rem;
   width: 2.5rem;
+}
+.play-controls__button--stop:hover {
+  background-color: #ffdc99;
+  color: #7f5c1e;
+  border-radius: 50%;
+}
+.play-controls__button--stop:active {
+  background-color: #f0af2f;
+  color: #4d2e18;
+  transform: translateY(1px);
+}
+.play-controls__button--stop:disabled {
+  background-color: #d5bd8d;
+  color: #7a6d52;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 .play-controls__button--play {
   background-image: radial-gradient(circle at 50% 50%, #f2a297, #ef8d80 71%);
@@ -843,11 +861,28 @@ body {
   z-index: -1;
 }
 .play-controls__button--skip {
+  background-color: rgba(240, 175, 47, 0);
+  color: #b28d45;
   background-color: #f0af2f;
   border-radius: 50%;
   height: 2.5rem;
-  padding-left: 0.5rem;
   width: 2.5rem;
+}
+.play-controls__button--skip:hover {
+  background-color: #ffdc99;
+  color: #7f5c1e;
+  border-radius: 50%;
+}
+.play-controls__button--skip:active {
+  background-color: #f0af2f;
+  color: #4d2e18;
+  transform: translateY(1px);
+}
+.play-controls__button--skip:disabled {
+  background-color: #d5bd8d;
+  color: #7a6d52;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 .play-controls__button--hover {
   background-image: radial-gradient(circle at 50% 50%, #ef8d80, #e47668 71%);
