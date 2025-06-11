@@ -35,7 +35,8 @@ body {
 /* Surface / Background / Base */
 /* Surface / Background / Highlight */
 /* Surface / Text and Icons */
-/* button stats */
+/* button states */
+/* icon states */
 /* config buttons stats*/
 /* statuses for class generation*/
 .tab-nav__list-item-button, .play-controls__button, .header-nav__button, .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
@@ -61,7 +62,18 @@ body {
   width: 6.5rem;
 }
 
-.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
+.header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
+  align-items: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  background-color: #f0af2f;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover {
   align-items: center;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -98,6 +110,7 @@ body {
 }
 
 /* button mixins */
+/* config button */
 /* tab mixins */
 .status--active {
   color: #4f6657;
@@ -629,20 +642,12 @@ body {
 }
 
 /* breakpoints mixins */
-.header-nav__button {
-  align-items: center;
-  display: flex;
-}
 .header-nav__button--config-icon {
   background-color: rgba(240, 175, 47, 0);
   color: #b28d45;
   background-image: url(/assets/icons/config-status-idle.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 2.5rem 2.5rem;
-  padding: 0.5rem;
-  height: 2.5rem;
-  width: 2.5rem;
 }
 .header-nav__button--config-icon:hover {
   background-color: #ffdc99;
@@ -650,7 +655,7 @@ body {
   background-image: url(/assets/icons/config-status-hover.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 2.5rem 2.5rem;
+  border-radius: 50%;
 }
 .header-nav__button--config-icon:active {
   background-color: #f0af2f;
@@ -659,7 +664,6 @@ body {
   background-image: url(/assets/icons/config-status-pressed.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 2.5rem 2.5rem;
 }
 .header-nav__button--config-icon:disabled {
   background-color: #d5bd8d;
@@ -669,7 +673,6 @@ body {
   background-image: url(/assets/icons/config-status-disabled.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 2.5rem 2.5rem;
 }
 
 .timer-card {

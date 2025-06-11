@@ -27,6 +27,20 @@
     // width:  calc(4rem + 5vw);
 }
 
+%icon-base{
+    @extend %btn-reset;
+    align-items: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+
+    background-color: colors.$surface-background-highlight-active;
+    height: 2.5rem;
+    width: 2.5rem;
+
+}
+
 
 
 %tab-base {

@@ -2,9 +2,39 @@
 @use 'colors';
 
 
-/* button stats */
+/* button states */
 
 $btn-states: (
+    idle: (
+        bg-false: colors.$surface-background-highlight-idle,
+        text-false: colors.$surface-text-and-icons-idle,
+
+        bg-true: colors.$surface-background-highlight-active,
+        text-true: colors.$surface-text-and-icons-active,
+    ),
+
+    pressed: (
+        bg-false: colors.$surface-background-highlight-pressed,
+        text-false: colors.$surface-text-and-icons-pressed,
+
+        bg-true: colors.$surface-background-highlight-active,
+        text-true: colors.$surface-text-and-icons-active,
+    ),
+
+    hover: (
+        bg: colors.$surface-background-highlight-hover,
+        text: colors.$surface-text-and-icons-hover,
+    ),
+
+    disabled: (
+        bg: colors.$surface-background-highlight-disabled,
+        text: colors.$surface-text-and-icons-disabled,
+    ),
+);
+
+/* icon states */
+
+$icon-states: (
     idle: (
         bg-false: colors.$surface-background-highlight-idle,
         text-false: colors.$surface-text-and-icons-idle,

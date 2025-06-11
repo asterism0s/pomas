@@ -13,8 +13,40 @@
     background-image: url(#{$url});
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 2.5rem 2.5rem;
+    
+    // background-size: 2.5rem 2.5rem;
 }
+
+/* config button */
+// config button states
+@mixin config-state($state, $active: false) {
+
+    @extend %icon-base;
+
+    $config: map-get(variables.$icon-states, $state);
+
+    @if $state == idle or $state == pressed {
+        $suffix: if($active, 'true', 'false');
+        $bg-key: unquote('bg-#{$suffix}');
+        $text-key: unquote('text-#{$suffix}');
+
+        background-color: map-get($config, $bg-key);
+        color: map-get($config, $text-key);
+
+    @if $state == pressed and $active {
+        transform: translateY(1px);
+        }
+    } @else {
+        background-color: map-get($config, bg);
+        color: map-get($config, text);
+
+        @if $state == disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+}
+
 
 
 /* tab mixins */

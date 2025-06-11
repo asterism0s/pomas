@@ -7,27 +7,27 @@
 .header-nav__button{
     @extend %btn-reset;
 
-    align-items: center;
-    display: flex;
     
     &--config-icon {
-        @include mixins.tab-state(idle, false);
+        @include mixins.config-state(idle, false);
         @include mixins.icon-state(idle);
 
-        padding: 0.5rem;
-        height: 2.5rem;
-        width: 2.5rem;
+       
+        // padding: 0.5rem;
+        // height: 2.5rem;
+        // width: 2.5rem;
 
         &:hover {
-            @include mixins.tab-state(hover);
+            @include mixins.config-state(hover);
             @include mixins.icon-state(hover);
+            border-radius: 50%;
         }
         &:active {
-            @include mixins.tab-state(pressed, true);
+            @include mixins.config-state(pressed, true);
             @include mixins.icon-state(pressed);
         }
         &:disabled {
-            @include mixins.tab-state(disabled);
+            @include mixins.config-state(disabled);
             @include mixins.icon-state(disabled);
         }
     }
