@@ -769,12 +769,6 @@ body {
   flex-direction: row;
   gap: 0.2rem;
 }
-.timer-card__counter-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
 .timer-card__counter-text {
   color: #4f6657;
 }
@@ -952,6 +946,22 @@ body {
 }
 .play-controls__button-pause-icon.pressed {
   filter: blur(1rem);
+}
+
+.project-form {
+  display: flex;
+  justify-content: center;
+}
+.project-form__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.project-form__buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .header-nav {
