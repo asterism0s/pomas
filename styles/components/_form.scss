@@ -1,3 +1,5 @@
+@use "../base/fonts";
+
 
 .project-form {
 
@@ -12,9 +14,12 @@
 
     }
 
-    // &__text {
-        
-    // }
+    &__text {
+        font-family: fonts.$font-primary;
+        font-size: fonts.$font-size-baseline;
+        letter-spacing: -0.2px;
+        line-height: 1.5rem;
+    }
     
     &__buttons {
         display: flex;

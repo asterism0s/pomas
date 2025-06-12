@@ -27,6 +27,14 @@ body {
 /* Elevated / Background / Base */
 /* Elevated / Background / Highlight */
 /* Elevated / Text and Icons */
+/* Floating / Auxiliary / Primary */
+/* Floating / Auxiliary / Secondary */
+/* Floating / Background / Base */
+/* Floating / Background / Highlight / Primary */
+/* Floating / Background / Highlight / Secondary */
+/* Floating / Text and Icons / Base */
+/* Floating / Text and Icons / Highlight / Primary */
+/* Floating / Text and Icons / Highlight / Secondary */
 /* Receeded / Auxiliary */
 /* Receeded / Background / Base */
 /* Receeded / Background / Highlight */
@@ -957,6 +965,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+.project-form__text {
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.2px;
+  line-height: 1.5rem;
 }
 .project-form__buttons {
   display: flex;
