@@ -1,29 +1,53 @@
+@use "../abstracts/colors";
 @use "../base/fonts";
 
 
 .project-form {
 
+    background-color: colors.$floating-background-base-idle;
+    border-radius: 1rem 1rem 0 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
+
+    position: fixed;
+    
+    width: 100%;
+
 
     &__container {
         align-items: center;
         display: flex;
         flex-direction: column;
         gap:0.75rem;
-
+        // width: calc(100% - 3rem);
+    
     }
 
-    &__text {
+    // &__field {
+    //     width: 100%;
+    // }
+
+    &__label {
+        color: colors.$floating-text-and-icons-base-idle;
         font-family: fonts.$font-primary;
         font-size: fonts.$font-size-baseline;
         letter-spacing: -0.2px;
         line-height: 1.5rem;
     }
     
+    &__input{
+        height: 3.5rem;
+        
+    }
+
     &__buttons {
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        
     }
+}
+
+.project-form__section {
+    width: 100%;
 }
