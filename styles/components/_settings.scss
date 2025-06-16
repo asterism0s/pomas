@@ -2,7 +2,7 @@
 @use "../base/fonts";
 
 
-.project-form {
+.project-settings {
 
     background-color: colors.$floating-background-base-idle;
     border-radius: 1rem 1rem 0 0;
@@ -17,37 +17,27 @@
 
     &__container {
         align-items: center;
-        display: flex;
+
         flex-direction: column;
         gap:0.75rem;
-        // width: calc(100% - 3rem);
-    
+        height: 75vw;
+
     }
 
-    // &__field {
-    //     width: 100%;
-    // }
 
     &__label {
         color: colors.$floating-text-and-icons-base-idle;
         font-family: fonts.$font-primary;
-        font-size: fonts.$font-size-baseline;
+        font-size: fonts.$font-size-3xs;
+        font-weight: bold;
         letter-spacing: -0.2px;
         line-height: 1.5rem;
     }
     
-    &__input{
-        height: 3.5rem;
-        
-    }
 
-    &__buttons {
-        display: flex;
-        justify-content: space-between;
-        
-    }
+
 }
 
-.project-form__section {
+.project-settings__section {
     width: 100%;
 }

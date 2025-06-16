@@ -41,7 +41,7 @@
         <article class="app-content padding-x-3xs">
 
             <!-- tab -->
-            <section>
+            <!-- <section>
                 <nav class="tab-nav">
                     <ul class="tab-nav__list gap-quark">
                         <li class="tab-nav__list-item">
@@ -53,7 +53,7 @@
                         </li>
                     </ul>
                 </nav>
-            </section>
+            </section> -->
             
 
             <!-- timer -->
@@ -310,23 +310,50 @@
                 </div>
             </section>
         </article>
-        <article class="project-form padding-x-3xs padding-x-3xs">
-            <section class="project-form__section">
-                <form class="project-form__form hidden" id="name-pomas" >
-                    <div class="project-form__container">
-                        <div class="project-form__field">
-                            <p class="project-form__label">
-                                Name your Pomas:
-                            </p>
-                            <input class="project-form__input" type="text">
+
+        <article class="project-settings padding-y-3xs padding-x-3xs">
+            <section class="project-settings__section">
+                <form class="project-settings__form">
+                    <div class="project-settings__container">
+                        <div>
+                            <h1 class="project-settings__label">
+                               Settings
+                            </h1>
                         </div>
                         
-                        <div class="project-form__buttons">
-                            <input class="project-form__button" type="submit" value="Cancel">
-                            <input class="project-form__button" type="submit" value="Confirm">
-                            <input class="project-form__button" type="submit"  value="Skip">
+                        <div>  
+                            <label for="pomodoro-time">Pomodoro time</label>
+                            <select id="pomodoro-time" name="pomodoro-time"></select>
+
+                            <label for="short-break">Short break</label>
+                            <select id="short-break" name="short-break"></select>
+
+                            <label for="long-break">Long break</label>
+                            <select id="long-break" name="long-break"></select>
+
+                            <label for="long-break-interval">Long break interval</label>
+                            <select id="long-break-interval" name="long-break-interval"></select>
                         </div>
 
+                        <div>
+                            <label>
+                                <input type="checkbox" name="autor-start-breaks">
+                                Auto start breaks
+                            </label>
+                            <label>
+                                <input type="checkbox" name="autor-start-pomos">
+                                Auto start pomodoros
+                            </label>
+                            <label>
+                                <input type="checkbox" name="sound" checked>
+                                Sound
+                            </label>
+                        </div>
+
+                        <div>
+                            <button type="submit">Confirm</button>
+                            <button type="button">Cancel</button>
+                        </div>
                     </div>
                     
                 </form>
