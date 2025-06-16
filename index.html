@@ -315,27 +315,36 @@
             <section class="project-settings__section">
                 <form class="project-settings__form">
                     <div class="project-settings__container">
-                        <div>
+                        <div class="project-settings__heading">
                             <h1 class="project-settings__label">
                                Settings
                             </h1>
                         </div>
                         
-                        <div>  
-                            <label for="pomodoro-time">Pomodoro time</label>
-                            <select id="pomodoro-time" name="pomodoro-time"></select>
+                        <div class="project-settings__timers">
+                            <div class="project-settings__timers--container">
+                                <label for="pomodoro-time">Pomodoro time</label>
+                                <select id="pomodoro-time" name="pomodoro-time"></select>
+                            </div>
 
-                            <label for="short-break">Short break</label>
-                            <select id="short-break" name="short-break"></select>
+                            <div class="project-settings__timers--container">
+                                <label for="short-break">Short break</label>
+                                <select id="short-break" name="short-break"></select>
+                            </div>
 
-                            <label for="long-break">Long break</label>
-                            <select id="long-break" name="long-break"></select>
+                            <div class="project-settings__timers--container">
+                                <label for="long-break">Long break</label>
+                                <select id="long-break" name="long-break"></select>
+                            </div>
 
-                            <label for="long-break-interval">Long break interval</label>
-                            <select id="long-break-interval" name="long-break-interval"></select>
+                            <div class="project-settings__timers--container">
+                                <label for="long-break-interval">Long break interval</label>
+                                <select id="long-break-interval" name="long-break-interval"></select>
+                            </div>
+                            
                         </div>
 
-                        <div>
+                        <div class="project-settings__toggles">
                             <label>
                                 <input type="checkbox" name="autor-start-breaks">
                                 Auto start breaks
@@ -350,7 +359,7 @@
                             </label>
                         </div>
 
-                        <div>
+                        <div class="project-settings__actions">
                             <button type="submit">Confirm</button>
                             <button type="button">Cancel</button>
                         </div>

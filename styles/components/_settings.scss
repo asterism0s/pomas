@@ -9,18 +9,18 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    height: 100px;
     position: fixed;
     
     width: 100%;
 
 
-    &__container {
-        align-items: center;
 
+    &__container {
+
+        display: flex;
         flex-direction: column;
-        gap:0.75rem;
-        height: 75vw;
+        gap: 2rem;
+
 
     }
 
@@ -34,6 +34,18 @@
         line-height: 1.5rem;
     }
     
+    &__timers {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        &--container{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+    }
 
 
 }

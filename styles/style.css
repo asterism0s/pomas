@@ -966,15 +966,13 @@ body {
   bottom: 0;
   display: flex;
   justify-content: center;
-  height: 100px;
   position: fixed;
   width: 100%;
 }
 .project-settings__container {
-  align-items: center;
+  display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  height: 75vw;
+  gap: 2rem;
 }
 .project-settings__label {
   color: #6d6057;
@@ -983,6 +981,17 @@ body {
   font-weight: bold;
   letter-spacing: -0.2px;
   line-height: 1.5rem;
+}
+.project-settings__timers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.project-settings__timers--container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .project-settings__section {
