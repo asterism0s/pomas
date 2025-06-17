@@ -324,22 +324,37 @@
                         <div class="project-settings__timers">
                             <div class="project-settings__timers--container">
                                 <label for="pomodoro-time">Pomodoro time</label>
-                                <select id="pomodoro-time" name="pomodoro-time"></select>
+                                <select class="project-settings__select-box" id="pomodoro-time" name="pomodoro-time">
+                                    <option value="15">15:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="25" selected>25:00</option>
+                                    <option value="30">30:00</option>   
+                                </select>
                             </div>
 
                             <div class="project-settings__timers--container">
                                 <label for="short-break">Short break</label>
-                                <select id="short-break" name="short-break"></select>
+                                <select class="project-settings__select-box" id="short-break" name="short-break">
+                                    <option value="5" selected>5:00</option>
+                                    <option value="10">10:00</option>
+                                </select>
                             </div>
 
                             <div class="project-settings__timers--container">
                                 <label for="long-break">Long break</label>
-                                <select id="long-break" name="long-break"></select>
+                                <select class="project-settings__select-box" id="long-break" name="long-break">
+                                    <option value="15">15:00</option>
+                                    <option value="20" selected>20:00</option>
+                                    <option value="25">25:00</option>
+                                </select>
                             </div>
 
                             <div class="project-settings__timers--container">
                                 <label for="long-break-interval">Long break interval</label>
-                                <select id="long-break-interval" name="long-break-interval"></select>
+                                <select class="project-settings__select-box" id="long-break-interval" name="long-break-interval">
+                                    <option value="2">2</option>
+                                    <option value="4" selected>4</option>
+                                </select>
                             </div>
                             
                         </div>

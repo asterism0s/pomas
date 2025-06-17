@@ -988,10 +988,32 @@ body {
   gap: 0.5rem;
 }
 .project-settings__timers--container {
+  color: #6d6057;
   display: flex;
+  font-family: "Karla", sans-serif;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+}
+.project-settings__select-box {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #f8f8f8;
+  background-image: url("/assets/icons/chevron-down.svg");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  border: 1px solid #dbd2cf;
+  border-radius: 0.25rem;
+  color: #6d6057;
+  font-family: "Karla", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.7rem;
+  letter-spacing: -0.2px;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  text-align: left;
+  width: 5.6rem;
 }
 
 .project-settings__section {

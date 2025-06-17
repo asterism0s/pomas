@@ -40,11 +40,34 @@
         gap: 0.5rem;
 
         &--container{
+            color: colors.$floating-text-and-icons-base-idle;
             display: flex;
+            font-family: fonts.$font-primary;
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
         }
+    }
+
+    &__select-box {
+        appearance: none;
+        background-color: colors.$floating-background-highlight-secondary-active;
+        background-image: url('/assets/icons/chevron-down.svg');
+        background-position: right 1rem center;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        border: 1px solid colors.$floating-auxiliary-secondary-subtle;
+        border-radius: 0.25rem;
+        color: colors.$floating-text-and-icons-base-idle;
+        font-family: fonts.$font-primary;
+        font-size: 0.875rem;
+        line-height: 1.7rem;
+        letter-spacing: -0.2px;
+        padding: 0.5rem 2.5rem 0.5rem 0.75rem;;
+        text-align: left;
+        width: 5.6rem;
+
+        
     }
 
 
