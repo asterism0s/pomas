@@ -1,5 +1,6 @@
-@use "../abstracts/colors";
-@use "../base/fonts";
+@use '../abstracts/colors';
+@use '../base/fonts';
+@use '../abstracts/placeholders';
 
 
 .project-settings {
@@ -10,10 +11,7 @@
     display: flex;
     justify-content: center;
     position: fixed;
-    
     width: 100%;
-
-
 
     &__container {
 
@@ -122,3 +120,20 @@
 .project-settings__section {
     width: 100%;
 }
+
+.project-settings__actions-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.project-settings__actions {
+    @extend %btn-reset;
+
+    font-size: 1rem;
+    line-height: 1.5rem;
+   
+    height: 1.5rem;
+    width: 3.75rem;
+}
+
