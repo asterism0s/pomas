@@ -30,7 +30,7 @@ $elevated-text-and-icons-disabled: #4d2e18;
 
   /* Floating / Auxiliary / Primary */
 $floating-auxiliary-primary-strong: #be5547;
-$floating-auxiliary-primary-subtle: #f2a297;
+$floating-auxiliary-primary-subtle: #87c596;
   
   /* Floating / Auxiliary / Secondary */
 $floating-auxiliary-secondary-strong: #6d6057;
@@ -44,10 +44,10 @@ $floating-background-base-pressed: #b6aca7;
 $floating-background-base-disabled: #92867f;
   
   /* Floating / Background / Highlight / Primary */
-$floating-background-highlight-primary-active: #fbe3e0;
-$floating-background-highlight-primary-idle: #ef8d80;
-$floating-background-highlight-primary-hover: #f2a297;
-$floating-background-highlight-primary-pressed: #f5bcb4;
+$floating-background-highlight-primary-active: #80ac8b;
+$floating-background-highlight-primary-idle: #c1e1ca;
+$floating-background-highlight-primary-hover: #d6ebdc;
+$floating-background-highlight-primary-pressed: #f8fcf9;
 $floating-background-highlight-primary-disabled: #755a57;
   
   /* Floating / Background / Highlight / Secondary */
@@ -66,18 +66,17 @@ $floating-text-and-icons-base-disabled: #b6aca7;
   
   /* Floating / Text and Icons / Highlight / Primary */
 $floating-text-and-icons-highlight-primary-active: #56170f;
-$floating-text-and-icons-highlight-primary-idle: #852418;
-$floating-text-and-icons-highlight-primary-hover: #be5547;
-$floating-text-and-icons-highlight-primary-pressed: #de5441;
+$floating-text-and-icons-highlight-primary-idle: #333f37;
+$floating-text-and-icons-highlight-primary-hover: #71a27d;
+$floating-text-and-icons-highlight-primary-pressed: #80ac8b;
 $floating-text-and-icons-highlight-primary-disabled: #4d2e18;
   
   /* Floating / Text and Icons / Highlight / Secondary */
 $floating-text-and-icons-highlight-secondary-active: #101012;
-$floating-text-and-icons-highlight-secondary-idle: #6d6057;
+$floating-text-and-icons-highlight-secondary-idle: #303033;
 $floating-text-and-icons-highlight-secondary-hover: #444546;
 $floating-text-and-icons-highlight-secondary-pressed: #444546;
 $floating-text-and-icons-highlight-secondary-disabled: #92867f;
-
 
 
 /* Receeded / Auxiliary */
@@ -88,6 +87,7 @@ $receeded-auxiliary-subtle: #a0b0a5;
 $receeded-background-base-idle-1: #d6ebdc;
 $receeded-background-base-idle-2: #f8fcf9;
 $receeded-background-base-disabled: #a0b0a5;
+
 
 /* Receeded / Background / Highlight */
 $receeded-background-highlight-active: #4f6657;
@@ -101,6 +101,17 @@ $receeded-text-and-icons-disabled: #c1e1ca;
 /* Surface / Auxiliary */
 $surface-auxiliary-strong: #7f5c1e;
 $surface-auxiliary-subtle: #ffcb66;
+
+/* Surface / Auxiliary / Secondary */
+$surface-auxiliary-secondary-max: #56170f;
+$surface-auxiliary-secondary-strongest: #852418;
+$surface-auxiliary-secondary-stronger: #be5547;
+$surface-auxiliary-secondary-strong: #de5441;
+$surface-auxiliary-secondary-mid: #e47668;
+$surface-auxiliary-secondary-subtle: #ef8d80;
+$surface-auxiliary-secondary-subtler:#f2a297;
+$surface-auxiliary-secondary-subtlest: #f5bcb4;
+$urface-auxiliary-secondary-min: #fbe3e0;
 
 /* Surface / Background / Base */
 $surface-background-base-idle-1:  #ffcb66;

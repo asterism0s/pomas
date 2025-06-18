@@ -44,6 +44,7 @@ body {
 /* Receeded / Background / Highlight */
 /* Receeded / Text and Icons */
 /* Surface / Auxiliary */
+/* Surface / Auxiliary / Secondary */
 /* Surface / Background / Base */
 /* Surface / Background / Highlight */
 /* Surface / Text and Icons */
@@ -1051,7 +1052,7 @@ body {
   width: 0.8rem;
 }
 .project-settings__switch:checked {
-  background-color: #ef8d80;
+  background-color: #80ac8b;
 }
 .project-settings__switch:checked::after {
   transform: translateX(1rem);

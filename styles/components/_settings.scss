@@ -111,7 +111,7 @@
     }
 
     &:checked {
-        background-color: colors.$floating-background-highlight-primary-idle;
+        background-color: colors.$floating-background-highlight-primary-active;
     }
 
     &:checked::after {
