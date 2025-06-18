@@ -28,3 +28,17 @@
     }
 
 }
+
+
+.confirm-button {
+    background-color: colors.$floating-background-highlight-primary-idle;
+    border: solid 1px colors.$floating-auxiliary-primary-subtle;
+    border-radius: 8px;
+    color: colors.$floating-text-and-icons-highlight-primary-idle;
+}
+
+.cancel-button {
+    background-color: colors.$floating-background-highlight-secondary-idle;
+    border-radius: 8px;
+    color: colors.$floating-text-and-icons-highlight-secondary-idle;
+}

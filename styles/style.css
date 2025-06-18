@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  padding: 0;
 }
 
 body {
@@ -52,7 +53,7 @@ body {
 /* icon states */
 /* config buttons stats*/
 /* statuses for class generation*/
-.tab-nav__list-item-button, .play-controls__button, .header-nav__button, .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .play-controls__button--stop, .play-controls__button--stop:hover, .play-controls__button--stop:active, .play-controls__button--stop:disabled, .play-controls__button--skip, .play-controls__button--skip:hover, .play-controls__button--skip:active, .play-controls__button--skip:disabled, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
+.tab-nav__list-item-button, .project-settings__actions, .play-controls__button, .header-nav__button, .tab-nav__list-item-button--start, .tab-nav__list-item-button--stats, .tab-nav__list-item-button:hover, .play-controls__button--stop, .play-controls__button--stop:hover, .play-controls__button--stop:active, .play-controls__button--stop:disabled, .play-controls__button--skip, .play-controls__button--skip:hover, .play-controls__button--skip:active, .play-controls__button--skip:disabled, .header-nav__button--config-icon, .header-nav__button--config-icon:hover, .header-nav__button--config-icon:active, .header-nav__button--config-icon:disabled {
   background: none;
   border: none;
   color: inherit;
@@ -688,6 +689,19 @@ body {
   background-position: center;
 }
 
+.confirm-button {
+  background-color: #c1e1ca;
+  border: solid 1px #87c596;
+  border-radius: 8px;
+  color: #333f37;
+}
+
+.cancel-button {
+  background-color: #dbd2cf;
+  border-radius: 8px;
+  color: #303033;
+}
+
 .timer-card {
   display: flex;
   height: 16.5rem;
@@ -1060,6 +1074,17 @@ body {
 
 .project-settings__section {
   width: 100%;
+}
+
+.project-settings__actions-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.project-settings__actions {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .header-nav {
