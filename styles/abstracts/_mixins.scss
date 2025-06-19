@@ -48,14 +48,13 @@
 }
 
 
-
 /* tab mixins */
 //tab nav states
 @mixin tab-state($state, $active: false) {
 
     @extend %tab-base;
 
-    $config: map-get(variables.$btn-states, $state);
+    $config: map-get(variables.$tab-states, $state);
 
     @if $state == idle or $state == pressed {
         $suffix: if($active, 'true', 'false');

@@ -2,9 +2,8 @@
 @use 'colors';
 
 
-/* button states */
-
-$btn-states: (
+/* tab states */
+$tab-states: (
     idle: (
         bg-false: colors.$surface-background-highlight-idle,
         text-false: colors.$surface-text-and-icons-idle,
@@ -33,7 +32,6 @@ $btn-states: (
 );
 
 /* icon states */
-
 $icon-states: (
     idle: (
         bg-false: colors.$surface-background-highlight-idle,
@@ -64,7 +62,6 @@ $icon-states: (
 
 
 /* config buttons stats*/
-
 $icon-button-svgs: (
     idle: '/assets/icons/config-status-idle.svg',
     hover: '/assets/icons/config-status-hover.svg',
@@ -74,7 +71,6 @@ $icon-button-svgs: (
 
 
 /* statuses for class generation*/
-
 $statuses: (
   active: colors.$receeded-text-and-icons-active,
   inactive: colors.$receeded-text-and-icons-disabled
