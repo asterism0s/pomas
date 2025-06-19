@@ -8,21 +8,36 @@ $action-btn-states-primary: (
     idle: (
         bg: colors.$floating-background-highlight-primary-idle,
         text: colors.$floating-text-and-icons-highlight-primary-idle,
-        border: solid 1px colors.$floating-auxiliary-primary-subtle,
+        border: solid 1px colors.$floating-background-highlight-primary-idle,
     ),
     hover: (
         bg: colors.$floating-background-highlight-primary-hover,
         text: colors.$floating-text-and-icons-highlight-primary-hover,
-        border: solid 1px colors.$floating-auxiliary-primary-subtle,
+        border: solid 1px colors.$floating-background-highlight-primary-hover,
     ),
     pressed: (
         bg: colors.$floating-background-highlight-primary-pressed,
-        text: $floating-text-and-icons-highlight-primary-pressed,
+        text: colors.$floating-background-highlight-primary-pressed,
+        border: solid 1px colors.$floating-auxiliary-primary-subtle,
     ),
 
 );
 
 $action-btn-states-secondary: (
+    idle: (
+        bg: colors.$floating-background-highlight-secondary-idle,
+        text: colors.$floating-text-and-icons-highlight-secondary-idle,
+        
+    ),
+    hover: (
+        bg: colors.$floating-background-highlight-secondary-hover,
+        text: colors.$floating-text-and-icons-highlight-secondary-hover,
+
+    ),
+    pressed: (
+        bg: colors.$floating-background-highlight-secondary-pressed,
+        text: colors.$floating-text-and-icons-highlight-secondary-pressed,
+    ),
 
 );
 
