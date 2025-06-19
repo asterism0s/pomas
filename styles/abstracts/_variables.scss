@@ -2,6 +2,30 @@
 @use 'colors';
 
 
+/* action-btn-states */
+
+$action-btn-states-primary: (
+    idle: (
+        bg: colors.$floating-background-highlight-primary-idle,
+        text: colors.$floating-text-and-icons-highlight-primary-idle,
+        border: solid 1px colors.$floating-auxiliary-primary-subtle,
+    ),
+    hover: (
+        bg: colors.$floating-background-highlight-primary-hover,
+        text: colors.$floating-text-and-icons-highlight-primary-hover,
+        border: solid 1px colors.$floating-auxiliary-primary-subtle,
+    ),
+    pressed: (
+        bg: colors.$floating-background-highlight-primary-pressed,
+        text: $floating-text-and-icons-highlight-primary-pressed,
+    ),
+
+);
+
+$action-btn-states-secondary: (
+
+);
+
 /* tab states */
 $tab-states: (
     idle: (
