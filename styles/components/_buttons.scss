@@ -35,6 +35,13 @@
     border: solid 1px colors.$floating-auxiliary-primary-subtle;
     border-radius: 8px;
     color: colors.$floating-text-and-icons-highlight-primary-idle;
+
+    &:hover {
+        background-color: colors.$floating-background-highlight-primary-hover;
+        border: solid 1px colors.$floating-auxiliary-primary-subtle;
+        border-radius: 8px;
+        color: colors.$floating-text-and-icons-highlight-primary-hover;
+    }
 }
 
 .cancel-button {
@@ -42,3 +49,4 @@
     border-radius: 8px;
     color: colors.$floating-text-and-icons-highlight-secondary-idle;
 }
+

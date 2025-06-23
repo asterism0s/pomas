@@ -17,6 +17,31 @@
     // background-size: 2.5rem 2.5rem;
 }
 
+/* action buttons */
+// action buttons states
+@mixin action-btn-state($state, $active: false) {
+  // agora $config nunca será null
+  $config: map-get(variables.$action-btn-states, $state);
+
+  // estados que usam suffix true/false
+  @if $state == idle or $state == hover or $state == pressed {
+    $suffix:     if($active, 'true', 'false');
+    $bg-key:     unquote('bg-#{$suffix}');
+    $border-key: unquote('border-#{$suffix}');
+    $text-key:   unquote('text-#{$suffix}');
+
+    background-color: map-get($config, $bg-key);
+    border:           map-get($config, $border-key);
+    color:            map-get($config, $text-key);
+
+    @if $state == pressed and $active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+
+
 /* config button */
 // config button states
 @mixin config-state($state, $active: false) {

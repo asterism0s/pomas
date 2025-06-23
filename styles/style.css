@@ -125,6 +125,7 @@ body {
 }
 
 /* button mixins */
+/* action buttons */
 /* config button */
 /* tab mixins */
 .status--active {
@@ -695,6 +696,12 @@ body {
   border: solid 1px #87c596;
   border-radius: 8px;
   color: #333f37;
+}
+.confirm-button:hover {
+  background-color: #d6ebdc;
+  border: solid 1px #87c596;
+  border-radius: 8px;
+  color: #71a27d;
 }
 
 .cancel-button {

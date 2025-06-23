@@ -4,42 +4,35 @@
 
 /* action-btn-states */
 
-$action-btn-states-primary: (
+$action-btn-states: (
     idle: (
-        bg: colors.$floating-background-highlight-primary-idle,
-        text: colors.$floating-text-and-icons-highlight-primary-idle,
-        border: solid 1px colors.$floating-background-highlight-primary-idle,
+        bg-false: colors.$floating-background-highlight-primary-idle,
+        text-false: colors.$floating-text-and-icons-highlight-primary-idle,
+        border-false: solid 1px colors.$floating-background-highlight-primary-idle,
+
+        bg-true: colors.$floating-background-highlight-secondary-idle,
+        text-true: colors.$floating-text-and-icons-highlight-secondary-idle,
     ),
     hover: (
-        bg: colors.$floating-background-highlight-primary-hover,
-        text: colors.$floating-text-and-icons-highlight-primary-hover,
-        border: solid 1px colors.$floating-background-highlight-primary-hover,
+        bg-false: colors.$floating-background-highlight-primary-hover,
+        text-false: colors.$floating-text-and-icons-highlight-primary-hover,
+        border-false: solid 1px colors.$floating-background-highlight-primary-hover,
+
+        bg-true: colors.$floating-background-highlight-secondary-hover,
+        text-true: colors.$floating-text-and-icons-highlight-secondary-hover,
     ),
     pressed: (
-        bg: colors.$floating-background-highlight-primary-pressed,
-        text: colors.$floating-background-highlight-primary-pressed,
-        border: solid 1px colors.$floating-auxiliary-primary-subtle,
+        bg-false: colors.$floating-background-highlight-primary-pressed,
+        text-false: colors.$floating-background-highlight-primary-pressed,
+        border-false: solid 1px colors.$floating-auxiliary-primary-subtle,
+
+        bg-true: colors.$floating-background-highlight-secondary-pressed,
+        text-true: colors.$floating-text-and-icons-highlight-secondary-pressed,
     ),
 
 );
 
-$action-btn-states-secondary: (
-    idle: (
-        bg: colors.$floating-background-highlight-secondary-idle,
-        text: colors.$floating-text-and-icons-highlight-secondary-idle,
-        
-    ),
-    hover: (
-        bg: colors.$floating-background-highlight-secondary-hover,
-        text: colors.$floating-text-and-icons-highlight-secondary-hover,
 
-    ),
-    pressed: (
-        bg: colors.$floating-background-highlight-secondary-pressed,
-        text: colors.$floating-text-and-icons-highlight-secondary-pressed,
-    ),
-
-);
 
 /* tab states */
 $tab-states: (
