@@ -703,11 +703,22 @@ body {
   border-radius: 8px;
   color: #71a27d;
 }
+.confirm-button:active {
+  background-color: #f8fcf9;
+  border: solid 1px #87c596;
+  border-radius: 8px;
+  color: #80ac8b;
+}
 
 .cancel-button {
   background-color: #dbd2cf;
   border-radius: 8px;
   color: #303033;
+}
+.cancel-button:hover {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  color: #444546;
 }
 
 .timer-card {

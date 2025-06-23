@@ -42,11 +42,24 @@
         border-radius: 8px;
         color: colors.$floating-text-and-icons-highlight-primary-hover;
     }
+
+    &:active {
+        background-color: colors.$floating-background-highlight-primary-pressed;
+        border: solid 1px colors.$floating-auxiliary-primary-subtle;
+        border-radius: 8px;
+        color: colors.$floating-text-and-icons-highlight-primary-pressed;
+    }
 }
 
 .cancel-button {
     background-color: colors.$floating-background-highlight-secondary-idle;
     border-radius: 8px;
     color: colors.$floating-text-and-icons-highlight-secondary-idle;
+
+    &:hover {
+        background-color: colors.$floating-background-highlight-secondary-hover;
+        border-radius: 8px;
+        color: colors.$floating-text-and-icons-highlight-secondary-hover;
+    }
 }
 
