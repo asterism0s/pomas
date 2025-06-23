@@ -61,5 +61,11 @@
         border-radius: 8px;
         color: colors.$floating-text-and-icons-highlight-secondary-hover;
     }
+
+    &:active {
+        background-color: colors.$floating-background-highlight-secondary-pressed;
+        border-radius: 8px;
+        color: colors.$floating-text-and-icons-highlight-secondary-pressed;
+    }
 }
 

@@ -720,6 +720,11 @@ body {
   border-radius: 8px;
   color: #444546;
 }
+.cancel-button:active {
+  background-color: #b6aca7;
+  border-radius: 8px;
+  color: #444546;
+}
 
 .timer-card {
   display: flex;
