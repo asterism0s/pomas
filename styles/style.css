@@ -6,6 +6,7 @@
 body {
   height: 100vh;
   width: 100%;
+  margin: auto;
 }
 
 a {
@@ -125,7 +126,6 @@ body {
 }
 
 /* button mixins */
-/* action buttons */
 /* config button */
 /* tab mixins */
 .status--active {
@@ -1160,6 +1160,8 @@ body {
 
 .home__bg {
   background: linear-gradient(to bottom, #ffcb66, #ffc24d);
+  max-width: 32rem;
+  min-width: 24rem;
 }
 
 .app-content {

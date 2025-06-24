@@ -4,6 +4,9 @@
 
 .home__bg {
     background: linear-gradient(to bottom, colors.$surface-background-base-idle-1, colors.$surface-background-base-idle-2);
+    max-width: 32rem;
+    min-width: 24rem;
+
 }
 
 .app-content {
