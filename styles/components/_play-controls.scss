@@ -73,8 +73,11 @@
                 
                 
             }
-
             
+            @include mixins.media-breakpoint-up(md){
+                height: 8.775rem;
+                width: 8.775rem;
+            }
 
         }
 
@@ -98,6 +101,12 @@
                 width: 100%;
                 z-index: -1;            
             }
+
+            @include mixins.media-breakpoint-up(md){
+                height: 8.775rem;
+                width: 8.775rem;
+            }
+
 
         }
 
@@ -148,6 +157,12 @@
                 z-index: -1;            
             }
 
+            @include mixins.media-breakpoint-up(md){
+                height: 8.775rem;
+                width: 8.775rem;
+            }
+
+
         }
 
         &--pressed {
@@ -170,24 +185,48 @@
                 z-index: -1;            
             }
 
+            @include mixins.media-breakpoint-up(md){
+                height: 8.775rem;
+                width: 8.775rem;
+            }
+
+
         }
 
         &-highlight {
             position: absolute;
             top: 0.25rem;
             left: 0.25rem;
+
+            @include mixins.media-breakpoint-up(md) {
+                position: absolute;
+                top: 0.60rem;
+                left: 0.60rem;
+            }
         }
 
         &-highlight-hover {
             position: absolute;
             top: 0.25rem;
             left: 0.25rem;
+
+            @include mixins.media-breakpoint-up(md) {
+                position: absolute;
+                top: 0.60rem;
+                left: 0.60rem;
+            }
         }
 
         &-highlight-pressed {
             position: absolute;
             top: 0.25rem;
             left: 0.25rem;
+
+            @include mixins.media-breakpoint-up(md) {
+                position: absolute;
+                top: 0.60rem;
+                left: 0.60rem;
+            }
         }
 
         &-play-icon {
@@ -200,6 +239,12 @@
                 filter: blur(1rem)
             }
 
+            @include mixins.media-breakpoint-up(md){
+                height: 3rem;
+                width: 2.3rem;
+            }
+
+
         }
 
         &-pause-icon {
@@ -209,6 +254,11 @@
             &.pressed {
                 -webkit-filter: blur(1rem);
                 filter: blur(1rem)
+            }
+
+            @include mixins.media-breakpoint-up(md){
+                height: 3rem;
+                width: 2.3rem;
             }
         }
     
