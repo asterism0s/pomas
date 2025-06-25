@@ -1,4 +1,5 @@
 
+@use '../abstracts/breakpoints';
 @use '../abstracts/mixins';
 @use '../abstracts/spacing';
 @use '../abstracts/colors';
@@ -73,10 +74,7 @@
                 
             }
 
-            @include media-breakpoint-up(md) {
-                font-size: 1.25rem;
-                padding: 2rem;
-            }
+            
 
         }
 
