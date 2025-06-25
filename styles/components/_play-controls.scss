@@ -20,10 +20,10 @@
     &__button {
         @extend %btn-reset;
 
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        position: relative;
+        // align-items: center;
+        // display: flex;
+        // justify-content: center;
+        // position: relative;
 
         &--stop {
 
@@ -54,7 +54,7 @@
 
         &--play {
     
-        @extend %play-base;
+        @extend %play-btn-base;
 
         background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-idle-1, colors.$elevated-background-base-idle-2 71%);
         border: solid 0.05rem colors.$elevated-auxiliary-strong;
@@ -73,11 +73,16 @@
                 
             }
 
+            @include media-breakpoint-up(md) {
+                font-size: 1.25rem;
+                padding: 2rem;
+            }
+
         }
 
         &--pause {
 
-            @extend %play-base;
+            @extend %play-btn-base;
 
             background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-active-1, colors.$elevated-background-base-active-2 71%);
             border: solid 0.05rem colors.$elevated-auxiliary-subtle;
@@ -127,7 +132,7 @@
 
         &--hover {
 
-            @extend %play-base;
+            @extend %play-btn-base;
 
             background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-hover-1, colors.$elevated-background-base-hover-2 71%);
             border: solid 0.05rem colors.$elevated-auxiliary-strong;
@@ -149,7 +154,7 @@
 
         &--pressed {
 
-        @extend %play-base;
+        @extend %play-btn-base;
 
         background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-pressed-1, colors.$elevated-background-base-pressed-2 71%);
         border: solid 0.05rem colors.$elevated-auxiliary-strong;

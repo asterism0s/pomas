@@ -850,12 +850,6 @@ body {
   justify-content: center;
   gap: 2rem;
 }
-.play-controls__button {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
 .play-controls__button--stop {
   background-color: rgba(240, 175, 47, 0);
   color: #b28d45;

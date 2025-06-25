@@ -15,7 +15,7 @@
     appearance: none;
 }
 
-%play-base {
+%play-btn-base {
     align-items: center;
     border-radius: 50%;
     display: inline-flex;
@@ -26,6 +26,9 @@
     // height: calc(4rem + 5vw);
     // width:  calc(4rem + 5vw);
 }
+
+
+
 
 %icon-base{
     @extend %btn-reset;
