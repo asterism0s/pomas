@@ -1,6 +1,7 @@
 @use '../abstracts/colors';
 @use '../base/fonts';
 @use '../abstracts/placeholders';
+@use '../abstracts/mixins'; 
 
 
 .project-settings {
@@ -9,9 +10,16 @@
     border-radius: 1rem 1rem 0 0;
     bottom: 0;
     display: flex;
-    justify-content: center;
     position: fixed;
     width: 100%;
+    max-width: none;
+
+    @include mixins.media-breakpoint-up(md){
+        left: 0;
+        right: 0;
+        width: 100vw;
+        justify-content: flex-start;
+    }
 
     &__container {
 

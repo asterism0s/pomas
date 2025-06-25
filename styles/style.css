@@ -1055,9 +1055,17 @@ body {
   border-radius: 1rem 1rem 0 0;
   bottom: 0;
   display: flex;
-  justify-content: center;
   position: fixed;
   width: 100%;
+  max-width: none;
+}
+@media (min-width: 768px) {
+  .project-settings {
+    left: 0;
+    right: 0;
+    width: 100vw;
+    justify-content: flex-start;
+  }
 }
 .project-settings__container {
   display: flex;
