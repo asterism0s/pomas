@@ -15,10 +15,14 @@
     max-width: none;
 
     @include mixins.media-breakpoint-up(md){
-        left: 0;
-        right: 0;
-        width: 100vw;
-        justify-content: flex-start;
+        border-radius: 1rem 1rem 1rem 1rem;
+        bottom: auto; 
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%; 
+        max-width: 40rem;
+        
     }
 
     &__container {
