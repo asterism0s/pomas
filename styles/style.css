@@ -1173,6 +1173,10 @@ body {
   line-height: 1.5rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .header-nav {
   display: flex;
   justify-content: center;
