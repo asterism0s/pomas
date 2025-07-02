@@ -21,11 +21,6 @@
     &__button {
         @extend %btn-reset;
 
-        // align-items: center;
-        // display: flex;
-        // justify-content: center;
-        // position: relative;
-
         &--stop {
 
             @include mixins.config-state(idle, false);
@@ -59,6 +54,8 @@
 
         background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-idle-1, colors.$elevated-background-base-idle-2 71%);
         border: solid 0.05rem colors.$elevated-auxiliary-strong;
+
+        
         
             &:after {
                 background-color: colors.$surface-auxiliary-strong;
@@ -78,6 +75,21 @@
                 height: 8.775rem;
                 width: 8.775rem;
             }
+
+            &-pause-icon {
+            height: 2rem;
+            width: 1.5rem;
+
+            &.pressed {
+                -webkit-filter: blur(1rem);
+                filter: blur(1rem)
+            }
+
+            @include mixins.media-breakpoint-up(md){
+                height: 3rem;
+                width: 2.3rem;
+            }
+        }
 
         }
 
@@ -106,6 +118,24 @@
                 height: 8.775rem;
                 width: 8.775rem;
             }
+
+            &-play-icon {
+            padding-left: 0.325rem;
+            height: 2rem;
+            width: 1.5rem;
+
+            &.pressed {
+                -webkit-filter: blur(1rem);
+                filter: blur(1rem)
+            }
+
+            @include mixins.media-breakpoint-up(md){
+                height: 3rem;
+                width: 2.3rem;
+            }
+
+
+        }
 
 
         }
@@ -229,38 +259,38 @@
             }
         }
 
-        &-play-icon {
-            padding-left: 0.325rem;
-            height: 2rem;
-            width: 1.5rem;
+        // &-play-icon {
+        //     padding-left: 0.325rem;
+        //     height: 2rem;
+        //     width: 1.5rem;
 
-            &.pressed {
-                -webkit-filter: blur(1rem);
-                filter: blur(1rem)
-            }
+        //     &.pressed {
+        //         -webkit-filter: blur(1rem);
+        //         filter: blur(1rem)
+        //     }
 
-            @include mixins.media-breakpoint-up(md){
-                height: 3rem;
-                width: 2.3rem;
-            }
+        //     @include mixins.media-breakpoint-up(md){
+        //         height: 3rem;
+        //         width: 2.3rem;
+        //     }
 
 
-        }
+        // }
 
-        &-pause-icon {
-            height: 2rem;
-            width: 1.5rem;
+        // &-pause-icon {
+        //     height: 2rem;
+        //     width: 1.5rem;
 
-            &.pressed {
-                -webkit-filter: blur(1rem);
-                filter: blur(1rem)
-            }
+        //     &.pressed {
+        //         -webkit-filter: blur(1rem);
+        //         filter: blur(1rem)
+        //     }
 
-            @include mixins.media-breakpoint-up(md){
-                height: 3rem;
-                width: 2.3rem;
-            }
-        }
+        //     @include mixins.media-breakpoint-up(md){
+        //         height: 3rem;
+        //         width: 2.3rem;
+        //     }
+        // }
     
     }
 }
