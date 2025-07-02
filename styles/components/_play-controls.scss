@@ -70,26 +70,45 @@
                 
                 
             }
-            
+        
+            &-pause-icon {
+            height: 2rem;
+            width: 1.5rem;
+            display: none;
+
+                &.pressed {
+                    -webkit-filter: blur(1rem);
+                    filter: blur(1rem)
+                }
+
+                @include mixins.media-breakpoint-up(md){
+                    height: 3rem;
+                    width: 2.3rem;
+                    
+                }
+            }
+
+            &-play-icon {
+            padding-left: 0.325rem;
+            height: 2rem;
+            width: 1.5rem;
+            display: block;
+
+                &.pressed {
+                    -webkit-filter: blur(1rem);
+                    filter: blur(1rem)
+                }
+
+                @include mixins.media-breakpoint-up(md){
+                    height: 3rem;
+                    width: 2.3rem;
+                }
+            }
+
             @include mixins.media-breakpoint-up(md){
                 height: 8.775rem;
                 width: 8.775rem;
             }
-
-            &-pause-icon {
-            height: 2rem;
-            width: 1.5rem;
-
-            &.pressed {
-                -webkit-filter: blur(1rem);
-                filter: blur(1rem)
-            }
-
-            @include mixins.media-breakpoint-up(md){
-                height: 3rem;
-                width: 2.3rem;
-            }
-        }
 
         }
 
@@ -114,28 +133,43 @@
                 z-index: -1;            
             }
 
-            @include mixins.media-breakpoint-up(md){
-                height: 8.775rem;
-                width: 8.775rem;
-            }
-
             &-play-icon {
             padding-left: 0.325rem;
             height: 2rem;
             width: 1.5rem;
+            display: none;
 
-            &.pressed {
-                -webkit-filter: blur(1rem);
-                filter: blur(1rem)
+                &.pressed {
+                    -webkit-filter: blur(1rem);
+                    filter: blur(1rem)
+                }
+
+                @include mixins.media-breakpoint-up(md){
+                    height: 3rem;
+                    width: 2.3rem;
+                }
+            }
+
+            &-pause-icon {
+            height: 2rem;
+            width: 1.5rem;
+            display: block;
+
+                &.pressed {
+                    -webkit-filter: blur(1rem);
+                    filter: blur(1rem)
+                }
+
+                @include mixins.media-breakpoint-up(md){
+                    height: 3rem;
+                    width: 2.3rem;
+                }
             }
 
             @include mixins.media-breakpoint-up(md){
-                height: 3rem;
-                width: 2.3rem;
+                height: 8.775rem;
+                width: 8.775rem;
             }
-
-
-        }
 
 
         }
