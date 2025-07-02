@@ -71,7 +71,7 @@
                 
             }
         
-            &-pause-icon {
+            .play-controls__button-pause-icon {
             height: 2rem;
             width: 1.5rem;
             display: none;
@@ -88,7 +88,7 @@
                 }
             }
 
-            &-play-icon {
+            .play-controls__button-play-icon {
             padding-left: 0.325rem;
             height: 2rem;
             width: 1.5rem;
@@ -133,7 +133,7 @@
                 z-index: -1;            
             }
 
-            &-play-icon {
+            .play-controls__button-play-icon {
             padding-left: 0.325rem;
             height: 2rem;
             width: 1.5rem;
@@ -150,7 +150,7 @@
                 }
             }
 
-            &-pause-icon {
+            .play-controls__button-pause-icon {
             height: 2rem;
             width: 1.5rem;
             display: block;

@@ -1,4 +1,4 @@
-const playBtn = document.querySelector('.play-controls__button--play');
+const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
 const skipBtn = document.querySelector('.play-controls__button--skip')
 
@@ -17,32 +17,47 @@ function updateTimerDisplay(seconds) {
     const secs = seconds % 60;
 
     minutesDisplay.textContent = String(mins).padStart(2, '0');
-    minutesDisplay.textContent = String(secs).padStart(2, '0');
+    secondsDisplay.textContent = String(secs).padStart(2, '0');
 }
 
 function startTimer(){
+    updateTimerDisplay(remainingTime);
     timerInterval = setInterval(() => {
         if (remainingTime > 0) {
             remainingTime--;
+            updateTimerDisplay(remainingTime);
         } else {
             clearInterval(timerInterval);
         }
-    }, 1000)
+    }, 1000); 
 }
 
 function pauseTimer() {
     clearInterval(timerInterval);
 }
 
-// playBtn.addEventListener('click', () => {
-//     const isPaused = playBtn.getAttribute('aria-pressed') === 'true';
+playBtn.addEventListener('click', () => {
+    const isPlayState = playBtn.classList.contains('play-controls__button--play');
 
-//     if(!isRunning || isPaused) {
-//         isRunning = true;
+    if (isPlayState) {
+        playBtn.classList.replace('play-controls__button--play', 'play-controls__button--pause');
+        
+        playBtn.setAttribute('aria-pressed', 'true');
 
-//         playBtn.classList.remove('paused')
-//     }
-// })
+        startTimer();
 
+        stopBtn.style.display = 'none';
+        skipBtn.style.display = 'none';
 
-console.log(secondsDisplay);
+    } else {
+        
+        playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+        
+        playBtn.setAttribute('aria-pressed', false);
+        pauseTimer();
+        
+        stopBtn.style.display = 'inline-block';
+        skipBtn.style.display = 'inline-block';
+    }
+});
+

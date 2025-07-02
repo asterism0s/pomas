@@ -889,31 +889,31 @@ body {
   width: 100%;
   z-index: -1;
 }
-.play-controls__button--play-pause-icon {
+.play-controls__button--play .play-controls__button-pause-icon {
   height: 2rem;
   width: 1.5rem;
   display: none;
 }
-.play-controls__button--play-pause-icon.pressed {
+.play-controls__button--play .play-controls__button-pause-icon.pressed {
   filter: blur(1rem);
 }
 @media (min-width: 768px) {
-  .play-controls__button--play-pause-icon {
+  .play-controls__button--play .play-controls__button-pause-icon {
     height: 3rem;
     width: 2.3rem;
   }
 }
-.play-controls__button--play-play-icon {
+.play-controls__button--play .play-controls__button-play-icon {
   padding-left: 0.325rem;
   height: 2rem;
   width: 1.5rem;
   display: block;
 }
-.play-controls__button--play-play-icon.pressed {
+.play-controls__button--play .play-controls__button-play-icon.pressed {
   filter: blur(1rem);
 }
 @media (min-width: 768px) {
-  .play-controls__button--play-play-icon {
+  .play-controls__button--play .play-controls__button-play-icon {
     height: 3rem;
     width: 2.3rem;
   }
@@ -941,31 +941,31 @@ body {
   width: 100%;
   z-index: -1;
 }
-.play-controls__button--pause-play-icon {
+.play-controls__button--pause .play-controls__button-play-icon {
   padding-left: 0.325rem;
   height: 2rem;
   width: 1.5rem;
   display: none;
 }
-.play-controls__button--pause-play-icon.pressed {
+.play-controls__button--pause .play-controls__button-play-icon.pressed {
   filter: blur(1rem);
 }
 @media (min-width: 768px) {
-  .play-controls__button--pause-play-icon {
+  .play-controls__button--pause .play-controls__button-play-icon {
     height: 3rem;
     width: 2.3rem;
   }
 }
-.play-controls__button--pause-pause-icon {
+.play-controls__button--pause .play-controls__button-pause-icon {
   height: 2rem;
   width: 1.5rem;
   display: block;
 }
-.play-controls__button--pause-pause-icon.pressed {
+.play-controls__button--pause .play-controls__button-pause-icon.pressed {
   filter: blur(1rem);
 }
 @media (min-width: 768px) {
-  .play-controls__button--pause-pause-icon {
+  .play-controls__button--pause .play-controls__button-pause-icon {
     height: 3rem;
     width: 2.3rem;
   }
