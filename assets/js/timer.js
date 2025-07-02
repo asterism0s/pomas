@@ -25,7 +25,7 @@ function startTimer(){
     timerInterval = setInterval(() => {
         if (remainingTime > 0) {
             remainingTime--;
-            updateTimerDisplay(remainingTime);
+            updateTimerDisplay(remainingTime)
         } else {
             clearInterval(timerInterval);
         }
@@ -56,8 +56,8 @@ playBtn.addEventListener('click', () => {
         playBtn.setAttribute('aria-pressed', false);
         pauseTimer();
         
-        stopBtn.style.display = 'inline-block';
-        skipBtn.style.display = 'inline-block';
+        stopBtn.style.display = 'inline-flex';
+        skipBtn.style.display = 'inline-flex';
     }
 });
 
