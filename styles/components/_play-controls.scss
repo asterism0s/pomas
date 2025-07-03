@@ -269,6 +269,18 @@
             }
         }
 
+        &-highlight-pause {
+            position: absolute;
+            top: 0.25rem;
+            left: 0.25rem;
+
+            @include mixins.media-breakpoint-up(md) {
+                position: absolute;
+                top: 0.60rem;
+                left: 0.60rem;
+            }
+        }
+
         &-highlight-hover {
             position: absolute;
             top: 0.25rem;
