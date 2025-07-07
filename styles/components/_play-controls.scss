@@ -55,8 +55,6 @@
         background-image: radial-gradient(circle at 50% 50%, colors.$elevated-background-base-idle-1, colors.$elevated-background-base-idle-2 71%);
         border: solid 0.05rem colors.$elevated-auxiliary-strong;
 
-        
-        
             &:after {
                 background-color: colors.$surface-auxiliary-strong;
                 border-radius: 50%;
@@ -66,8 +64,7 @@
                 position: absolute;
                 top: 0.25rem;
                 width: 100%;
-                z-index: -1;
-                
+                z-index: -1;      
                 
             }
         
@@ -104,6 +101,33 @@
                     width: 2.3rem;
                 }
             }
+
+            .play-controls__button-highlight {
+                display: block;
+                left: 0.25rem;
+                position: absolute;
+                top: 0.25rem;
+
+                @include mixins.media-breakpoint-up(md) {
+                    left: 0.60rem;
+                    position: absolute;
+                    top: 0.60rem;
+                }
+            }
+
+            .play-controls__button-highlight-pause {
+                display: none;
+                left: 0.25rem;
+                position: absolute;
+                top: 0.25rem;
+
+                @include mixins.media-breakpoint-up(md) {
+                    left: 0.60rem;
+                    position: absolute;
+                    top: 0.60rem;
+                }
+            }
+
 
             @include mixins.media-breakpoint-up(md){
                 height: 8.775rem;
@@ -165,6 +189,35 @@
                     width: 2.3rem;
                 }
             }
+
+
+            .play-controls__button-highlight {
+
+                display: none;
+                left: 0.25rem;
+                position: absolute;
+                top: 0.25rem;
+
+                @include mixins.media-breakpoint-up(md) {
+                    left: 0.60rem;
+                    position: absolute;
+                    top: 0.60rem;
+                }
+            }
+
+            .play-controls__button-highlight-pause {
+                display: block;
+                left: 0.25rem;
+                position: absolute;
+                top: 0.25rem;
+
+                @include mixins.media-breakpoint-up(md) {
+                    position: absolute;
+                    top: 0.60rem;
+                    left: 0.60rem;
+                }
+            }
+
 
             @include mixins.media-breakpoint-up(md){
                 height: 8.775rem;
@@ -257,29 +310,29 @@
 
         }
 
-        &-highlight {
-            position: absolute;
-            top: 0.25rem;
-            left: 0.25rem;
+        // &-highlight {
+        //     position: absolute;
+        //     top: 0.25rem;
+        //     left: 0.25rem;
 
-            @include mixins.media-breakpoint-up(md) {
-                position: absolute;
-                top: 0.60rem;
-                left: 0.60rem;
-            }
-        }
+        //     @include mixins.media-breakpoint-up(md) {
+        //         position: absolute;
+        //         top: 0.60rem;
+        //         left: 0.60rem;
+        //     }
+        // }
 
-        &-highlight-pause {
-            position: absolute;
-            top: 0.25rem;
-            left: 0.25rem;
+        // &-highlight-pause {
+        //     position: absolute;
+        //     top: 0.25rem;
+        //     left: 0.25rem;
 
-            @include mixins.media-breakpoint-up(md) {
-                position: absolute;
-                top: 0.60rem;
-                left: 0.60rem;
-            }
-        }
+        //     @include mixins.media-breakpoint-up(md) {
+        //         position: absolute;
+        //         top: 0.60rem;
+        //         left: 0.60rem;
+        //     }
+        // }
 
         &-highlight-hover {
             position: absolute;

@@ -2,6 +2,11 @@ const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
 const skipBtn = document.querySelector('.play-controls__button--skip')
 
+
+console.log(playBtn);
+
+
+
 const minutesDisplay = document.querySelector('.timer-card__minutes--number');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
 
@@ -39,6 +44,8 @@ function pauseTimer() {
 playBtn.addEventListener('click', () => {
     const isPlayState = playBtn.classList.contains('play-controls__button--play');
 
+
+
     if (isPlayState) {
         playBtn.classList.replace('play-controls__button--play', 'play-controls__button--pause');
         
@@ -59,5 +66,7 @@ playBtn.addEventListener('click', () => {
         stopBtn.style.display = 'inline-flex';
         skipBtn.style.display = 'inline-flex';
     }
+
+
 });
 
