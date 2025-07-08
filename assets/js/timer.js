@@ -3,10 +3,6 @@ const stopBtn = document.querySelector('.play-controls__button--stop');
 const skipBtn = document.querySelector('.play-controls__button--skip')
 
 
-console.log(playBtn);
-
-
-
 const minutesDisplay = document.querySelector('.timer-card__minutes--number');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
 
