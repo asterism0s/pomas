@@ -10,19 +10,18 @@ const timerMinutes = document.querySelector('.timer-card__minutes--number');
 const timerSeconds = document.querySelector('.timer-card__seconds--number');
 
 
-
-//adicionar um eventlistener para capturar o valor quando ele mudar
-
-pomoTime.addEventListener('change', () => {
-    const selectedValue = pomoTime.value;
-    console.log(selectedValue);
+function updateTimer(selectBox){
+    const selectedValue = selectBox.value;
 
     timerMinutes.textContent = selectedValue;
     timerSeconds.textContent = '00';
-})
+
+}
 
 
-
+pomoTime.addEventListener('change', () => { updateTimer(pomoTime) });
+shortBreak.addEventListener('change', () => { updateTimer(shortBreak) });
+longBreak.addEventListener('change', () => { updateTimer(longBreak) });
 
 
 
