@@ -1,17 +1,27 @@
 const modal = document.getElementById('settings-modal');
 const btn = document.getElementById('settings-btn');
 
-//Capturar o elemento <select>
-const selectBox = document.querySelector('#pomodoro-time');
+const pomoTime = document.querySelector('#pomodoro-time');
+const shortBreak = document.querySelector('#short-break');
+const longBreak = document.querySelector('#long-break');
+const longInterval = document.querySelector('#long-break-interval');
+
+const timerMinutes = document.querySelector('.timer-card__minutes--number');
+const timerSeconds = document.querySelector('.timer-card__seconds--number');
 
 
 
 //adicionar um eventlistener para capturar o valor quando ele mudar
 
-selectBox.addEventListener('change', () => {
-    const selectedValue = selectBox.value;
+pomoTime.addEventListener('change', () => {
+    const selectedValue = pomoTime.value;
     console.log(selectedValue);
-} )
+
+    timerMinutes.textContent = selectedValue;
+    timerSeconds.textContent = '00';
+})
+
+
 
 
 
