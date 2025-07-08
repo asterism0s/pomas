@@ -9,6 +9,9 @@ const longInterval = document.querySelector('#long-break-interval');
 const timerMinutes = document.querySelector('.timer-card__minutes--number');
 const timerSeconds = document.querySelector('.timer-card__seconds--number');
 
+const cancelBtn = document.querySelector('.cancel-button');
+
+console.log(cancelBtn)
 
 function updateTimer(selectBox){
     const selectedValue = selectBox.value;
@@ -20,8 +23,8 @@ function updateTimer(selectBox){
 
 
 pomoTime.addEventListener('change', () => { updateTimer(pomoTime) });
-shortBreak.addEventListener('change', () => { updateTimer(shortBreak) });
-longBreak.addEventListener('change', () => { updateTimer(longBreak) });
+// shortBreak.addEventListener('change', () => { updateTimer(shortBreak) });
+// longBreak.addEventListener('change', () => { updateTimer(longBreak) });
 
 
 
@@ -31,6 +34,11 @@ btn.addEventListener('click', () => {
         'aria-expanded',
         modal.classList.contains('hidden') ? 'false' : 'true'
     );
+});
+
+cancelBtn.addEventListener('click', () => {
+    timerMinutes.textContent = '25';
+    timerSeconds.textContent = '00';
 });
 
 // Capturar os elementos do modal e da página principal
