@@ -41,6 +41,11 @@ cancelBtn.addEventListener('click', () => {
         modal.classList.contains('hidden') ? 'false' : 'true'
     );
 
+    pomoTime.value ='25'; 
+    shortBreak.value ='5';
+    longBreak.value = '20';
+    longInterval.value = '2';
+
     timerMinutes.textContent = '25';
     timerSeconds.textContent = '00';
 });
