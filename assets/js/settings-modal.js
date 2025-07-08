@@ -11,8 +11,6 @@ const timerSeconds = document.querySelector('.timer-card__seconds--number');
 
 const cancelBtn = document.querySelector('.cancel-button');
 
-console.log(cancelBtn)
-
 function updateTimer(selectBox){
     const selectedValue = selectBox.value;
 
@@ -37,6 +35,12 @@ btn.addEventListener('click', () => {
 });
 
 cancelBtn.addEventListener('click', () => {
+    modal.classList.toggle('hidden');
+    cancelBtn.setAttribute (
+        'aria-expanded',
+        modal.classList.contains('hidden') ? 'false' : 'true'
+    );
+
     timerMinutes.textContent = '25';
     timerSeconds.textContent = '00';
 });
