@@ -1,17 +1,31 @@
 @font-face {
-    font-family: 'SevenSegment';
+    font-family: 'DSEG7Classic';
 
-    src: url('../assets/fonts/SevenSegmentRegular.woff2') format('woff2'),
-    url('../assets/fonts/SevenSegmentRegular.woff') format('woff'),
-    url('../assets/fonts/sevensegment.ttf') format('ttf');
+    src: url('../assets/fonts/DSEG7Classic-Regular.woff2') format('woff2'),
+    url('../assets/fonts/DSEG7Classic-Regular.woff') format('woff'),
+    url('../assets/fonts/DSEG7Classic-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
+
+@font-face {
+    font-family: 'DSEG7ClassicMini';
+
+    src: url('../assets/fonts/DSEG7ClassicMini-Regular.woff2') format('woff2'),
+    url('../assets/fonts/DSEG7ClassicMini-Regular.woff') format('woff'),
+    url('../assets/fonts/DSEG7ClassicMini-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 /* Fonts */
 $font-primary: "Karla", sans-serif;
-$font-display: "SevenSegment", monospace;
+$font-display-primary: "DSEG7Classic", monospace;
+$font-display-secondary: "DSEG7ClassicMini", monospace;
 
 $font-size-min: 0.25rem;
 $font-size-quark: 0.5rem;

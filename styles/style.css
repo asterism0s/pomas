@@ -14,8 +14,15 @@ a {
 }
 
 @font-face {
-  font-family: "SevenSegment";
-  src: url("../assets/fonts/SevenSegmentRegular.woff2") format("woff2"), url("../assets/fonts/SevenSegmentRegular.woff") format("woff"), url("../assets/fonts/sevensegment.ttf") format("ttf");
+  font-family: "DSEG7Classic";
+  src: url("../assets/fonts/DSEG7Classic-Regular.woff2") format("woff2"), url("../assets/fonts/DSEG7Classic-Regular.woff") format("woff"), url("../assets/fonts/DSEG7Classic-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DSEG7ClassicMini";
+  src: url("../assets/fonts/DSEG7ClassicMini-Regular.woff2") format("woff2"), url("../assets/fonts/DSEG7ClassicMini-Regular.woff") format("woff"), url("../assets/fonts/DSEG7ClassicMini-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -113,9 +120,9 @@ body {
 
 .timer-card__minutes--number, .timer-card__seconds--number, .timer-card__separator--number, .timer-card__counter-number {
   color: #4f6657;
-  font-family: "SevenSegment", monospace;
-  font-size: 6rem;
-  letter-spacing: -3.39px;
+  font-family: "DSEG7Classic", monospace;
+  font-size: 4.5rem;
+  letter-spacing: -0.5rem;
 }
 
 .timer-card__minutes--number:before, .timer-card__seconds--number:before, .timer-card__separator--number:before, .timer-card__counter-number:before {
@@ -735,7 +742,7 @@ body {
 .timer-card__container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .timer-card__box {
   background: linear-gradient(to bottom, #d6ebdc, #d6ebdc);
@@ -786,6 +793,11 @@ body {
   flex-direction: row;
 }
 
+.timer-card__minutes, .timer-card__seconds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .timer-card__minutes--text, .timer-card__seconds--text {
   align-items: center;
   color: #4f6657;
@@ -812,7 +824,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 1.5rem;
 }
 .timer-card__counter-bar {
@@ -820,17 +832,27 @@ body {
   flex-direction: row;
   gap: 0.2rem;
 }
+.timer-card__counter-counter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
 .timer-card__counter-text {
   color: #4f6657;
 }
 .timer-card__counter-number {
-  font-size: 3rem;
+  font-family: "DSEG7ClassicMini", monospace;
+  font-size: 2rem;
+  letter-spacing: -0.25rem;
   position: relative;
   z-index: 0;
 }
 .timer-card__counter-number:before {
   position: absolute;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .bar {

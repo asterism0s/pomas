@@ -71,9 +71,10 @@
 
 %timer-numbers {
     color: colors.$receeded-text-and-icons-active;
-    font-family: fonts.$font-display;
-    font-size: 6rem;
-    letter-spacing: -3.39px;
+    font-family: fonts.$font-display-primary;
+    font-size: 4.5rem;
+
+    letter-spacing: -0.5rem;
 }
 
 %timer-backlight {
