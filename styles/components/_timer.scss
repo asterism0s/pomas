@@ -131,10 +131,16 @@
 
 
 .timer-card__separator {
-    position: relative;
 
-    &--number {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 0 0.5rem;
+
+
+    &--colon {
         @extend %timer-numbers;
+
 
         position: relative;
         z-index: 0;
@@ -142,9 +148,8 @@
         // colocar a cor transparente para fazer sumir
 
         &:before {
-            
+            position: absolute;
             @extend %timer-backlight;
-
             content: ":";
         }
 
