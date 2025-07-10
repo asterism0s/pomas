@@ -3,8 +3,10 @@ const stopBtn = document.querySelector('.play-controls__button--stop');
 const skipBtn = document.querySelector('.play-controls__button--skip')
 
 
+
 const minutesDisplay = document.querySelector('.timer-card__minutes--number');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
+
 
 let isRunning = false;
 let timerInterval;
@@ -19,7 +21,7 @@ function updateTimerDisplay(seconds) {
 
     minutesDisplay.textContent = String(mins).padStart(2, '0');
     secondsDisplay.textContent = String(secs).padStart(2, '0');
-}
+};
 
 function startTimer(){
     updateTimerDisplay(remainingTime);
@@ -31,15 +33,22 @@ function startTimer(){
             clearInterval(timerInterval);
         }
     }, 1000); 
-}
+};
 
 function pauseTimer() {
     clearInterval(timerInterval);
 }
 
+const displayColon = () => {
+    const colon = document.querySelector('.timer-card__separator--colon');
+
+    colon.classList.toggle('hidden');
+};
+
+
+
 playBtn.addEventListener('click', () => {
     const isPlayState = playBtn.classList.contains('play-controls__button--play');
-
 
 
     if (isPlayState) {
@@ -48,6 +57,8 @@ playBtn.addEventListener('click', () => {
         playBtn.setAttribute('aria-pressed', 'true');
 
         startTimer();
+        setInterval(displayColon, 1000);
+
 
         stopBtn.style.display = 'none';
         skipBtn.style.display = 'none';
