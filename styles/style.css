@@ -824,8 +824,13 @@ body {
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
   gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .timer-card__counter {
+    justify-content: right;
+  }
 }
 .timer-card__counter-bar {
   display: flex;
@@ -833,12 +838,12 @@ body {
   gap: 0.2rem;
 }
 .timer-card__counter-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 0.5rem;
-  width: 100%;
+  justify-content: center;
+  width: auto;
 }
 .timer-card__counter-text {
   color: #4f6657;

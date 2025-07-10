@@ -1,6 +1,7 @@
 @use '../abstracts/colors';
 @use '../abstracts/placeholders';
 @use '../base/fonts';
+@use '../abstracts/mixins';
 
 .timer-card  {
     display: flex;
@@ -156,8 +157,12 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 1.5rem;
+
+    @include mixins.media-breakpoint-up(md) {
+        justify-content: right;
+    }
  
 
     &-bar {
@@ -167,12 +172,12 @@
     }
     
     &-container {
+        align-items: center;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         gap: 0.5rem;
-        width: 100%;
+        justify-content: center;
+        width: auto;
     }
 
     &-text {
