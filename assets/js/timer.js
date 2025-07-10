@@ -9,7 +9,9 @@ const secondsDisplay = document.querySelector('.timer-card__seconds--number');
 
 
 let isRunning = false;
+let colonVisible = true;
 let timerInterval;
+let colonInterval;
 let remainingTime = 25 * 60;
 
 stopBtn.style.display = 'none';
@@ -37,19 +39,27 @@ function startTimer(){
 
 function pauseTimer() {
     clearInterval(timerInterval);
-}
-
-const displayColon = () => {
-    const colon = document.querySelector('.timer-card__separator--colon');
-
-    colon.classList.toggle('hidden');
 };
 
 
+function displayColon() {
+    const colon = document.querySelector('.timer-card__separator--colon');
+
+
+
+    if (colonVisible) {
+        colon.style.visibility = 'hidden';
+        colonVisible = false; 
+    } else {
+        colon.style.visibility = 'visible';
+        colonVisible = true; 
+    }
+
+};
 
 playBtn.addEventListener('click', () => {
     const isPlayState = playBtn.classList.contains('play-controls__button--play');
-
+    
 
     if (isPlayState) {
         playBtn.classList.replace('play-controls__button--play', 'play-controls__button--pause');
@@ -57,8 +67,8 @@ playBtn.addEventListener('click', () => {
         playBtn.setAttribute('aria-pressed', 'true');
 
         startTimer();
-        setInterval(displayColon, 1000);
-
+        
+        colonInterval = setInterval(displayColon, 1000);
 
         stopBtn.style.display = 'none';
         skipBtn.style.display = 'none';
@@ -69,11 +79,12 @@ playBtn.addEventListener('click', () => {
         
         playBtn.setAttribute('aria-pressed', false);
         pauseTimer();
-        
+
+        clearInterval(colonInterval);
+
         stopBtn.style.display = 'inline-flex';
         skipBtn.style.display = 'inline-flex';
     }
-
 
 });
 
