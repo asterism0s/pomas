@@ -1,10 +1,9 @@
 const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
-const skipBtn = document.querySelector('.play-controls__button--skip')
-
-
+const skipBtn = document.querySelector('.play-controls__button--skip');
 
 const minutesDisplay = document.querySelector('.timer-card__minutes--number');
+const colon = document.querySelector('.timer-card__separator--colon');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
 
 
@@ -43,8 +42,6 @@ function pauseTimer() {
 
 
 function displayColon() {
-    const colon = document.querySelector('.timer-card__separator--colon');
-
 
 
     if (colonVisible) {
@@ -82,6 +79,7 @@ playBtn.addEventListener('click', () => {
 
         clearInterval(colonInterval);
 
+        colon.style.visibility = 'visible';
         stopBtn.style.display = 'inline-flex';
         skipBtn.style.display = 'inline-flex';
     }
