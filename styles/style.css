@@ -118,14 +118,14 @@ body {
   width: 2rem;
 }
 
-.timer-card__minutes--number, .timer-card__seconds--number, .timer-card__separator--colon, .timer-card__counter-number {
+.timer-card__minutes--number, .timer-card__seconds--number, .timer-card__separator--colon, .timer-card__separator--colon-secondary, .timer-card__counter-number {
   color: #4f6657;
   font-family: "DSEG7Classic", monospace;
   font-size: 4.5rem;
   letter-spacing: -0.5rem;
 }
 
-.timer-card__minutes--number:before, .timer-card__seconds--number:before, .timer-card__separator--colon:before, .timer-card__counter-number:before {
+.timer-card__minutes--number:before, .timer-card__seconds--number:before, .timer-card__counter-number:before {
   content: "88";
   position: absolute;
   color: #c1e1ca;
@@ -816,12 +816,13 @@ body {
   padding: 0 0.5rem;
 }
 .timer-card__separator--colon {
-  position: relative;
-  z-index: 0;
-}
-.timer-card__separator--colon:before {
   position: absolute;
-  content: ":";
+  z-index: 1;
+}
+.timer-card__separator--colon-secondary {
+  position: relative;
+  color: #c1e1ca;
+  z-index: 0;
 }
 
 .timer-card__counter {
