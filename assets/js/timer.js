@@ -1,3 +1,4 @@
+
 const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
 const skipBtn = document.querySelector('.play-controls__button--skip');
@@ -6,6 +7,8 @@ const minutesDisplay = document.querySelector('.timer-card__minutes--number');
 const colon = document.querySelector('.timer-card__separator--colon');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
 
+const workIcon = document.querySelector('.timer-card__status-work-icon');
+const pauseIcon = document.querySelector('.timer-card__status-pause-icon');
 
 let isRunning = false;
 let colonVisible = true;
@@ -40,9 +43,7 @@ function pauseTimer() {
     clearInterval(timerInterval);
 };
 
-
 function displayColon() {
-
 
     if (colonVisible) {
         colon.style.visibility = 'hidden';
@@ -53,6 +54,12 @@ function displayColon() {
     }
 
 };
+
+// function changeIcon() {
+    // apenas quando muda de sessão
+    //document.querySelector(".minhaImagem").src = "novoCaminhoDaImagem.jpg";
+// }
+
 
 playBtn.addEventListener('click', () => {
     const isPlayState = playBtn.classList.contains('play-controls__button--play');
