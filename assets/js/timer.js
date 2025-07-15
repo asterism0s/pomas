@@ -28,6 +28,24 @@ function updateTimerDisplay(seconds) {
     secondsDisplay.textContent = String(secs).padStart(2, '0');
 };
 
+ function endTimer() {
+    clearInterval(timerInterval);
+    clearInterval(colonInterval);
+
+    colon.style.visibility = 'visible';
+    colonVisible = true;
+
+    remainingTime = 10; // Reset to initial time
+    updateTimerDisplay(remainingTime);
+
+    playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+    playBtn.setAttribute('aria-pressed', false);
+
+    stopBtn.style.display = 'none';
+    skipBtn.style.display = 'none';
+
+};
+
 function startTimer(){
     updateTimerDisplay(remainingTime);
     timerInterval = setInterval(() => {
@@ -36,6 +54,7 @@ function startTimer(){
             updateTimerDisplay(remainingTime)
         } else {
             clearInterval(timerInterval);
+            endTimer();
             
         }
     }, 1000); 
@@ -81,6 +100,8 @@ playBtn.addEventListener('click', () => {
 
     } else {
         
+        //quando o botão de play é pressionando para pausar o timer. 
+        
         playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
         
         playBtn.setAttribute('aria-pressed', false);
@@ -94,4 +115,30 @@ playBtn.addEventListener('click', () => {
     }
 
 });
+
+
+
+//para o timer e reseta o tempo para o temop padrão
+function stopTimer() {
+    clearInterval(timerInterval);
+    clearInterval(colonInterval);
+
+    colon.style.visibility = 'visible';
+    colonVisible = true;
+
+    remainingTime = 10; // Reset to initial time
+    updateTimerDisplay(remainingTime);
+
+    playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+    playBtn.setAttribute('aria-pressed', false);
+
+    stopBtn.style.display = 'none';
+    skipBtn.style.display = 'none';
+};
+
+
+
+    // Aqui você pode adicionar lógica para mudar o ícone ou exibir uma mensagem de fim de sessão
+//criar uma função que é chamada quando o timer termina
+    //dentro dessa função, limpar o internalo dos dois pontos piscando.
 
