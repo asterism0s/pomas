@@ -14,7 +14,8 @@ let isRunning = false;
 let colonVisible = true;
 let timerInterval;
 let colonInterval;
-let remainingTime = 25 * 60;
+// let remainingTime = 25 * 60;
+let remainingTime = 10;
 
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
@@ -35,6 +36,7 @@ function startTimer(){
             updateTimerDisplay(remainingTime)
         } else {
             clearInterval(timerInterval);
+            
         }
     }, 1000); 
 };

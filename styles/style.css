@@ -1161,6 +1161,7 @@ body {
   position: fixed;
   width: 100%;
   max-width: none;
+  z-index: 2;
 }
 @media (min-width: 768px) {
   .project-settings {
