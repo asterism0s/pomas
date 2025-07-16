@@ -10,6 +10,8 @@ const timerMinutes = document.querySelector('.timer-card__minutes--number');
 const timerSeconds = document.querySelector('.timer-card__seconds--number');
 
 const cancelBtn = document.querySelector('.cancel-button');
+const confirmBtn =  document.querySelector('.confirm-button');
+
 
 function updateTimer(selectBox){
     const selectedValue = selectBox.value;
@@ -33,6 +35,14 @@ settingsBtn.addEventListener('click', () => {
         modal.classList.contains('hidden') ? 'false' : 'true'
     );
 });
+
+confirmBtn.addEventListener('click', () => {
+    const selectedPomoTime = pomoTime.value;
+    const selectedShortBreak = shortBreak.value; 
+    const selectedLongBreak = longBreak.value;
+    const selectedLongInterval = longInterval.value;
+   
+})
 
 cancelBtn.addEventListener('click', () => {
     modal.classList.toggle('hidden');
