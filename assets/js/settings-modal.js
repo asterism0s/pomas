@@ -1,5 +1,5 @@
 const modal = document.getElementById('settings-modal');
-const btn = document.getElementById('settings-btn');
+const settingsBtn = document.getElementById('settings-btn');
 
 const pomoTime = document.querySelector('#pomodoro-time');
 const shortBreak = document.querySelector('#short-break');
@@ -26,9 +26,9 @@ pomoTime.addEventListener('change', () => { updateTimer(pomoTime) });
 
 
 
-btn.addEventListener('click', () => {
+settingsBtn.addEventListener('click', () => {
     modal.classList.toggle('hidden');
-    btn.setAttribute (
+    settingsBtn.setAttribute (
         'aria-expanded',
         modal.classList.contains('hidden') ? 'false' : 'true'
     );
