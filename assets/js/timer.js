@@ -137,8 +137,3 @@ function stopTimer() {
 };
 
 
-
-    // Aqui você pode adicionar lógica para mudar o ícone ou exibir uma mensagem de fim de sessão
-//criar uma função que é chamada quando o timer termina
-    //dentro dessa função, limpar o internalo dos dois pontos piscando.
-
