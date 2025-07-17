@@ -1,3 +1,5 @@
+import './timer.js';
+
 const modal = document.getElementById('settings-modal');
 const settingsBtn = document.getElementById('settings-btn');
 
@@ -41,6 +43,13 @@ confirmBtn.addEventListener('click', () => {
     const selectedShortBreak = shortBreak.value; 
     const selectedLongBreak = longBreak.value;
     const selectedLongInterval = longInterval.value;
+
+    localStorage.setItem('pomoTime', selectedPomoTime);
+    localStorage.setItem('shortBreak', selectedShortBreak);
+    localStorage.setItem('longBreak', selectedLongBreak);
+    localStorage.setItem('longInterval', selectedLongInterval);
+
+    
    
 })
 
