@@ -38,6 +38,7 @@ settingsBtn.addEventListener('click', () => {
     );
 });
 
+
 confirmBtn.addEventListener('click', () => {
     const selectedPomoTime = pomoTime.value;
     const selectedShortBreak = shortBreak.value; 
@@ -49,9 +50,34 @@ confirmBtn.addEventListener('click', () => {
     localStorage.setItem('longBreak', selectedLongBreak);
     localStorage.setItem('longInterval', selectedLongInterval);
 
-    
-   
+    loadSettings ();
+
 })
+
+console.log(localStorage.getItem('pomoTime'));
+
+function loadSettings () {
+
+    const userPomoTime = localStorage.getItem('pomoTime');
+    const userShortBreak = localStorage.getItem('shortBreak');
+    const userLongBreak = localStorage.getItem('longBreak');
+    // const userlongInterval = localStorage.getItem('longInterval');
+
+
+        if(userPomoTime !== null) {
+            pomoTime.value = userPomoTime;
+        };
+
+        if(userShortBreak !== null) {
+            shortBreak.value = userShortBreak;
+        };
+
+        if(userLongBreak !== null) {
+            longBreak.value = userLongBreak;       
+        };
+
+}
+
 
 cancelBtn.addEventListener('click', () => {
     modal.classList.toggle('hidden');

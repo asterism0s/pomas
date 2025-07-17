@@ -12,7 +12,7 @@ const secondsDisplay = document.querySelector('.timer-card__seconds--number');
 const workIcon = document.querySelector('.timer-card__status-work-icon');
 const pauseIcon = document.querySelector('.timer-card__status-pause-icon');
 
-let isRunning = false;
+// let isRunning = false;
 let colonVisible = true;
 let timerInterval;
 let colonInterval;
