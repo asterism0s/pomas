@@ -51,10 +51,7 @@ confirmBtn.addEventListener('click', () => {
     localStorage.setItem('longInterval', selectedLongInterval);
 
     loadSettings ();
-
 })
-
-console.log(localStorage.getItem('pomoTime'));
 
 function loadSettings () {
 
@@ -62,22 +59,34 @@ function loadSettings () {
     const userShortBreak = localStorage.getItem('shortBreak');
     const userLongBreak = localStorage.getItem('longBreak');
     // const userlongInterval = localStorage.getItem('longInterval');
+    
+    // remainingTime = userPomoTime * 60;
 
+    if(userPomoTime !== null) {
+        pomoTime.value = userPomoTime;
+    };
 
-        if(userPomoTime !== null) {
-            pomoTime.value = userPomoTime;
-        };
+    if(userShortBreak !== null) {
+        shortBreak.value = userShortBreak;
+    };
 
-        if(userShortBreak !== null) {
-            shortBreak.value = userShortBreak;
-        };
-
-        if(userLongBreak !== null) {
-            longBreak.value = userLongBreak;       
-        };
+    if(userLongBreak !== null) {
+        longBreak.value = userLongBreak;       
+    };
 
 }
 
+export function getUserPomoTime() {
+    return localStorage.getItem('pomoTime');
+};
+
+export function getUserShortBreak() {
+    return localStorage.getItem('shortBreak');
+};
+
+export function getUserLongBreak() {
+    return localStorage.getItem('longBreak');
+};
 
 cancelBtn.addEventListener('click', () => {
     modal.classList.toggle('hidden');
