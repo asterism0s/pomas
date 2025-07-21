@@ -1,6 +1,10 @@
 
 import './settings-modal.js';
 
+import { getUserPomoTime } from './settings-modal.js';
+import { getUserShortBreak } from './settings-modal.js';
+import { getUserLongBreak } from './settings-modal.js';
+
 const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
 const skipBtn = document.querySelector('.play-controls__button--skip');
@@ -17,7 +21,7 @@ let colonVisible = true;
 let timerInterval;
 let colonInterval;
 // let remainingTime = 25 * 60;
-let remainingTime = 10;
+let remainingTime = getUserPomoTime() * 60;
 
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
@@ -37,7 +41,7 @@ function updateTimerDisplay(seconds) {
     colon.style.visibility = 'visible';
     colonVisible = true;
 
-    remainingTime = 10; // Reset to initial time
+    remainingTime = getUserPomoTime() * 60; // Reset to initial time
     updateTimerDisplay(remainingTime);
 
     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
@@ -49,6 +53,11 @@ function updateTimerDisplay(seconds) {
 };
 
 function startTimer(){
+    
+    if(remainingTime === 0) {
+        remainingTime = getUserPomoTime() * 60;
+    }
+
     updateTimerDisplay(remainingTime);
     timerInterval = setInterval(() => {
         if (remainingTime > 0) {
