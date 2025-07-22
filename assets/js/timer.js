@@ -19,15 +19,29 @@ const pauseIcon = document.querySelector('.timer-card__status-pause-icon');
 let colonVisible = true;
 let timerInterval;
 let colonInterval;
-let remainingTime = getUserPomoTime() * 60;
+// let remainingTime = getUserPomoTime() * 60;
 
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
 
+// DEBUG: enquanto for true, usa 10 s em vez do valor real
+const TEST_MODE = false;
+const TEST_SECONDS = 10;
+
+let remainingTime = TEST_MODE ? TEST_SECONDS : getUserPomoTime() * 60;
+
 export function setRemainingTime(seconds) {
-    remainingTime = seconds;
-    updateTimerDisplay(remainingTime);
+remainingTime = TEST_MODE
+? TEST_SECONDS
+: seconds;
+updateTimerDisplay(remainingTime);
 };
+// DEBUG: enquanto for true, usa 10 s em vez do valor real
+
+// export function setRemainingTime(seconds) {
+//     remainingTime = seconds;
+//     updateTimerDisplay(remainingTime);
+// };
 
 export function updateTimerDisplay(seconds) {
     const mins = Math.floor(seconds / 60)
@@ -37,14 +51,16 @@ export function updateTimerDisplay(seconds) {
     secondsDisplay.textContent = String(secs).padStart(2, '0');
 };
 
- function endTimer() {
+
+//END_TIMER DEBUG
+function endTimer() {
     clearInterval(timerInterval);
     clearInterval(colonInterval);
 
     colon.style.visibility = 'visible';
     colonVisible = true;
 
-    remainingTime = getUserPomoTime() * 60; // Reset to initial time
+    remainingTime = TEST_MODE ? TEST_SECONDS : getUserPomoTime() * 60;
     updateTimerDisplay(remainingTime);
 
     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
@@ -54,6 +70,25 @@ export function updateTimerDisplay(seconds) {
     skipBtn.style.display = 'none';
 
 };
+//END TIMER DEBUG
+
+
+// function endTimer() {
+//     clearInterval(timerInterval);
+//     clearInterval(colonInterval);
+
+//     colon.style.visibility = 'visible';
+//     colonVisible = true;
+
+//     remainingTime = getUserPomoTime() * 60; // Reset to initial time
+//     updateTimerDisplay(remainingTime);
+
+//     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+//     playBtn.setAttribute('aria-pressed', false);
+
+//     stopBtn.style.display = 'none';
+//     skipBtn.style.display = 'none';
+// };
 
 function startTimer(){
     
