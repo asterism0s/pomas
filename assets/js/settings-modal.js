@@ -1,9 +1,13 @@
 import './timer.js';
 
+import { updateTimerDisplay } from './timer.js';
+import { setRemainingTime } from './timer.js';
+
 const modal = document.getElementById('settings-modal');
 const settingsBtn = document.getElementById('settings-btn');
 
 const pomoTime = document.querySelector('#pomodoro-time');
+
 const shortBreak = document.querySelector('#short-break');
 const longBreak = document.querySelector('#long-break');
 const longInterval = document.querySelector('#long-break-interval');
@@ -15,6 +19,10 @@ const cancelBtn = document.querySelector('.cancel-button');
 const confirmBtn =  document.querySelector('.confirm-button');
 
 
+
+
+loadSettings ();
+
 function updateTimer(selectBox){
     const selectedValue = selectBox.value;
 
@@ -23,11 +31,16 @@ function updateTimer(selectBox){
 
 }
 
+// function updateTimerDisplay(userValue) {
+//     timerMinutes.textContent = userValue;
+//     timerSeconds.textContent = '00';
+// }
+
+
 
 pomoTime.addEventListener('change', () => { updateTimer(pomoTime) });
 // shortBreak.addEventListener('change', () => { updateTimer(shortBreak) });
 // longBreak.addEventListener('change', () => { updateTimer(longBreak) });
-
 
 
 settingsBtn.addEventListener('click', () => {
@@ -39,18 +52,25 @@ settingsBtn.addEventListener('click', () => {
 });
 
 
-confirmBtn.addEventListener('click', () => {
-    const selectedPomoTime = pomoTime.value;
-    const selectedShortBreak = shortBreak.value; 
-    const selectedLongBreak = longBreak.value;
-    const selectedLongInterval = longInterval.value;
+confirmBtn.addEventListener('click', (event) => {
+
+    event.preventDefault(); //prevent reload
+
+    const selectedPomoTime = parseInt(pomoTime.value, 10);
+    const selectedShortBreak = parseInt(shortBreak.value, 10); 
+    const selectedLongBreak = parseInt(longBreak.value, 10);
+    const selectedLongInterval = parseInt(longInterval.value, 10);
 
     localStorage.setItem('pomoTime', selectedPomoTime);
     localStorage.setItem('shortBreak', selectedShortBreak);
     localStorage.setItem('longBreak', selectedLongBreak);
     localStorage.setItem('longInterval', selectedLongInterval);
 
-    loadSettings ();
+    setRemainingTime(selectedPomoTime * 60);
+
+    modal.classList.add('hidden');
+    settingsBtn.setAttribute('aria-expanded', 'false');
+
 })
 
 function loadSettings () {
@@ -60,8 +80,6 @@ function loadSettings () {
     const userLongBreak = localStorage.getItem('longBreak');
     // const userlongInterval = localStorage.getItem('longInterval');
     
-    // remainingTime = userPomoTime * 60;
-
     if(userPomoTime !== null) {
         pomoTime.value = userPomoTime;
     };

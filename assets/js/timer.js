@@ -16,17 +16,20 @@ const secondsDisplay = document.querySelector('.timer-card__seconds--number');
 const workIcon = document.querySelector('.timer-card__status-work-icon');
 const pauseIcon = document.querySelector('.timer-card__status-pause-icon');
 
-// let isRunning = false;
 let colonVisible = true;
 let timerInterval;
 let colonInterval;
-// let remainingTime = 25 * 60;
 let remainingTime = getUserPomoTime() * 60;
 
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
 
-function updateTimerDisplay(seconds) {
+export function setRemainingTime(seconds) {
+    remainingTime = seconds;
+    updateTimerDisplay(remainingTime);
+};
+
+export function updateTimerDisplay(seconds) {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60;
 
