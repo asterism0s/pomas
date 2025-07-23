@@ -1,7 +1,9 @@
 
 import './settings-modal.js';
 
+
 import { getUserPomoTime } from './settings-modal.js';
+import { timerStatus } from './timer-status.js';
 
 const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
@@ -17,6 +19,7 @@ const pauseIcon = document.querySelector('.timer-card__status-pause-icon');
 let colonVisible = true;
 let timerInterval;
 let colonInterval;
+export let pomoCounter;
 
 
 stopBtn.style.display = 'none';
@@ -68,6 +71,7 @@ function startTimer(){
     
     if(remainingTime === 0) {
         remainingTime = getUserPomoTime() * 60;
+        pomoCounter++;
     }
 
     updateTimerDisplay(remainingTime);

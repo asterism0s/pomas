@@ -1,1 +1,3 @@
-import './work-timer';
+import { timerStatus } from './timer-status.js';
+
+
