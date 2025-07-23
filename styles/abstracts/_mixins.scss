@@ -1,4 +1,6 @@
 @use 'sass:map';
+@use 'sass:string';
+
 @use './spacing';
 @use './breakpoints';
 @use './colors';
@@ -28,8 +30,8 @@
 
     @if $state == idle or $state == pressed {
         $suffix: if($active, 'true', 'false');
-        $bg-key: unquote('bg-#{$suffix}');
-        $text-key: unquote('text-#{$suffix}');
+        $bg-key: string.unquote('bg-#{$suffix}');
+        $text-key: string.unquote('text-#{$suffix}');
 
         background-color: map.get($config, $bg-key);
         color: map.get($config, $text-key);
@@ -58,8 +60,8 @@
 
     @if $state == idle or $state == pressed {
         $suffix: if($active, 'true', 'false');
-        $bg-key: unquote('bg-#{$suffix}');
-        $text-key: unquote('text-#{$suffix}');
+        $bg-key: string.unquote('bg-#{$suffix}');
+        $text-key: string.unquote('text-#{$suffix}');
 
         background-color: map.get($config, $bg-key);
         color: map.get($config, $text-key);
