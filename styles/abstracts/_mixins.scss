@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use './spacing';
 @use './breakpoints';
 @use './colors';
@@ -9,7 +10,7 @@
 //config-button stas
 
 @mixin icon-state($state) {
-    $url: map-get(variables.$icon-button-svgs, $state);
+    $url: map.get(variables.$icon-button-svgs, $state);
     background-image: url(#{$url});
     background-repeat: no-repeat;
     background-position: center;
@@ -23,22 +24,22 @@
 
     @extend %icon-base;
 
-    $config: map-get(variables.$icon-states, $state);
+    $config: map.get(variables.$icon-states, $state);
 
     @if $state == idle or $state == pressed {
         $suffix: if($active, 'true', 'false');
         $bg-key: unquote('bg-#{$suffix}');
         $text-key: unquote('text-#{$suffix}');
 
-        background-color: map-get($config, $bg-key);
-        color: map-get($config, $text-key);
+        background-color: map.get($config, $bg-key);
+        color: map.get($config, $text-key);
 
     @if $state == pressed and $active {
         transform: translateY(1px);
         }
     } @else {
-        background-color: map-get($config, bg);
-        color: map-get($config, text);
+        background-color: map.get($config, bg);
+        color: map.get($config, text);
 
         @if $state == disabled {
             cursor: not-allowed;
@@ -53,22 +54,22 @@
 
     @extend %tab-base;
 
-    $config: map-get(variables.$tab-states, $state);
+    $config: map.get(variables.$tab-states, $state);
 
     @if $state == idle or $state == pressed {
         $suffix: if($active, 'true', 'false');
         $bg-key: unquote('bg-#{$suffix}');
         $text-key: unquote('text-#{$suffix}');
 
-        background-color: map-get($config, $bg-key);
-        color: map-get($config, $text-key);
+        background-color: map.get($config, $bg-key);
+        color: map.get($config, $text-key);
 
     @if $state == pressed and $active {
         transform: translateY(1px);
         }
     } @else {
-        background-color: map-get($config, bg);
-        color: map-get($config, text);
+        background-color: map.get($config, bg);
+        color: map.get($config, text);
 
         @if $state == disabled {
             cursor: not-allowed;
@@ -103,7 +104,7 @@
 /* spacings mixins */
 //margin, padding and gap spacing
 @mixin spacing($property, $size) {
-    #{$property}: map-get(spacing.$spacers, $size);
+    #{$property}: map.get(spacing.$spacers, $size);
 }
 
 @each $key, $value in spacing.$spacers {
@@ -122,8 +123,8 @@
 
 //y-axis spacing
 @mixin spacing-y($property, $size) {
-    #{$property}-top: map-get(spacing.$spacers, $size);
-    #{$property}-bottom: map-get(spacing.$spacers, $size);
+    #{$property}-top: map.get(spacing.$spacers, $size);
+    #{$property}-bottom: map.get(spacing.$spacers, $size);
 }
 
 @each $key, $value in spacing.$spacers {
@@ -138,8 +139,8 @@
 
 //x-axis spacing
 @mixin spacing-x($property, $size) {
-    #{$property}-left: map-get(spacing.$spacers, $size);
-    #{$property}-right: map-get(spacing.$spacers, $size);
+    #{$property}-left: map.get(spacing.$spacers, $size);
+    #{$property}-right: map.get(spacing.$spacers, $size);
 }
 
 @each $key, $value in spacing.$spacers {
@@ -157,7 +158,7 @@
 
 //mixin breakpoint up
 @mixin media-breakpoint-up($breakpoint) {
-    $min: map-get(breakpoints.$grid-breakpoints, $breakpoint);
+    $min: map.get(breakpoints.$grid-breakpoints, $breakpoint);
 
     @if $min !=null and $min !=0 {
         @media (min-width: $min) {
@@ -181,7 +182,7 @@
 
     @if $index !=null and $index < length($breakpoints) {
         $next-breakpoint: nth($breakpoints, $index + 1);
-        $max: map-get(breakpoints.$grid-breakpoints, $next-breakpoint);
+        $max: map.get(breakpoints.$grid-breakpoints, $next-breakpoint);
         $max: $max - 0.02px;
 
         @media (max-width: $max) {
@@ -200,11 +201,11 @@
 
 //mixin breakpoint between
 @mixin media-breakpoint-between($lower, $upper) {
-    $min: map-get(breakpoints.$grid-breakpoints, $lower);
+    $min: map.get(breakpoints.$grid-breakpoints, $lower);
     $upper-breakpoints: map-keys(breakpoints.$grid-breakpoints);
     $upper-index: index($upper-breakpoints, $upper);
     $next-upper: nth($upper-breakpoints, $upper-index + 1);
-    $max: map-get(breakpoints.$grid-breakpoints, $next-upper);
+    $max: map.get(breakpoints.$grid-breakpoints, $next-upper);
     $max: $max - 0.02px;
 
     @if $min !=null and $max !=null {
