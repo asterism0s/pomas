@@ -1,7 +1,6 @@
-import './timer.js';
+import './work-timer.js';
 
-import { updateTimerDisplay } from './timer.js';
-import { setRemainingTime } from './timer.js';
+import { setRemainingTime } from './work-timer.js';
 
 const modal = document.getElementById('settings-modal');
 const settingsBtn = document.getElementById('settings-btn');

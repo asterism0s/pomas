@@ -1,2 +1,2 @@
 import './settings-modal.js';
-import './timer.js';
+import './work-timer.js';
