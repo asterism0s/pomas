@@ -24,7 +24,7 @@ let colonInterval;
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
 
-// DEBUG: enquanto for true, usa 10 s em vez do valor real
+// DEBUG: enquanto for true, usa 10 s em vez do valor real. para desativar debug, passe TEST_MODE = false
 const TEST_MODE = false;
 const TEST_SECONDS = 10;
 
@@ -36,7 +36,7 @@ remainingTime = TEST_MODE
 : seconds;
 updateTimerDisplay(remainingTime);
 };
-// DEBUG: enquanto for true, usa 10 s em vez do valor real
+
 
 // export function setRemainingTime(seconds) {
 //     remainingTime = seconds;
@@ -70,25 +70,6 @@ function endTimer() {
     skipBtn.style.display = 'none';
 
 };
-//END TIMER DEBUG
-
-
-// function endTimer() {
-//     clearInterval(timerInterval);
-//     clearInterval(colonInterval);
-
-//     colon.style.visibility = 'visible';
-//     colonVisible = true;
-
-//     remainingTime = getUserPomoTime() * 60; // Reset to initial time
-//     updateTimerDisplay(remainingTime);
-
-//     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
-//     playBtn.setAttribute('aria-pressed', false);
-
-//     stopBtn.style.display = 'none';
-//     skipBtn.style.display = 'none';
-// };
 
 function startTimer(){
     
@@ -150,7 +131,6 @@ playBtn.addEventListener('click', () => {
     } else {
         
         //quando o botão de play é pressionando para pausar o timer. 
-        
         playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
         
         playBtn.setAttribute('aria-pressed', false);
@@ -184,5 +164,23 @@ function stopTimer() {
     stopBtn.style.display = 'none';
     skipBtn.style.display = 'none';
 };
+
+// function endTimer() {
+//     clearInterval(timerInterval);
+//     clearInterval(colonInterval);
+
+//     colon.style.visibility = 'visible';
+//     colonVisible = true;
+
+//     remainingTime = getUserPomoTime() * 60; // Reset to initial time
+//     updateTimerDisplay(remainingTime);
+
+//     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+//     playBtn.setAttribute('aria-pressed', false);
+
+//     stopBtn.style.display = 'none';
+//     skipBtn.style.display = 'none';
+// };
+
 
 

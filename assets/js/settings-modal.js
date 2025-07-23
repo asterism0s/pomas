@@ -20,25 +20,9 @@ const confirmBtn =  document.querySelector('.confirm-button');
 
 
 
-
 loadSettings ();
 
-function updateTimer(selectBox){
-    const selectedValue = selectBox.value;
 
-    timerMinutes.textContent = selectedValue;
-    timerSeconds.textContent = '00';
-
-}
-
-// function updateTimerDisplay(userValue) {
-//     timerMinutes.textContent = userValue;
-//     timerSeconds.textContent = '00';
-// }
-
-
-
-pomoTime.addEventListener('change', () => { updateTimer(pomoTime) });
 // shortBreak.addEventListener('change', () => { updateTimer(shortBreak) });
 // longBreak.addEventListener('change', () => { updateTimer(longBreak) });
 
