@@ -77,7 +77,7 @@ function endTimer() {
 
 };
 
-function decrementRemainingTime (){
+function countdownRemainingTime (){
     timerInterval = setInterval(() => {
 
         if (remainingTime > 0) {
@@ -101,7 +101,7 @@ function startTimer(){
     }
 
     updateTimerDisplay(remainingTime);
-    decrementRemainingTime();
+    countdownRemainingTime();
     
 };
 
