@@ -11,17 +11,14 @@
             "id": "ff8eba8c6384845f",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Code/work-timer.js.canvas",
-                "viewState": {
-                  "x": -630,
-                  "y": 7.222497187851502,
-                  "zoom": -1.7638317279486193
-                }
+                "file": "Notes/Pato/24-jul-2025.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "work-timer.js"
+              "icon": "lucide-file",
+              "title": "24-jul-2025"
             }
           }
         ]
@@ -97,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Code/work-timer.js.canvas",
+                "file": "Notes/Pato/24-jul-2025.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for work-timer.js"
+              "title": "Backlinks for 24-jul-2025"
             }
           },
           {
@@ -116,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Code/work-timer.js.canvas",
+                "file": "Notes/Pato/24-jul-2025.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from work-timer.js"
+              "title": "Outgoing links from 24-jul-2025"
             }
           },
           {
@@ -145,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Code/work-timer.js.canvas",
+                "file": "Notes/Pato/24-jul-2025.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of work-timer.js"
+              "title": "Outline of 24-jul-2025"
             }
           }
         ]
@@ -173,7 +170,12 @@
   },
   "active": "ff8eba8c6384845f",
   "lastOpenFiles": [
-    "Code/settings-modal.js.canvas",
-    "Code/work-timer.js.canvas"
+    "Notes/Pato/23-jul-2025.md",
+    "Notes/Pato/24-jul-2025.md",
+    "Notes/Chat GPT/Operador ternário explicado.md",
+    "Notes/Chat GPT/Modal settings bug fix.md",
+    "Notes/Chat GPT/Bug no timer UI.md",
+    "Code/work-timer.js.canvas",
+    "Code/settings-modal.js.canvas"
   ]
 }
