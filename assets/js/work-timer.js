@@ -4,6 +4,7 @@ import './settings-modal.js';
 
 import { getUserPomoTime } from './settings-modal.js';
 import { timerStatus } from './timer-status.js';
+import { startBreakTimer } from './break-timer.js';
 
 const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
@@ -26,10 +27,11 @@ stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
 
 // DEBUG: enquanto for true, usa 10 s em vez do valor real. para desativar debug, passe TEST_MODE = false
-const TEST_MODE = false;
+const TEST_MODE = true;
 const TEST_SECONDS = 10;
 
 let remainingTime = TEST_MODE ? TEST_SECONDS : getUserPomoTime() * 60;
+
 
 export function setRemainingTime(seconds) {
 remainingTime = TEST_MODE
@@ -37,6 +39,11 @@ remainingTime = TEST_MODE
 : seconds;
 updateTimerDisplay(remainingTime);
 };
+
+//pega o tempo atual do timer
+export function getRemainingTime() {
+    return remainingTime;
+}
 
 
 export function updateTimerDisplay(seconds) {
@@ -48,6 +55,8 @@ export function updateTimerDisplay(seconds) {
 };
 
 
+
+
 //END_TIMER DEBUG
 function endTimer() {
     clearInterval(timerInterval);
@@ -56,6 +65,7 @@ function endTimer() {
     colon.style.visibility = 'visible';
     colonVisible = true;
 
+    //desativar quando criar a breakTimer
     remainingTime = TEST_MODE ? TEST_SECONDS : getUserPomoTime() * 60;
     updateTimerDisplay(remainingTime);
 
@@ -67,25 +77,34 @@ function endTimer() {
 
 };
 
-function startTimer(){
-    
-    if(remainingTime === 0) {
-        remainingTime = getUserPomoTime() * 60;
-        pomoCounter++;
-    }
-
-    updateTimerDisplay(remainingTime);
+function decrementRemainingTime (){
     timerInterval = setInterval(() => {
+
         if (remainingTime > 0) {
             remainingTime--;
-            updateTimerDisplay(remainingTime)
+            updateTimerDisplay(remainingTime);
+
         } else {
             clearInterval(timerInterval);
             endTimer();
             
         }
     }, 1000); 
+
+}
+
+function startTimer(){
+    
+    if(remainingTime === 0) {
+        remainingTime = getUserPomoTime() * 60;
+        pomoCounter++
+    }
+
+    updateTimerDisplay(remainingTime);
+    decrementRemainingTime();
+    
 };
+
 
 function pauseTimer() {
     clearInterval(timerInterval);
@@ -102,12 +121,6 @@ function displayColon() {
     }
 
 };
-
-// function changeIcon() {
-    // apenas quando muda de sessão
-    //document.querySelector(".minhaImagem").src = "novoCaminhoDaImagem.jpg";
-// }
-
 
 playBtn.addEventListener('click', () => {
     const isPlayState = playBtn.classList.contains('play-controls__button--play');
@@ -178,6 +191,11 @@ function stopTimer() {
 //     stopBtn.style.display = 'none';
 //     skipBtn.style.display = 'none';
 // };
+
+// function changeIcon() {
+    // apenas quando muda de sessão
+    //document.querySelector(".minhaImagem").src = "novoCaminhoDaImagem.jpg";
+// }
 
 
 
