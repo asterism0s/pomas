@@ -54,7 +54,7 @@ confirmBtn.addEventListener('click', (event) => {
     modal.classList.add('hidden');
     settingsBtn.setAttribute('aria-expanded', 'false');
 
-})
+});
 
 function loadSettings () {
 
@@ -79,15 +79,15 @@ function loadSettings () {
 
 export function getUserPomoTime() {
     return localStorage.getItem('pomoTime');
-};
+}
 
 export function getUserShortBreak() {
     return localStorage.getItem('shortBreak');
-};
+}
 
 export function getUserLongBreak() {
     return localStorage.getItem('longBreak');
-};
+}
 
 cancelBtn.addEventListener('click', () => {
     modal.classList.toggle('hidden');

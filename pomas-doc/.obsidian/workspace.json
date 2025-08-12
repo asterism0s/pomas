@@ -11,17 +11,14 @@
             "id": "0b5f391b5e0d9799",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Code/settings-modal.js.canvas",
-                "viewState": {
-                  "x": 31.698168704657974,
-                  "y": 350.49983039215726,
-                  "zoom": -1.9798764461125278
-                }
+                "file": "Code/Ideas.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "settings-modal.js"
+              "icon": "lucide-file",
+              "title": "Ideas"
             }
           }
         ]
@@ -81,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "e551f268e34d3cb2",
@@ -174,8 +171,10 @@
   "active": "0b5f391b5e0d9799",
   "lastOpenFiles": [
     "Code/work-timer.js.canvas",
-    "Snippets/Modal settings bug fix.md",
+    "Code/Ideas.md",
+    "Notes/Pato/24 jul 2025.md",
     "Code/settings-modal.js.canvas",
+    "Snippets/Modal settings bug fix.md",
     "Code/break-timer.js.canvas",
     "Pomas tree.md",
     "Notes/ChatGPT/Modal settings bug fix.md",
@@ -185,7 +184,6 @@
     "Dev/Pomas",
     "Dev",
     "Notes/ChatGPT/Operador ternário explicado.md",
-    "Notes/Pato/24 jul 2025.md",
     "Notes/Pato/23 jul 2025.md",
     "Notes/Pato",
     "Notes/Untitled.md",

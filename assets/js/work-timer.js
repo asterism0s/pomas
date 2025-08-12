@@ -27,7 +27,7 @@ stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
 
 // DEBUG: enquanto for true, usa 10 s em vez do valor real. para desativar debug, passe TEST_MODE = false
-const TEST_MODE = true;
+const TEST_MODE = false;
 const TEST_SECONDS = 10;
 
 let remainingTime = TEST_MODE ? TEST_SECONDS : getUserPomoTime() * 60;
@@ -38,7 +38,7 @@ remainingTime = TEST_MODE
 ? TEST_SECONDS
 : seconds;
 updateTimerDisplay(remainingTime);
-};
+}
 
 //pega o tempo atual do timer
 export function getRemainingTime() {
@@ -52,7 +52,7 @@ export function updateTimerDisplay(seconds) {
 
     minutesDisplay.textContent = String(mins).padStart(2, '0');
     secondsDisplay.textContent = String(secs).padStart(2, '0');
-};
+}
 
 
 
@@ -66,16 +66,17 @@ function endTimer() {
     colonVisible = true;
 
     //desativar quando criar a breakTimer
-    remainingTime = TEST_MODE ? TEST_SECONDS : getUserPomoTime() * 60;
-    updateTimerDisplay(remainingTime);
+    // remainingTime = TEST_MODE ? TEST_SECONDS : getUserPomoTime() * 60;
+    // updateTimerDisplay(remainingTime);
+
+    startBreakTimer ();
 
     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
     playBtn.setAttribute('aria-pressed', false);
-
     stopBtn.style.display = 'none';
     skipBtn.style.display = 'none';
 
-};
+}
 
 function countdownRemainingTime (){
     timerInterval = setInterval(() => {
@@ -102,13 +103,14 @@ function startTimer(){
 
     updateTimerDisplay(remainingTime);
     countdownRemainingTime();
+
     
-};
+}
 
 
 function pauseTimer() {
     clearInterval(timerInterval);
-};
+}
 
 function displayColon() {
 
@@ -120,13 +122,14 @@ function displayColon() {
         colonVisible = true; 
     }
 
-};
+}
 
 playBtn.addEventListener('click', () => {
     const isPlayState = playBtn.classList.contains('play-controls__button--play');
     
 
-    if (isPlayState) {
+    if (isPlayState) { //when the play button is pressed
+
         playBtn.classList.replace('play-controls__button--play', 'play-controls__button--pause');
         
         playBtn.setAttribute('aria-pressed', 'true');
@@ -138,9 +141,8 @@ playBtn.addEventListener('click', () => {
         stopBtn.style.display = 'none';
         skipBtn.style.display = 'none';
 
-    } else {
-        
-        //quando o botão de play é pressionando para pausar o timer. 
+    } else { //when the pause button is pressed
+
         playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
         
         playBtn.setAttribute('aria-pressed', false);
