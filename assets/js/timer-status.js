@@ -1,6 +1,24 @@
-import { pomoCounter } from "./work-timer.js";
 
-export let timerStatus = "work";
+export let timerStatus = "work"; 
+export let completedPomodoros = 0;
+export let completedShortBreaks = 0;
+
+export function setTimerStatus(status) { 
+    timerStatus = status; 
+};
+
+export function incrementPomodoros() { 
+    completedPomodoros += 1; 
+};
+
+export function incrementShortBreaks() { 
+    completedShortBreaks += 1; 
+};
+
+
+export function resetShortBreaks() { 
+    completedShortBreaks = 0; 
+}
 
 // function checkStatus() {
 

@@ -4,7 +4,7 @@ import './settings-modal.js';
 
 import { getUserPomoTime } from './settings-modal.js';
 import { timerStatus } from './timer-status.js';
-import { startBreakTimer } from './break-timer.js';
+import { startShortBreakTimer } from './break-timer.js';
 
 const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
@@ -20,8 +20,6 @@ const pauseIcon = document.querySelector('.timer-card__status-pause-icon');
 let colonVisible = true;
 let timerInterval;
 let colonInterval;
-export let pomoCounter;
-
 
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
@@ -69,7 +67,7 @@ function endTimer() {
     // remainingTime = TEST_MODE ? TEST_SECONDS : getUserPomoTime() * 60;
     // updateTimerDisplay(remainingTime);
 
-    startBreakTimer ();
+    startShortBreakTimer();
 
     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
     playBtn.setAttribute('aria-pressed', false);
@@ -175,7 +173,7 @@ function stopTimer() {
 
     stopBtn.style.display = 'none';
     skipBtn.style.display = 'none';
-};
+}
 
 // function endTimer() {
 //     clearInterval(timerInterval);
