@@ -2,7 +2,7 @@ import { timerStatus } from './timer-status.js';
 import { getUserShortBreak } from './settings-modal.js';
 import { setRemainingTime } from './work-timer.js';
 import { getRemainingTime } from './work-timer.js';
-import { pomoCounter } from './work-timer.js';
+
 
 
 

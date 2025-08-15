@@ -9,7 +9,7 @@ const pomoTime = document.querySelector('#pomodoro-time');
 
 const shortBreak = document.querySelector('#short-break');
 const longBreak = document.querySelector('#long-break');
-const longInterval = document.querySelector('#long-break-interval');
+const breakInterval = document.querySelector('#long-break-interval');
 
 const timerMinutes = document.querySelector('.timer-card__minutes--number');
 const timerSeconds = document.querySelector('.timer-card__seconds--number');
@@ -42,12 +42,12 @@ confirmBtn.addEventListener('click', (event) => {
     const selectedPomoTime = parseInt(pomoTime.value, 10);
     const selectedShortBreak = parseInt(shortBreak.value, 10); 
     const selectedLongBreak = parseInt(longBreak.value, 10);
-    const selectedLongInterval = parseInt(longInterval.value, 10);
+    const selectedBreakInterval = parseInt(breakInterval.value, 10);
 
     localStorage.setItem('pomoTime', selectedPomoTime);
     localStorage.setItem('shortBreak', selectedShortBreak);
     localStorage.setItem('longBreak', selectedLongBreak);
-    localStorage.setItem('longInterval', selectedLongInterval);
+    localStorage.setItem('breakInterval', selectedbreakInterval);
 
     setRemainingTime(selectedPomoTime * 60);
 
@@ -56,12 +56,14 @@ confirmBtn.addEventListener('click', (event) => {
 
 });
 
+
+//load getters
 function loadSettings () {
 
     const userPomoTime = localStorage.getItem('pomoTime');
     const userShortBreak = localStorage.getItem('shortBreak');
     const userLongBreak = localStorage.getItem('longBreak');
-    // const userlongInterval = localStorage.getItem('longInterval');
+    // const userBreakInterval = localStorage.getItem('breakInterval');
     
     if(userPomoTime !== null) {
         pomoTime.value = userPomoTime;
@@ -89,6 +91,7 @@ export function getUserLongBreak() {
     return localStorage.getItem('longBreak');
 }
 
+
 cancelBtn.addEventListener('click', () => {
     modal.classList.toggle('hidden');
     cancelBtn.setAttribute (
@@ -99,5 +102,5 @@ cancelBtn.addEventListener('click', () => {
     pomoTime.value ='25'; 
     shortBreak.value ='5';
     longBreak.value = '20';
-    longInterval.value = '2';
+    breakInterval.value = '2';
 });
