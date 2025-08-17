@@ -9,7 +9,7 @@ const pomoTime = document.querySelector('#pomodoro-time');
 
 const shortBreak = document.querySelector('#short-break');
 const longBreak = document.querySelector('#long-break');
-const breakInterval = document.querySelector('#long-break-interval');
+const breakInterval = document.querySelector('#break-interval');
 
 const timerMinutes = document.querySelector('.timer-card__minutes--number');
 const timerSeconds = document.querySelector('.timer-card__seconds--number');
@@ -47,7 +47,7 @@ confirmBtn.addEventListener('click', (event) => {
     localStorage.setItem('pomoTime', selectedPomoTime);
     localStorage.setItem('shortBreak', selectedShortBreak);
     localStorage.setItem('longBreak', selectedLongBreak);
-    localStorage.setItem('breakInterval', selectedbreakInterval);
+    localStorage.setItem('breakInterval', selectedBreakInterval);
 
     setRemainingTime(selectedPomoTime * 60);
 
@@ -63,7 +63,7 @@ function loadSettings () {
     const userPomoTime = localStorage.getItem('pomoTime');
     const userShortBreak = localStorage.getItem('shortBreak');
     const userLongBreak = localStorage.getItem('longBreak');
-    // const userBreakInterval = localStorage.getItem('breakInterval');
+    const userBreakInterval = localStorage.getItem('breakInterval');
     
     if(userPomoTime !== null) {
         pomoTime.value = userPomoTime;
@@ -77,7 +77,13 @@ function loadSettings () {
         longBreak.value = userLongBreak;       
     };
 
+    if(userBreakInterval !== null) {
+        breakInterval.value = userBreakInterval;
+    }
+
 }
+
+
 
 export function getUserPomoTime() {
     return localStorage.getItem('pomoTime');

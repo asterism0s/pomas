@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Code/Ideas.md",
+                "file": "Notes/ChatGPT/Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ideas"
+              "title": "Untitled"
             }
           }
         ]
@@ -170,11 +170,12 @@
   },
   "active": "0b5f391b5e0d9799",
   "lastOpenFiles": [
+    "Code/Ideas.md",
+    "Notes/ChatGPT/Untitled.md",
     "Notes/Pato/15 ago 2025.md",
     "Notes/Pato/24 jul 2025.md",
     "Code/break-timer.js.canvas",
     "Code/settings-modal.js.canvas",
-    "Code/Ideas.md",
     "Snippets/Modal settings bug fix.md",
     "Code/work-timer.js.canvas",
     "Pomas tree.md",
