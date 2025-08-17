@@ -97,6 +97,10 @@ export function getUserLongBreak() {
     return localStorage.getItem('longBreak');
 }
 
+export function getUserBreakInterval() {
+    return localStorage.getItem('breakInterval');
+}
+
 
 cancelBtn.addEventListener('click', () => {
     modal.classList.toggle('hidden');
