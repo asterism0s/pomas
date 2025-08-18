@@ -1,5 +1,5 @@
-import './work-timer.js';
-import { setDisplayTimer } from './work-timer.js';
+import './timer.js';
+import { setDisplayTimer } from './timer.js';
 
 const modal = document.getElementById('settings-modal');
 const settingsBtn = document.getElementById('settings-btn');
