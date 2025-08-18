@@ -1,179 +1,282 @@
-// === IMPORTS (seus) ===
+// === IMPORTS  - GET USER PREFERENCES ===
 import './settings-modal.js';
 import { getUserPomoTime } from './settings-modal.js';
 import { getUserShortBreak } from './settings-modal.js';
 import { getUserLongBreak } from './settings-modal.js';
-// import { timerStatus } from './timer-status.js';
-// import { startShortBreakTimer } from './break-timer.js';
-// import { setPause } from './break-timer.js';
 
-// === ELEMENTOS DE UI (seus) ===
+// === SAVE USER PREFERENCES ===
+const workTime = getUserPomoTime() * 60;
+const shortBreakTime = getUserShortBreak() * 60;
+const longBreakTime = getUserLongBreak() * 60;
+
+let remainingTime = getUserPomoTime() * 60; //valor padrão;
+
+// === UI ELEMENTS ===
 const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
 const skipBtn = document.querySelector('.play-controls__button--skip');
 const colon = document.querySelector('.timer-card__separator--colon');
-
 const minutesDisplay = document.querySelector('.timer-card__minutes--number');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
+stopBtn.style.display = 'none';
+skipBtn.style.display = 'none';
 
-// === ESTADO/VARIÁVEIS (mantidos/ajustados) ===
+
+// === COLON BLINK DEALER === 
 let colonInterval;
 let colonVisible = true;
 
-// CONTADORES que você já tinha
+// === TIMER HANDLER ===
+let workTimeInterval;
+let pauseTimeInterval;
+let isPause = false;
+
+// === COUNTERS ===
 let completedPomodoros = 0;
 let completedShortBreaks = 0;
 let completedLongBreaks = 0;
 
-// NOVO: um único intervalo e uma única fonte de verdade
-let tickId = null;                 // id do setInterval ativo (único)
-let remainingSeconds = null;       // fonte de verdade do tempo restante
-let mode = 'work';                 // 'work' | 'short' | 'long'
-let isRunning = false;
-
-// Mantém compatibilidade com a sua flag
-let isPause = false;               // false => work, true => break (short/long)
-
-// Inicial: esconde botões stop/skip como no seu código
-stopBtn.style.display = 'none';
-skipBtn.style.display = 'none';
-
-// === FUNÇÕES (algumas suas, outras ajustadas) ===
-
+//get value selected by the user from settings, and put it on display 
 export function setDisplayTimer(userSelectedTimer) {
 updateTimerDisplay(userSelectedTimer);
 }
 
+function displayColon() {
 
-// (sua) Atualiza o display
+    if (colonVisible) {
+        colon.style.visibility = 'hidden';
+        colonVisible = false; 
+    } else {
+        colon.style.visibility = 'visible';
+        colonVisible = true; 
+    }
+
+}
+
 export function updateTimerDisplay(seconds) {
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60;
 
-  minutesDisplay.textContent = String(mins).padStart(2, '0');
-  secondsDisplay.textContent = String(secs).padStart(2, '0');
+    minutesDisplay.textContent = String(mins).padStart(2, '0');
+    secondsDisplay.textContent = String(secs).padStart(2, '0');
 }
 
-// (sua) Piscar os dois pontos
-export function displayColon() {
-  if (colonVisible) {
-    colon.style.visibility = 'hidden';
-    colonVisible = false;
-  } else {
-    colon.style.visibility = 'visible';
-    colonVisible = true;
-  }
-}
 
-// Retorna os segundos configurados pelo usuário para o modo atual
-function secondsFor(currentMode) {
-  if (currentMode === 'work')  return getUserPomoTime() * 60;
-  if (currentMode === 'short') return getUserShortBreak() * 60;
-  return getUserLongBreak() * 60; // 'long'
-}
+function pauseTimeHandler(isSelfInitiated) {
+    //checa se é uma pausa curta ou longa
+     
+    clearInterval(workTimeInterval);
 
-// Define isPause a partir do modo
-function syncPauseFlag() {
-  isPause = (mode !== 'work');
-}
+    if(completedShortBreaks <= 4) {
 
-// Avança para o próximo modo com a sua lógica de ciclos curtos/longos
-function goToNextMode() {
-  if (mode === 'work') {
-    // Ex.: 4 curtas antes da longa. Ajuste o número se o seu app usar outro.
-    if (completedShortBreaks < 3) {
-      mode = 'short';
-      completedShortBreaks += 1;
-      console.log(completedShortBreaks);
-    } else {
-      mode = 'long';
-      completedShortBreaks = 0;
-      completedLongBreaks += 1;
+        let currentWorkTime = shortBreakTime;
+
+        if (isSelfInitiated === false) {
+        currentWorkTime = getDisplayTime();
+        console.log('peguei o display de pausa');
+        }
+
+        pauseTimeInterval = setInterval(() => {
+
+            if(currentWorkTime > 0) {
+                currentWorkTime--;
+                console.log('Decrementando pause time', currentWorkTime);
+                isPause = true;
+                updateTimerDisplay(currentWorkTime);
+            } else {
+                clearInterval(pauseTimeInterval);
+                countdownWorkTime(true);
+                completedShortBreaks++;
+                console.log('final do break')
+                console.log(completedShortBreaks)
+            }
+
+        }, 1000);
     }
-  } else {
-    // Voltou de uma pausa (curta ou longa) para trabalho
-    mode = 'work';
-    completedPomodoros += 1;
-  }
-  syncPauseFlag();
+    
+
+    
+
+    //if 4 short breaks
+        //dar clear interval
+        //comeca longbreak
+        //incrementa longbreak
+            //if remainingTime === 0
+                //volta startTimer()
+
+     
 }
 
-// Inicia/retoma a sessão atual.
-// fresh: true  => sessão nova (aplica os valores do usuário)
-// fresh: false => retomada (NÃO reseta; continua de remainingSeconds)
-function startSession({ fresh }) {
-  // Garante que nunca exista mais de um intervalo ativo
-  clearInterval(tickId);
+//pega valor do timer sendo decrementado na tela
+function getDisplayTime () {
+  const mins = parseInt(minutesDisplay.textContent, 10);
+  const secs = parseInt(secondsDisplay.textContent, 10);
+  return mins * 60 + secs;
+}
 
-  if (fresh || remainingSeconds == null) {
-    remainingSeconds = secondsFor(mode);      // aplica input do usuário só em inícios novos
-    updateTimerDisplay(remainingSeconds);     // alinha UI com a fonte de verdade
-  }
 
-  isRunning = true;
+function countdownWorkTime (isSelfInitiated){
 
-  tickId = setInterval(() => {
-    if (remainingSeconds > 0) {
-      remainingSeconds -= 1;
-      updateTimerDisplay(remainingSeconds);
-      console.log('teste1');
-    } else {
-      // terminou a sessão atual
-      clearInterval(tickId);
-      isRunning = false;
-        console.log('teste2');
-      // decide próximo modo e inicia nova sessão já com o input atual
-      goToNextMode();
-      startSession({ fresh: true });
+   let currentWorkTime = workTime;
+
+    
+    if (isSelfInitiated === false) {
+        currentWorkTime = getDisplayTime ();
+        console.log('peguei o display');
     }
-  }, 1000);
+        
+    // updateTimerDisplay(currentWorkTime);
+    
+    workTimeInterval = setInterval(() => {
+        
+        if (currentWorkTime > 0) {
+            
+            currentWorkTime--;
+            isPause = false;
+            console.log('Decrementando work time', currentWorkTime);
+            updateTimerDisplay(currentWorkTime);
+
+        } else {
+            clearInterval(workTimeInterval);
+            pauseTimeHandler(true);
+            console.log('final do work');
+            // endTimer();
+            
+        }
+    }, 1000); 
+
 }
 
-// Pausa sem criar "timer fantasma"
-function pauseSession() {
-  clearInterval(tickId);
-  tickId = null;
-  isRunning = false;
+
+function pauseWorkTimer() {
+    clearInterval(workTimeInterval);
 }
 
-// === HANDLER DO PLAY/PAUSE (usa as mesmas classes/atributos que você já tem) ===
+function pauseBreakTimer() {
+    clearInterval(pauseTimeInterval);
+
+}
+
+
 playBtn.addEventListener('click', () => {
-  const isPlayState = playBtn.classList.contains('play-controls__button--play');
+    const isPlayState = playBtn.classList.contains('play-controls__button--play');
+    
 
-  if (isPlayState) {
-    // PLAY
-    playBtn.classList.replace('play-controls__button--play', 'play-controls__button--pause');
-    playBtn.setAttribute('aria-pressed', 'true');
+    if (isPlayState) { //when the play button is pressed
 
-    stopBtn.style.display = 'none';
-    skipBtn.style.display = 'none';
+        playBtn.classList.replace('play-controls__button--play', 'play-controls__button--pause');
+        
+        playBtn.setAttribute('aria-pressed', 'true');
 
-    colonInterval = setInterval(displayColon, 1000);
+        colonInterval = setInterval(displayColon, 1000);
 
-    // Se é a primeira vez (remainingSeconds == null), começa "fresh"
-    // Se estava pausado, retoma SEM fresh (não reseta)
-    const shouldStartFresh = (remainingSeconds == null);
-    startSession({ fresh: shouldStartFresh });
+        stopBtn.style.display = 'none';
+        skipBtn.style.display = 'none';
 
-  } else {
-    // PAUSE
-    playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
-    playBtn.setAttribute('aria-pressed', 'false');
+        if (isPause === true) {
+            pauseTimeHandler (false);
+        };
+        
+        if (isPause === false) {
+            countdownWorkTime (false);
+        };
 
-    pauseSession();
 
-    clearInterval(colonInterval);
-    colon.style.visibility = 'visible';
+    } else { //when the pause button is pressed
 
-    stopBtn.style.display = 'inline-flex';
-    skipBtn.style.display = 'inline-flex';
-  }
+        playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+        
+        playBtn.setAttribute('aria-pressed', false);
+        pauseWorkTimer();
+        pauseBreakTimer();
+
+        clearInterval(colonInterval);
+
+        colon.style.visibility = 'visible';
+        stopBtn.style.display = 'inline-flex';
+        skipBtn.style.display = 'inline-flex';
+    }
+
 });
 
-// === OPCIONAL: inicializa o display com o valor atual do usuário (work) na abertura ===
-(function initFirstPaint() {
-  mode = 'work';
-  syncPauseFlag();
-  remainingSeconds = secondsFor(mode);
-  updateTimerDisplay(remainingSeconds);
-})();
+
+// function startTimer(){
+    
+//     // if(remainingTime === 0) {
+//     //     remainingTime = getUserPomoTime() * 60; //tempo é sobrescrito quando entra em break
+//     // }
+
+//     updateTimerDisplay(remainingTime);
+//     countdownWorkTime();
+
+    
+// }
+
+
+
+// function endTimer() {
+//     clearInterval(workTimeInterval);
+//     clearInterval(colonInterval);
+
+//     colon.style.visibility = 'visible';
+//     colonVisible = true;
+
+//     //desativar quando criar a breakTimer
+//     // remainingTime = TEST_MODE ? TEST_SECONDS : getUserPomoTime() * 60;
+//     // updateTimerDisplay(remainingTime);
+
+//     // if () {
+//     //     startShortBreakTimer();
+//     // }
+    
+
+//     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+//     playBtn.setAttribute('aria-pressed', false);
+//     stopBtn.style.display = 'none';
+//     skipBtn.style.display = 'none';
+
+// }
+
+
+//para o timer e reseta o tempo para o temop padrão
+// function stopTimer() {
+//     clearInterval(workTimeInterval);
+//     clearInterval(colonInterval);
+
+//     colon.style.visibility = 'visible';
+//     colonVisible = true;
+
+//     remainingTime = 10; // Reset to initial time
+//     updateTimerDisplay(remainingTime);
+
+//     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+//     playBtn.setAttribute('aria-pressed', false);
+
+//     stopBtn.style.display = 'none';
+//     skipBtn.style.display = 'none';
+// }
+
+// function endTimer() {
+//     clearInterval(workTimeInterval);
+//     clearInterval(colonInterval);
+
+//     colon.style.visibility = 'visible';
+//     colonVisible = true;
+
+//     remainingTime = getUserPomoTime() * 60; // Reset to initial time
+//     updateTimerDisplay(remainingTime);
+
+//     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+//     playBtn.setAttribute('aria-pressed', false);
+
+//     stopBtn.style.display = 'none';
+//     skipBtn.style.display = 'none';
+// };
+
+// function changeIcon() {
+    // apenas quando muda de sessão
+    //document.querySelector(".minhaImagem").src = "novoCaminhoDaImagem.jpg";
+// }
+
+
+
