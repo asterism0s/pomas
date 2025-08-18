@@ -21,10 +21,6 @@ const confirmBtn =  document.querySelector('.confirm-button');
 loadSettings ();
 
 
-// shortBreak.addEventListener('change', () => { updateTimer(shortBreak) });
-// longBreak.addEventListener('change', () => { updateTimer(longBreak) });
-
-
 settingsBtn.addEventListener('click', () => {
     modal.classList.toggle('hidden');
     settingsBtn.setAttribute (
@@ -48,7 +44,7 @@ confirmBtn.addEventListener('click', (event) => {
     localStorage.setItem('longBreak', selectedLongBreak);
     localStorage.setItem('breakInterval', selectedBreakInterval);
 
-    setDisplayTimer(selectedPomoTime * 60);
+    setDisplayTimer(selectedPomoTime * 60); //get value selected by the user from settings, and put it on display 
 
     modal.classList.add('hidden');
     settingsBtn.setAttribute('aria-expanded', 'false');
@@ -81,7 +77,6 @@ function loadSettings () {
     }
 
 }
-
 
 //export getters
 export function getUserPomoTime() {

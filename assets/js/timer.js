@@ -53,7 +53,7 @@ function displayColon() {
 
 }
 
-export function updateTimerDisplay(seconds) {
+function updateTimerDisplay(seconds) {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60;
 
@@ -67,34 +67,59 @@ function pauseTimeHandler(isSelfInitiated) {
      
     clearInterval(workTimeInterval);
 
-    if(completedShortBreaks <= 4) {
+    if(completedShortBreaks <= 3) {
 
-        let currentWorkTime = shortBreakTime;
+        let currentBreakTime = shortBreakTime;
 
         if (isSelfInitiated === false) {
-        currentWorkTime = getDisplayTime();
-        console.log('peguei o display de pausa');
-        }
+        currentBreakTime = getDisplayTime();
+        console.log('peguei o display de pausa curta');
+        };
 
         pauseTimeInterval = setInterval(() => {
 
-            if(currentWorkTime > 0) {
-                currentWorkTime--;
-                console.log('Decrementando pause time', currentWorkTime);
+            if(currentBreakTime > 0) {
+                currentBreakTime--;
+                console.log('Decrementando break curto', currentBreakTime);
                 isPause = true;
-                updateTimerDisplay(currentWorkTime);
+                updateTimerDisplay(currentBreakTime);
             } else {
                 clearInterval(pauseTimeInterval);
                 countdownWorkTime(true);
                 completedShortBreaks++;
-                console.log('final do break')
+                console.log('final do break curto')
                 console.log(completedShortBreaks)
-            }
+            };
 
         }, 1000);
-    }
+    };
     
+    if(completedShortBreaks > 4) {
 
+        let currentBreakTime = longBreakTime;
+
+        if(isSelfInitiated === false) {
+            currentBreakTime = getDisplayTime();
+            console.log('peguei o display de pausa longa');
+        };
+
+        pauseTimeInterval = setInterval(() => {
+            if(currentBreakTime > 0) {
+                currentBreakTime--;
+                console.log('Decrementando break longo', currentBreakTime);
+                isPause = true;
+                updateTimerDisplay(currentBreakTime);
+            } else {
+                clearInterval(pauseTimeInterval);
+                countdownWorkTime(true);
+                completedLongBreaks++;
+                console.log('final do break longo');
+                console.log(completedLongBreaks);
+            }
+        }, 1000)
+
+
+    };
     
 
     //if 4 short breaks
