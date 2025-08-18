@@ -15,9 +15,9 @@
               "state": {
                 "file": "Code/work-timer.js.canvas",
                 "viewState": {
-                  "x": -630,
-                  "y": -70,
-                  "zoom": -1.1526290497127323
+                  "x": -304.4858601320261,
+                  "y": 370.59616881989206,
+                  "zoom": -0.7526290497127323
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -171,12 +171,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "415bae87559ce8fe",
+  "active": "0b5f391b5e0d9799",
   "lastOpenFiles": [
-    "Code/work-timer.js.canvas",
-    "Code/Untitled.canvas",
-    "Code/settings-modal.js.canvas",
     "Code/break-timer.js.canvas",
+    "Code/settings-modal.js.canvas",
+    "Code/work-timer.js.canvas",
+    "Code/pomodoro-logic.canvas",
+    "pomo-logic.png",
     "Notes/ChatGPT/Untitled.md",
     "Code/Ideas.md",
     "Notes/Pato/15 ago 2025.md",

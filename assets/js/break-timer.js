@@ -1,27 +1,37 @@
-import { timerStatus } from './timer-status.js';
-import { getUserShortBreak } from './settings-modal.js';
-import { setRemainingTime } from './work-timer.js';
-import { getRemainingTime } from './work-timer.js';
 
 
 
 
-export function startShortBreakTimer () {
+import {
+  getUserShortBreak,
+  getUserLongBreak,
+  getUserPomoTime,
+  getUserBreakInterval,
+} from './settings-modal.js';
 
-    if (getRemainingTime() === 0) {
-        //pega o tempo selecionado pelo usuário e joga pra UI
-        // setRemainingTime = getUserShortBreak() * 60;
-        //se sim Se sim, podemos iniciar o timer de pausa. 
-        setRemainingTime(getUserShortBreak() * 60);
-        shortBreakCounter++;
+let completedPomodoros = 0;
+let completedShortBreaks = 0;
+let completedLongBreaks = 0;
+// export let isPause = false;
 
-        console.log("inicio do break");
-        console.log(shortBreakCounter);
-    }
+// export function setPause(value){
+//     isPause = value; // value precisa ser true ou false
+// }
 
-    return;
-}
 
-function endShortBreakTimer() {
+// export function startShortBreakTimer () {
 
-}
+//     if (getRemainingTime() === 0) {
+        
+//         setRemainingTime(getUserShortBreak() * 60); 
+//         setPause(true);
+//     }
+
+//     return;
+// }
+
+
+
+// function endShortBreakTimer() {
+
+// }

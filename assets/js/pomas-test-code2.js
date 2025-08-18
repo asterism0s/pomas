@@ -40,11 +40,6 @@ skipBtn.style.display = 'none';
 
 // === FUNÇÕES (algumas suas, outras ajustadas) ===
 
-export function setDisplayTimer(userSelectedTimer) {
-updateTimerDisplay(userSelectedTimer);
-}
-
-
 // (sua) Atualiza o display
 export function updateTimerDisplay(seconds) {
   const mins = Math.floor(seconds / 60);
@@ -84,7 +79,6 @@ function goToNextMode() {
     if (completedShortBreaks < 3) {
       mode = 'short';
       completedShortBreaks += 1;
-      console.log(completedShortBreaks);
     } else {
       mode = 'long';
       completedShortBreaks = 0;
@@ -116,12 +110,11 @@ function startSession({ fresh }) {
     if (remainingSeconds > 0) {
       remainingSeconds -= 1;
       updateTimerDisplay(remainingSeconds);
-      console.log('teste1');
     } else {
       // terminou a sessão atual
       clearInterval(tickId);
       isRunning = false;
-        console.log('teste2');
+
       // decide próximo modo e inicia nova sessão já com o input atual
       goToNextMode();
       startSession({ fresh: true });

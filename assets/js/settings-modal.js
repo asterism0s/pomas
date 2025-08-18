@@ -1,6 +1,5 @@
 import './work-timer.js';
-
-import { setRemainingTime } from './work-timer.js';
+import { setDisplayTimer } from './work-timer.js';
 
 const modal = document.getElementById('settings-modal');
 const settingsBtn = document.getElementById('settings-btn');
@@ -49,7 +48,7 @@ confirmBtn.addEventListener('click', (event) => {
     localStorage.setItem('longBreak', selectedLongBreak);
     localStorage.setItem('breakInterval', selectedBreakInterval);
 
-    setRemainingTime(selectedPomoTime * 60);
+    setDisplayTimer(selectedPomoTime * 60);
 
     modal.classList.add('hidden');
     settingsBtn.setAttribute('aria-expanded', 'false');
@@ -84,7 +83,7 @@ function loadSettings () {
 }
 
 
-
+//export getters
 export function getUserPomoTime() {
     return localStorage.getItem('pomoTime');
 }
