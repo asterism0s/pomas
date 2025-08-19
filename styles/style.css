@@ -106,14 +106,14 @@ body {
   padding: 0.5rem;
 }
 
-.timer-card__status-work-text, .timer-card__status-pause-text, .timer-card__minutes--text, .timer-card__seconds--text, .timer-card__counter-text {
+.timer-card__status-work-text, .timer-card__status-work-disabled-text, .timer-card__status-pause-text, .timer-card__status-pause-disabled-text, .timer-card__minutes--text, .timer-card__seconds--text, .timer-card__counter-text {
   font-family: "Karla", sans-serif;
   font-size: 0.75rem;
   letter-spacing: -0.72px;
   text-align: center;
 }
 
-.timer-card__status-work-icon, .timer-card__status-pause-icon {
+.timer-card__status-work-icon, .timer-card__status-work-disabled-icon, .timer-card__status-pause-icon, .timer-card__status-pause-disabled-icon {
   height: 2rem;
   width: 2rem;
 }
@@ -135,14 +135,6 @@ body {
 /* button mixins */
 /* config button */
 /* tab mixins */
-.status--active {
-  color: #4f6657;
-}
-
-.status--inactive {
-  color: #c1e1ca;
-}
-
 .bar-active {
   background-color: #4f6657;
 }
@@ -776,17 +768,44 @@ body {
   flex-direction: column;
   gap: 0.5rem;
 }
+
 .timer-card__status-work {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
+.timer-card__status-work-text {
+  color: #4f6657;
+}
+.timer-card__status-work-disabled {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  display: none;
+}
+.timer-card__status-work-disabled-text {
+  color: #c1e1ca;
+}
 .timer-card__status-pause {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  display: none;
+}
+.timer-card__status-pause-text {
+  color: #4f6657;
+}
+.timer-card__status-pause-disabled {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.timer-card__status-pause-disabled-text {
+  color: #c1e1ca;
 }
 .timer-card__timer {
   display: flex;

@@ -18,6 +18,9 @@ const skipBtn = document.querySelector('.play-controls__button--skip');
 const colon = document.querySelector('.timer-card__separator--colon');
 const minutesDisplay = document.querySelector('.timer-card__minutes--number');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
+
+const workIcon = document.querySelector('.timer-card__status-work-icon');
+const pauseIcon = document.querySelector('.timer-card__status-pause-icon');
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
 
@@ -36,10 +39,24 @@ let completedPomodoros = 0;
 let completedShortBreaks = 0;
 let completedLongBreaks = 0;
 
-//get value selected by the user from settings, and put it on display 
+//=== TIMER STATUS ===
+let timerStatus = ['work', 'break']; 
+
+//Get the user selected value from settings, and put it on display 
 export function setDisplayTimer(userSelectedTimer) {
 updateTimerDisplay(userSelectedTimer);
 }
+
+function setTimerStatus(status) { 
+    if (status === true) {
+
+        console.log(pauseIcon);
+    } else {
+        console.log(workIcon);
+    };
+
+}
+
 
 function displayColon() {
 
@@ -87,6 +104,7 @@ function pauseTimeHandler(isSelfInitiated) {
                 clearInterval(pauseTimeInterval);
                 countdownWorkTime(true);
                 completedShortBreaks++;
+                isPause = false;
                 console.log('final do break curto')
                 console.log(completedShortBreaks)
             };
@@ -113,6 +131,7 @@ function pauseTimeHandler(isSelfInitiated) {
                 clearInterval(pauseTimeInterval);
                 countdownWorkTime(true);
                 completedLongBreaks++;
+                isPause = false;
                 console.log('final do break longo');
                 console.log(completedLongBreaks);
             }
@@ -120,19 +139,9 @@ function pauseTimeHandler(isSelfInitiated) {
 
 
     };
-    
-
-    //if 4 short breaks
-        //dar clear interval
-        //comeca longbreak
-        //incrementa longbreak
-            //if remainingTime === 0
-                //volta startTimer()
-
-     
 }
 
-//pega valor do timer sendo decrementado na tela
+//pega valor do timer sendo decrementado na tela em tempo real
 function getDisplayTime () {
   const mins = parseInt(minutesDisplay.textContent, 10);
   const secs = parseInt(secondsDisplay.textContent, 10);

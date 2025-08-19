@@ -59,39 +59,82 @@
     flex-direction: column;
 
     gap: 0.5rem;
-
-    &-work {
-
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        &-text {
-            @extend %timer-text;
-        }
-    }
-
-    &-pause {
-
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        &-text {
-            @extend %timer-text;
-            
-        }
-    }
-
 }
 
-//timer status icons
 
-.timer-card__status-work-icon, .timer-card__status-pause-icon {
-    @extend %timer-status-size;
+.timer-card__status-work {
+align-items: center;
+display: flex;
+flex-direction: column;
+gap: 0.25rem;
+
+    &-text {
+        @extend %timer-text;
+        color: colors.$receeded-text-and-icons-active;
+    }
+
+    &-icon {
+        @extend %timer-status-size;
+    }
 }
+
+
+.timer-card__status-work-disabled {
+align-items: center;
+display: flex;
+flex-direction: column;
+gap: 0.25rem;
+display:none;
+
+    &-text {
+        @extend %timer-text;
+        color: colors.$receeded-text-and-icons-disabled;
+    }
+
+    &-icon {
+        @extend %timer-status-size;
+    }
+}
+
+.timer-card__status-pause {
+align-items: center;
+display: flex;
+flex-direction: column;
+gap: 0.25rem;
+display: none;
+
+
+    &-text {
+        @extend %timer-text;
+        color: colors.$receeded-text-and-icons-active;
+
+    }
+
+    &-icon {
+        @extend %timer-status-size;
+    }
+}
+
+.timer-card__status-pause-disabled {
+align-items: center;
+display: flex;
+flex-direction: column;
+gap: 0.25rem;
+
+
+
+    &-text {
+        @extend %timer-text;
+        color: colors.$receeded-text-and-icons-disabled;
+    }
+
+    &-icon {
+        @extend %timer-status-size;
+    }
+}
+
+
+
 
 
 .timer-card__timer {

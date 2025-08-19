@@ -80,16 +80,6 @@
     }
 }
 
-//color mixin for active/inactive text
-@mixin font-status($color) {
-  color: $color;
-}
-
-@each $key, $value in variables.$statuses {
-  .status--#{$key} {
-    @include font-status($value);
-  }
-}
 
 //color mixin for enabled/disabled div-bar
 @mixin bg-status($color) {
