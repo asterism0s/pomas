@@ -247,6 +247,18 @@ function stopTimer() {
 
 stopBtn.addEventListener('click', () => {
     stopTimer();
+
+    workActive.style.display = 'flex';
+    workDisabled.style.display = 'none';
+
+    workActive.removeAttribute('aria-hidden');
+    workDisabled.setAttribute('aria-hidden', 'true');
+
+    pauseActive.style.display = 'none';
+    pauseDisabled.style.display = 'flex';
+
+    pauseActive.setAttribute('aria-hidden', 'true');
+    pauseDisabled.removeAttribute('aria-hidden');
 })
 
 playBtn.addEventListener('click', () => {
