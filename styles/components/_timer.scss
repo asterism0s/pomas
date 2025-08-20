@@ -76,32 +76,26 @@ gap: 0.25rem;
     &-icon {
         @extend %timer-status-size;
     }
-}
-
-
-.timer-card__status-work-disabled {
-align-items: center;
-display: flex;
-flex-direction: column;
-gap: 0.25rem;
-display:none;
-
-    &-text {
+    
+    &-disabled-text {
         @extend %timer-text;
         color: colors.$receeded-text-and-icons-disabled;
-    }
+        display: none;
+    } 
 
-    &-icon {
+    &-disabled-icon {
         @extend %timer-status-size;
+        display: none;
     }
 }
+
 
 .timer-card__status-pause {
 align-items: center;
 display: flex;
 flex-direction: column;
 gap: 0.25rem;
-display: none;
+
 
 
     &-text {
@@ -110,26 +104,20 @@ display: none;
 
     }
 
-    &-icon {
-        @extend %timer-status-size;
-    }
-}
-
-.timer-card__status-pause-disabled {
-align-items: center;
-display: flex;
-flex-direction: column;
-gap: 0.25rem;
-
-
-
-    &-text {
+    &-disabled-text {
         @extend %timer-text;
         color: colors.$receeded-text-and-icons-disabled;
+        display: none;
     }
+
 
     &-icon {
         @extend %timer-status-size;
+    }
+
+    &-disabled-icon {
+        @extend %timer-status-size;
+        display: none;
     }
 }
 

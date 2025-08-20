@@ -778,35 +778,31 @@ body {
 .timer-card__status-work-text {
   color: #4f6657;
 }
-.timer-card__status-work-disabled {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  display: none;
-}
 .timer-card__status-work-disabled-text {
   color: #c1e1ca;
+  display: none;
 }
+.timer-card__status-work-disabled-icon {
+  display: none;
+}
+
 .timer-card__status-pause {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  display: none;
 }
 .timer-card__status-pause-text {
   color: #4f6657;
 }
-.timer-card__status-pause-disabled {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
 .timer-card__status-pause-disabled-text {
   color: #c1e1ca;
+  display: none;
 }
+.timer-card__status-pause-disabled-icon {
+  display: none;
+}
+
 .timer-card__timer {
   display: flex;
   flex-direction: row;
