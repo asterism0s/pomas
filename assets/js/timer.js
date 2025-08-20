@@ -19,8 +19,14 @@ const colon = document.querySelector('.timer-card__separator--colon');
 const minutesDisplay = document.querySelector('.timer-card__minutes--number');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
 
-const workIcon = document.querySelector('.timer-card__status-work-icon');
-const pauseIcon = document.querySelector('.timer-card__status-pause-icon');
+const workActive = document.querySelector('.timer-card__status-work-container');
+const workDisabled = document.querySelector('.timer-card__status-work-disabled-container');
+
+const pauseActive = document.querySelector('.timer-card__status-pause-container');
+const pauseDisabled = document.querySelector('.timer-card__status-pause-disabled-container');
+
+
+
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
 
@@ -47,12 +53,21 @@ export function setDisplayTimer(userSelectedTimer) {
 updateTimerDisplay(userSelectedTimer);
 }
 
-function setTimerStatus(status) { 
-    if (status === true) {
+function setTimerStatus(isWork) { 
+    if (isWork === true) { //se for trabalho
+        workActive.style.display = 'flex';
+        workDisabled.style.display = 'none';
 
-        console.log(pauseIcon);
-    } else {
-        console.log(workIcon);
+        pauseActive.style.display = 'none';
+        pauseDisabled.style.display = 'flex';
+        
+    } else { //se for pausa
+        pauseActive.style.display = 'flex';
+        pauseDisabled.style.display = 'none';
+
+        workActive.style.display = 'none';
+        workDisabled.style.display = 'flex';
+        
     };
 
 }
@@ -99,10 +114,12 @@ function pauseTimeHandler(isSelfInitiated) {
                 currentBreakTime--;
                 console.log('Decrementando break curto', currentBreakTime);
                 isPause = true;
+                setTimerStatus(false);
                 updateTimerDisplay(currentBreakTime);
             } else {
                 clearInterval(pauseTimeInterval);
                 countdownWorkTime(true);
+                setTimerStatus(true);
                 completedShortBreaks++;
                 isPause = false;
                 console.log('final do break curto')
@@ -126,10 +143,12 @@ function pauseTimeHandler(isSelfInitiated) {
                 currentBreakTime--;
                 console.log('Decrementando break longo', currentBreakTime);
                 isPause = true;
+                setTimerStatus(false);
                 updateTimerDisplay(currentBreakTime);
             } else {
                 clearInterval(pauseTimeInterval);
                 countdownWorkTime(true);
+                setTimerStatus(true);
                 completedLongBreaks++;
                 isPause = false;
                 console.log('final do break longo');
@@ -167,12 +186,14 @@ function countdownWorkTime (isSelfInitiated){
             
             currentWorkTime--;
             isPause = false;
-            console.log('Decrementando work time', currentWorkTime);
+            setTimerStatus(true);
             updateTimerDisplay(currentWorkTime);
+            console.log('Decrementando work time', currentWorkTime);
 
         } else {
             clearInterval(workTimeInterval);
             pauseTimeHandler(true);
+            setTimerStatus(false);
             console.log('final do work');
             // endTimer();
             

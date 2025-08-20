@@ -68,6 +68,14 @@ display: flex;
 flex-direction: column;
 gap: 0.25rem;
 
+    &-container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        
+    }
+
     &-text {
         @extend %timer-text;
         color: colors.$receeded-text-and-icons-active;
@@ -76,16 +84,25 @@ gap: 0.25rem;
     &-icon {
         @extend %timer-status-size;
     }
+
+    &-disabled-container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        display: none;
+        
+    }
     
     &-disabled-text {
         @extend %timer-text;
         color: colors.$receeded-text-and-icons-disabled;
-        display: none;
+        
     } 
 
     &-disabled-icon {
         @extend %timer-status-size;
-        display: none;
+        
     }
 }
 
@@ -96,7 +113,13 @@ display: flex;
 flex-direction: column;
 gap: 0.25rem;
 
-
+    &-container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        display: none;
+    }
 
     &-text {
         @extend %timer-text;
@@ -104,20 +127,28 @@ gap: 0.25rem;
 
     }
 
-    &-disabled-text {
-        @extend %timer-text;
-        color: colors.$receeded-text-and-icons-disabled;
-        display: none;
-    }
-
-
     &-icon {
         @extend %timer-status-size;
     }
 
+    &-disabled-container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        
+    }
+
+    &-disabled-text {
+        @extend %timer-text;
+        color: colors.$receeded-text-and-icons-disabled;
+        
+    }
+    
+
     &-disabled-icon {
         @extend %timer-status-size;
-        display: none;
+
     }
 }
 
@@ -177,15 +208,6 @@ gap: 0.25rem;
         position: absolute;
 
         z-index: 1;
-        // color: rgba(0,0,0,0);
-        // colocar a cor transparente para fazer sumir
-
-        // &:before {
-
-        //     position: absolute;
-        //     @extend %timer-backlight;
-        //     content: ":";
-        // }
 
         &-secondary {
 
@@ -194,7 +216,7 @@ gap: 0.25rem;
         color: colors.$receeded-text-and-icons-disabled;
         z-index: 0;
 
-    }
+        }
 
     }
 
