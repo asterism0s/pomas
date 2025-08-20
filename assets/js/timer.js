@@ -53,8 +53,23 @@ export function setDisplayTimer(userSelectedTimer) {
 updateTimerDisplay(userSelectedTimer);
 }
 
+//Makes the colon blink
+function displayColon() {
+
+    if (colonVisible) {
+        colon.style.visibility = 'hidden';
+        colonVisible = false; 
+    } else {
+        colon.style.visibility = 'visible';
+        colonVisible = true; 
+    }
+
+}
+
+//Enable or disable the work time or coffe break icons
 function setTimerStatus(isWork) { 
-    if (isWork === true) { //se for trabalho
+
+    if (isWork === true) { 
         workActive.style.display = 'flex';
         workDisabled.style.display = 'none';
 
@@ -67,7 +82,7 @@ function setTimerStatus(isWork) {
         pauseActive.setAttribute('aria-hidden', 'true');
         pauseDisabled.removeAttribute('aria-hidden');
         
-    } else { //se for pausa
+    } else {
         pauseActive.style.display = 'flex';
         pauseDisabled.style.display = 'none';
 
@@ -85,18 +100,6 @@ function setTimerStatus(isWork) {
 }
 
 
-function displayColon() {
-
-    if (colonVisible) {
-        colon.style.visibility = 'hidden';
-        colonVisible = false; 
-    } else {
-        colon.style.visibility = 'visible';
-        colonVisible = true; 
-    }
-
-}
-
 function updateTimerDisplay(seconds) {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60;
@@ -107,8 +110,7 @@ function updateTimerDisplay(seconds) {
 
 
 function pauseTimeHandler(isSelfInitiated) {
-    //checa se é uma pausa curta ou longa
-     
+    //check if its a short break
     clearInterval(workTimeInterval);
 
     if(completedShortBreaks <= 3) {
@@ -141,6 +143,7 @@ function pauseTimeHandler(isSelfInitiated) {
         }, 1000);
     };
     
+    //checks if its a long break
     if(completedShortBreaks > 4) {
 
         let currentBreakTime = longBreakTime;
@@ -172,14 +175,14 @@ function pauseTimeHandler(isSelfInitiated) {
     };
 }
 
-//pega valor do timer sendo decrementado na tela em tempo real
+//Gets the in real time on display
 function getDisplayTime () {
   const mins = parseInt(minutesDisplay.textContent, 10);
   const secs = parseInt(secondsDisplay.textContent, 10);
   return mins * 60 + secs;
 }
 
-
+//Timer 
 function countdownWorkTime (isSelfInitiated){
 
    let currentWorkTime = workTime;
@@ -224,6 +227,27 @@ function pauseBreakTimer() {
 
 }
 
+//para o timer e reseta o tempo para o temop padrão
+function stopTimer() {
+    clearInterval(workTimeInterval);
+    clearInterval(colonInterval);
+
+    colon.style.visibility = 'visible';
+    colonVisible = true;
+
+    updateTimerDisplay(workTime);
+
+    playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+    playBtn.setAttribute('aria-pressed', false);
+
+    stopBtn.style.display = 'none';
+    skipBtn.style.display = 'none';
+}
+
+
+stopBtn.addEventListener('click', () => {
+    stopTimer();
+})
 
 playBtn.addEventListener('click', () => {
     const isPlayState = playBtn.classList.contains('play-controls__button--play');
@@ -305,23 +329,7 @@ playBtn.addEventListener('click', () => {
 // }
 
 
-//para o timer e reseta o tempo para o temop padrão
-// function stopTimer() {
-//     clearInterval(workTimeInterval);
-//     clearInterval(colonInterval);
 
-//     colon.style.visibility = 'visible';
-//     colonVisible = true;
-
-//     remainingTime = 10; // Reset to initial time
-//     updateTimerDisplay(remainingTime);
-
-//     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
-//     playBtn.setAttribute('aria-pressed', false);
-
-//     stopBtn.style.display = 'none';
-//     skipBtn.style.display = 'none';
-// }
 
 // function endTimer() {
 //     clearInterval(workTimeInterval);
