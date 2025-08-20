@@ -65,19 +65,19 @@
 
                             <div class="timer-card__display">
 
-                                <div class="timer-card__status">
+                                <div class="timer-card__status"role="status" aria-live="polite">
 
                                     <div class="timer-card__status-work">
 
                                         <div class="timer-card__status-work-container">
-                                            <p          class="timer-card__status-work-text">
+                                            <p class="timer-card__status-work-text">
                                                 Work time
                                             </p>
                                             <img class="timer-card__status-work-icon" src="/assets/icons/work-icon-active.svg" alt="Work icon">
                                         </div>
                                         
                                         <!-- work disabled -->
-                                         <div class="timer-card__status-work-disabled-container" >
+                                         <div class="timer-card__status-work-disabled-container" aria-hidden="true" >
                                             <p class="timer-card__status-work-disabled-text">Work time</p>
                                             <img class="timer-card__status-work-disabled-icon" src="/assets/icons/work-icon-inactive.svg" alt="Work icon"> 
                                          </div>
@@ -86,7 +86,7 @@
 
                                     <div class="timer-card__status-pause">
 
-                                        <div class="timer-card__status-pause-container" > 
+                                        <div class="timer-card__status-pause-container" aria-hidden="true"> 
                                             <p class="timer-card__status-pause-text">
                                                 Coffee break
                                             </p>
@@ -94,6 +94,7 @@
                                         </div>
                                         
                                         <div class="timer-card__status-pause-disabled-container">
+
                                             <!-- disabled -->
                                             <p class="timer-card__status-pause-disabled-text">
                                                 Coffee break

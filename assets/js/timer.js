@@ -58,15 +58,27 @@ function setTimerStatus(isWork) {
         workActive.style.display = 'flex';
         workDisabled.style.display = 'none';
 
+        workActive.removeAttribute('aria-hidden');
+        workDisabled.setAttribute('aria-hidden', 'true');
+
         pauseActive.style.display = 'none';
         pauseDisabled.style.display = 'flex';
+
+        pauseActive.setAttribute('aria-hidden', 'true');
+        pauseDisabled.removeAttribute('aria-hidden');
         
     } else { //se for pausa
         pauseActive.style.display = 'flex';
         pauseDisabled.style.display = 'none';
 
+        pauseActive.removeAttribute('aria-hidden');
+        pauseDisabled.setAttribute('aria-hidden', 'true');
+
         workActive.style.display = 'none';
         workDisabled.style.display = 'flex';
+
+        workActive.setAttribute('aria-hidden', 'true');
+        workDisabled.removeAttribute('aria-hidden');
         
     };
 

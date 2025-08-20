@@ -11,17 +11,14 @@
             "id": "0b5f391b5e0d9799",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Code/work-timer.js.canvas",
-                "viewState": {
-                  "x": -304.4858601320261,
-                  "y": 370.59616881989206,
-                  "zoom": -0.7526290497127323
-                }
+                "file": "Snippets/Modal settings bug fix.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "work-timer.js"
+              "icon": "lucide-file",
+              "title": "Modal settings bug fix"
             }
           }
         ]
@@ -163,6 +160,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -173,9 +171,9 @@
   },
   "active": "0b5f391b5e0d9799",
   "lastOpenFiles": [
+    "Code/work-timer.js.canvas",
     "Code/break-timer.js.canvas",
     "Code/settings-modal.js.canvas",
-    "Code/work-timer.js.canvas",
     "Code/pomodoro-logic.canvas",
     "pomo-logic.png",
     "Notes/ChatGPT/Untitled.md",
