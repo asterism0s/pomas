@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Snippets/Modal settings bug fix.md",
+                "file": "Notes/ChatGPT/Formatar número com zero à esquerda (padStart).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Modal settings bug fix"
+              "title": "Formatar número com zero à esquerda (padStart)"
             }
           }
         ]
@@ -171,16 +171,20 @@
   },
   "active": "0b5f391b5e0d9799",
   "lastOpenFiles": [
+    "Code/Ideas.md",
+    "Notes/ChatGPT/Formatar número com zero à esquerda (padStart).md",
+    "Snippets/Modal settings bug fix.md",
+    "Snippets/Pasted image 20250820165340.png",
+    "Snippets/Pasted image 20250820165321.png",
+    "pomo-logic.png",
+    "Pasted image 20250820165245.png",
+    "Pasted image 20250820165249.png",
     "Code/work-timer.js.canvas",
     "Code/break-timer.js.canvas",
     "Code/settings-modal.js.canvas",
     "Code/pomodoro-logic.canvas",
-    "pomo-logic.png",
-    "Notes/ChatGPT/Untitled.md",
-    "Code/Ideas.md",
     "Notes/Pato/15 ago 2025.md",
     "Notes/Pato/24 jul 2025.md",
-    "Snippets/Modal settings bug fix.md",
     "Pomas tree.md",
     "Notes/ChatGPT/Modal settings bug fix.md",
     "Dev/Pomas/Notes/Chat GPT/Modal settings bug fix.md",

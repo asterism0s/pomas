@@ -15,6 +15,7 @@ let remainingTime = getUserPomoTime() * 60; //valor padrão;
 const playBtn = document.getElementById('togglePlayControlBtn');
 const stopBtn = document.querySelector('.play-controls__button--stop');
 const skipBtn = document.querySelector('.play-controls__button--skip');
+const pomasCounter = document.querySelector('.timer-card__counter-number');
 const colon = document.querySelector('.timer-card__separator--colon');
 const minutesDisplay = document.querySelector('.timer-card__minutes--number');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
@@ -24,8 +25,6 @@ const workDisabled = document.querySelector('.timer-card__status-work-disabled-c
 
 const pauseActive = document.querySelector('.timer-card__status-pause-container');
 const pauseDisabled = document.querySelector('.timer-card__status-pause-disabled-container');
-
-
 
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
@@ -207,9 +206,12 @@ function countdownWorkTime (isSelfInitiated){
 
         } else {
             clearInterval(workTimeInterval);
+            completedPomodoros++;
+            pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
             pauseTimeHandler(true);
             setTimerStatus(false);
             console.log('final do work');
+            
             // endTimer();
             
         }
@@ -303,6 +305,7 @@ playBtn.addEventListener('click', () => {
 });
 
 
+
 // function startTimer(){
     
 //     // if(remainingTime === 0) {
@@ -339,31 +342,3 @@ playBtn.addEventListener('click', () => {
 //     skipBtn.style.display = 'none';
 
 // }
-
-
-
-
-// function endTimer() {
-//     clearInterval(workTimeInterval);
-//     clearInterval(colonInterval);
-
-//     colon.style.visibility = 'visible';
-//     colonVisible = true;
-
-//     remainingTime = getUserPomoTime() * 60; // Reset to initial time
-//     updateTimerDisplay(remainingTime);
-
-//     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
-//     playBtn.setAttribute('aria-pressed', false);
-
-//     stopBtn.style.display = 'none';
-//     skipBtn.style.display = 'none';
-// };
-
-// function changeIcon() {
-    // apenas quando muda de sessão
-    //document.querySelector(".minhaImagem").src = "novoCaminhoDaImagem.jpg";
-// }
-
-
-
