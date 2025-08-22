@@ -105,14 +105,19 @@ function statusDisplay(mode) {
         updateTimerDisplay(workTime);
         isPause = false;
         setTimerStatus(true);
+        completedPomodoros++;
+        pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
     } else if (mode === 'short') {
         updateTimerDisplay(shortBreakTime);
         isPause = true;
         setTimerStatus(false);
+        completedShortBreaks++;
     } else if (mode === 'long') {
         updateTimerDisplay(longBreakTime);
         isPause = true;
         setTimerStatus(false);
+        completedLongBreaks++;
+        completedShortBreaks = 0;
     }
 }
 
@@ -291,7 +296,6 @@ skipBtn.addEventListener('click', () => {
         clearInterval(pauseTimeInterval);
         clearInterval(colonInterval);
 
-        //se estier em pausa skipa pra work
 
         if(isPause === false) {
             console.log("skipando work -> entrando em pausa");
