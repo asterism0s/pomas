@@ -10,9 +10,6 @@ const shortBreak = document.querySelector('#short-break');
 const longBreak = document.querySelector('#long-break');
 const breakInterval = document.querySelector('#break-interval');
 
-const timerMinutes = document.querySelector('.timer-card__minutes--number');
-const timerSeconds = document.querySelector('.timer-card__seconds--number');
-
 const cancelBtn = document.querySelector('.cancel-button');
 const confirmBtn =  document.querySelector('.confirm-button');
 

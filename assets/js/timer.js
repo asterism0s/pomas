@@ -1,6 +1,6 @@
 // === IMPORTS  - GET USER PREFERENCES ===
 import './settings-modal.js';
-import { getUserPomoTime } from './settings-modal.js';
+import { getUserBreakInterval, getUserPomoTime } from './settings-modal.js';
 import { getUserShortBreak } from './settings-modal.js';
 import { getUserLongBreak } from './settings-modal.js';
 
@@ -8,6 +8,7 @@ import { getUserLongBreak } from './settings-modal.js';
 const workTime = getUserPomoTime() * 60;
 const shortBreakTime = getUserShortBreak() * 60;
 const longBreakTime = getUserLongBreak() * 60;
+const breakInterval = getUserBreakInterval();
 
 let remainingTime = getUserPomoTime() * 60; //valor padrão;
 
@@ -98,6 +99,23 @@ function setTimerStatus(isWork) {
 
 }
 
+//When the user skips a session, this sets the display, without initiating another timer display
+function statusDisplay(mode) {
+    if (mode === 'work') {
+        updateTimerDisplay(workTime);
+        isPause = false;
+        setTimerStatus(true);
+    } else if (mode === 'short') {
+        updateTimerDisplay(shortBreakTime);
+        isPause = true;
+        setTimerStatus(false);
+    } else if (mode === 'long') {
+        updateTimerDisplay(longBreakTime);
+        isPause = true;
+        setTimerStatus(false);
+    }
+}
+
 
 function updateTimerDisplay(seconds) {
     const mins = Math.floor(seconds / 60)
@@ -107,6 +125,8 @@ function updateTimerDisplay(seconds) {
     secondsDisplay.textContent = String(secs).padStart(2, '0');
 }
 
+//criar uma função pra chegar escolha do usuáro e retornar
+//comparar no if statement do pauseTimeHandler
 
 function pauseTimeHandler(isSelfInitiated) {
     //check if its a short break
@@ -143,7 +163,7 @@ function pauseTimeHandler(isSelfInitiated) {
     };
     
     //checks if its a long break
-    if(completedShortBreaks > 4) {
+    if(completedShortBreaks >= 4) {
 
         let currentBreakTime = longBreakTime;
 
@@ -164,6 +184,7 @@ function pauseTimeHandler(isSelfInitiated) {
                 countdownWorkTime(true);
                 setTimerStatus(true);
                 completedLongBreaks++;
+                completedShortBreaks = 0;
                 isPause = false;
                 console.log('final do break longo');
                 console.log(completedLongBreaks);
@@ -208,6 +229,7 @@ function countdownWorkTime (isSelfInitiated){
             clearInterval(workTimeInterval);
             completedPomodoros++;
             pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
+            isPause = true;
             pauseTimeHandler(true);
             setTimerStatus(false);
             console.log('final do work');
@@ -226,8 +248,8 @@ function pauseWorkTimer() {
 
 function pauseBreakTimer() {
     clearInterval(pauseTimeInterval);
-
 }
+
 
 //para o timer e reseta o tempo para o temop padrão
 function stopTimer() {
@@ -261,7 +283,32 @@ stopBtn.addEventListener('click', () => {
 
     pauseActive.setAttribute('aria-hidden', 'true');
     pauseDisabled.removeAttribute('aria-hidden');
-})
+});
+
+skipBtn.addEventListener('click', () => {
+    //interromper qualquer time ativo
+        clearInterval(workTimeInterval);
+        clearInterval(pauseTimeInterval);
+        clearInterval(colonInterval);
+
+        //se estier em pausa skipa pra work
+
+        if(isPause === false) {
+            console.log("skipando work -> entrando em pausa");
+            const nextBreak = (completedLongBreaks <= 3) ? 'short' : 'long';
+            statusDisplay(nextBreak);
+        } else if(isPause === true) {
+            console.log("skipando a pausa -> entrando em work");
+            statusDisplay('work');
+        };
+
+        colon.style.visibility = 'visible';
+        playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+        playBtn.setAttribute('aria-pressed', false);
+        stopBtn.style.display = 'inline-flex';
+        skipBtn.style.display = 'inline-flex';
+        
+    });
 
 playBtn.addEventListener('click', () => {
     const isPlayState = playBtn.classList.contains('play-controls__button--play');
@@ -318,7 +365,12 @@ playBtn.addEventListener('click', () => {
     
 // }
 
+// function clearAllIntervals() {
+//     clearInterval(workTimeInterval);
+//     clearInterval(pauseTimeInterval);
+//     clearInterval(colonInterval);
 
+// }
 
 // function endTimer() {
 //     clearInterval(workTimeInterval);
