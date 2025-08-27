@@ -110,6 +110,8 @@ function pauseTimeHandler(isSelfInitiated) {
     //check if its a short break
     clearInterval(workTimeInterval);
 
+    console.log(breakInterval);
+
     if(completedShortBreaks < breakInterval) {
 
         let currentBreakTime = shortBreakTime;
@@ -263,46 +265,44 @@ function statusDisplay(mode) {
         setTimerStatus(true);
         completedPomodoros++;
         pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
+        console.log("Work completo",completedPomodoros);
     } else if (mode === 'short') {
+        completedShortBreaks++;
         updateTimerDisplay(shortBreakTime);
         isPause = true;
         setTimerStatus(false);
+        console.log("Pausa curta completa",completedShortBreaks);
         
     } else if (mode === 'long') {
         updateTimerDisplay(longBreakTime);
         isPause = true;
         setTimerStatus(false);
         completedShortBreaks = 0;
+    
     }
 }
 
 
 skipBtn.addEventListener('click', () => {
     //interromper qualquer time ativo
-    
+    clearInterval(workTimeInterval);
     clearInterval(pauseTimeInterval);
     clearInterval(colonInterval);
 
+    if (isPause === false) {
+       const nextBreak = (completedShortBreaks < breakInterval) ? 'short' : 'long';
 
-    if(isPause === false) {
-        clearInterval(workTimeInterval);
-        completedPomodoros++;
-        pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
-        isPause = true;
-        pauseTimeHandler(true);
-        setTimerStatus(false);
-        console.log("em work, skippando -> entrando em pausa");
-        
-    } else {
-        clearInterval(pauseTimeInterval);
-        countdownWorkTime(true);
-        setTimerStatus(true);
-        completedShortBreaks++;
-        isPause = false;
+		statusDisplay(nextBreak);
 
-        console.log("em pausa, skippando -> entrando em work");
-        
-    };
+        console.log(nextBreak);
+		console.log("skipando work -> entrando em pausa");
+	} else if (isPause === true) {
+        statusDisplay('work');
+
+		console.log("skipando a pausa -> entrando em work");
+	};
+
+
 
     colon.style.visibility = 'visible';
     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
