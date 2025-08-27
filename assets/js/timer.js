@@ -8,46 +8,35 @@ import { getUserLongBreak } from './settings-modal.js';
 const workTime = getUserPomoTime() * 60;
 const shortBreakTime = getUserShortBreak() * 60;
 const longBreakTime = getUserLongBreak() * 60;
-const breakInterval = parseInt(getUserBreakInterval() ?? '4', 10); //Se não existir nada salvo (ou for `null`), usa `'4'` como valor padrão.
+const breakInterval = parseInt(getUserBreakInterval() ?? '4', 10);
 console.log(breakInterval);
-
-let remainingTime = getUserPomoTime() * 60; //valor padrão;
 
 // === UI ELEMENTS ===
 const playBtn = document.getElementById('togglePlayControlBtn');
+const colon = document.querySelector('.timer-card__separator--colon');
 const stopBtn = document.querySelector('.play-controls__button--stop');
 const skipBtn = document.querySelector('.play-controls__button--skip');
 const pomasCounter = document.querySelector('.timer-card__counter-number');
-const colon = document.querySelector('.timer-card__separator--colon');
 const minutesDisplay = document.querySelector('.timer-card__minutes--number');
 const secondsDisplay = document.querySelector('.timer-card__seconds--number');
 
 const workActive = document.querySelector('.timer-card__status-work-container');
 const workDisabled = document.querySelector('.timer-card__status-work-disabled-container');
-
 const pauseActive = document.querySelector('.timer-card__status-pause-container');
 const pauseDisabled = document.querySelector('.timer-card__status-pause-disabled-container');
 
 stopBtn.style.display = 'none';
 skipBtn.style.display = 'none';
 
-
-// === COLON BLINK DEALER === 
 let colonInterval;
 let colonVisible = true;
-
-// === TIMER HANDLER ===
 let workTimeInterval;
 let pauseTimeInterval;
 let isPause = false;
-
-// === COUNTERS ===
 let completedPomodoros = 0;
 let completedShortBreaks = 0;
 let completedLongBreaks = 0;
 
-//=== TIMER STATUS ===
-let timerStatus = ['work', 'break']; 
 
 //Get the user selected value from settings, and put it on display 
 export function setDisplayTimer(userSelectedTimer) {
@@ -73,26 +62,22 @@ function setTimerStatus(isWork) {
     if (isWork === true) { 
         workActive.style.display = 'flex';
         workDisabled.style.display = 'none';
-
         workActive.removeAttribute('aria-hidden');
         workDisabled.setAttribute('aria-hidden', 'true');
 
         pauseActive.style.display = 'none';
         pauseDisabled.style.display = 'flex';
-
         pauseActive.setAttribute('aria-hidden', 'true');
         pauseDisabled.removeAttribute('aria-hidden');
         
     } else {
         pauseActive.style.display = 'flex';
         pauseDisabled.style.display = 'none';
-
         pauseActive.removeAttribute('aria-hidden');
         pauseDisabled.setAttribute('aria-hidden', 'true');
 
         workActive.style.display = 'none';
         workDisabled.style.display = 'flex';
-
         workActive.setAttribute('aria-hidden', 'true');
         workDisabled.removeAttribute('aria-hidden');
         
@@ -107,6 +92,15 @@ function updateTimerDisplay(seconds) {
     minutesDisplay.textContent = String(mins).padStart(2, '0');
     secondsDisplay.textContent = String(secs).padStart(2, '0');
 }
+
+function pauseWorkTimer() {
+    clearInterval(workTimeInterval);
+}
+
+function pauseBreakTimer() {
+    clearInterval(pauseTimeInterval);
+}
+
 
 
 //criar uma função pra chegar escolha do usuáro e retornar
@@ -129,22 +123,22 @@ function pauseTimeHandler(isSelfInitiated) {
 
             if(currentBreakTime > 0) {
                 currentBreakTime--;
-                console.log('Decrementando break curto', currentBreakTime);
                 isPause = true;
                 setTimerStatus(false);
                 updateTimerDisplay(currentBreakTime);
+                console.log('Decrementando break curto', currentBreakTime);
             } else {
                 clearInterval(pauseTimeInterval);
                 countdownWorkTime(true);
                 setTimerStatus(true);
                 completedShortBreaks++;
                 isPause = false;
-                console.log('final do break curto')
-                console.log(completedShortBreaks)
+                console.log('final do break curto', completedShortBreaks);
             };
 
         }, 1000);
     } else {
+
         let currentBreakTime = longBreakTime;
 
         if(isSelfInitiated === false) {
@@ -155,10 +149,10 @@ function pauseTimeHandler(isSelfInitiated) {
         pauseTimeInterval = setInterval(() => {
             if(currentBreakTime > 0) {
                 currentBreakTime--;
-                console.log('Decrementando break longo', currentBreakTime);
                 isPause = true;
                 setTimerStatus(false);
                 updateTimerDisplay(currentBreakTime);
+                console.log('Decrementando break longo', currentBreakTime);
             } else {
                 clearInterval(pauseTimeInterval);
                 countdownWorkTime(true);
@@ -171,35 +165,6 @@ function pauseTimeHandler(isSelfInitiated) {
         }, 1000)
     }
     
-    // //checks if its a long break
-    // if(completedShortBreaks > breakInterval) {
-
-    //     let currentBreakTime = longBreakTime;
-
-    //     if(isSelfInitiated === false) {
-    //         currentBreakTime = getDisplayTime();
-    //         console.log('peguei o display de pausa longa');
-    //     };
-
-    //     pauseTimeInterval = setInterval(() => {
-    //         if(currentBreakTime > 0) {
-    //             currentBreakTime--;
-    //             console.log('Decrementando break longo', currentBreakTime);
-    //             isPause = true;
-    //             setTimerStatus(false);
-    //             updateTimerDisplay(currentBreakTime);
-    //         } else {
-    //             clearInterval(pauseTimeInterval);
-    //             countdownWorkTime(true);
-    //             setTimerStatus(true);
-    //             completedLongBreaks++;
-    //             completedShortBreaks = 0;
-    //             isPause = false;
-    //             console.log('final do break longo', completedLongBreaks);
-    //         }
-    //     }, 1000)
-
-    // };
 }
 
 //Gets the in real time on display
@@ -239,46 +204,13 @@ function countdownWorkTime (isSelfInitiated){
             isPause = true;
             pauseTimeHandler(true);
             setTimerStatus(false);
-            console.log('final do work');
+            console.log('final do work', completedPomodoros);
             
             // endTimer();
             
         }
     }, 1000); 
 
-}
-
-
-function pauseWorkTimer() {
-    clearInterval(workTimeInterval);
-}
-
-function pauseBreakTimer() {
-    clearInterval(pauseTimeInterval);
-}
-
-
-
-
-//When the user skips a session, this sets the display, without initiating another timer display
-function statusDisplay(mode) {
-    if (mode === 'work') {
-        updateTimerDisplay(workTime);
-        isPause = false;
-        setTimerStatus(true);
-        completedPomodoros++;
-        pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
-    } else if (mode === 'short') {
-        updateTimerDisplay(shortBreakTime);
-        isPause = true;
-        setTimerStatus(false);
-        
-    } else if (mode === 'long') {
-        updateTimerDisplay(longBreakTime);
-        isPause = false;
-        setTimerStatus(false);
-        completedShortBreaks = 0;
-    }
 }
 
 
@@ -323,20 +255,53 @@ playBtn.addEventListener('click', () => {
 
 });
 
+//When the user skips a session, this sets the display, without initiating another timer display
+function statusDisplay(mode) {
+    if (mode === 'work') {
+        updateTimerDisplay(workTime);
+        isPause = false;
+        setTimerStatus(true);
+        completedPomodoros++;
+        pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
+    } else if (mode === 'short') {
+        updateTimerDisplay(shortBreakTime);
+        isPause = true;
+        setTimerStatus(false);
+        
+    } else if (mode === 'long') {
+        updateTimerDisplay(longBreakTime);
+        isPause = true;
+        setTimerStatus(false);
+        completedShortBreaks = 0;
+    }
+}
+
+
 skipBtn.addEventListener('click', () => {
     //interromper qualquer time ativo
-    clearInterval(workTimeInterval);
+    
     clearInterval(pauseTimeInterval);
     clearInterval(colonInterval);
 
 
     if(isPause === false) {
-        console.log("skipando work -> entrando em pausa");
-        const nextBreak = (completedShortBreaks < breakInterval) ? 'short' : 'long';
-        statusDisplay(nextBreak);
-    } else if(isPause === true) {
-        console.log("skipando a pausa -> entrando em work");
-        statusDisplay('work');
+        clearInterval(workTimeInterval);
+        completedPomodoros++;
+        pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
+        isPause = true;
+        pauseTimeHandler(true);
+        setTimerStatus(false);
+        console.log("em work, skippando -> entrando em pausa");
+        
+    } else {
+        clearInterval(pauseTimeInterval);
+        countdownWorkTime(true);
+        setTimerStatus(true);
+        completedShortBreaks++;
+        isPause = false;
+
+        console.log("em pausa, skippando -> entrando em work");
+        
     };
 
     colon.style.visibility = 'visible';
@@ -370,13 +335,11 @@ stopBtn.addEventListener('click', () => {
 
     workActive.style.display = 'flex';
     workDisabled.style.display = 'none';
-
     workActive.removeAttribute('aria-hidden');
     workDisabled.setAttribute('aria-hidden', 'true');
 
     pauseActive.style.display = 'none';
     pauseDisabled.style.display = 'flex';
-
     pauseActive.setAttribute('aria-hidden', 'true');
     pauseDisabled.removeAttribute('aria-hidden');
 });
@@ -425,3 +388,34 @@ stopBtn.addEventListener('click', () => {
 //     skipBtn.style.display = 'none';
 
 // }
+
+
+    // //checks if its a long break
+    // if(completedShortBreaks > breakInterval) {
+
+    //     let currentBreakTime = longBreakTime;
+
+    //     if(isSelfInitiated === false) {
+    //         currentBreakTime = getDisplayTime();
+    //         console.log('peguei o display de pausa longa');
+    //     };
+
+    //     pauseTimeInterval = setInterval(() => {
+    //         if(currentBreakTime > 0) {
+    //             currentBreakTime--;
+    //             console.log('Decrementando break longo', currentBreakTime);
+    //             isPause = true;
+    //             setTimerStatus(false);
+    //             updateTimerDisplay(currentBreakTime);
+    //         } else {
+    //             clearInterval(pauseTimeInterval);
+    //             countdownWorkTime(true);
+    //             setTimerStatus(true);
+    //             completedLongBreaks++;
+    //             completedShortBreaks = 0;
+    //             isPause = false;
+    //             console.log('final do break longo', completedLongBreaks);
+    //         }
+    //     }, 1000)
+
+    // };
