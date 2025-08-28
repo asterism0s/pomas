@@ -1,7 +1,38 @@
 
+Com definição de modo:
 
-old code buggy -> doesnt go 
+- Primeira interação não incrementa o short break, e entra em pausa longa após 1 pausa curta. 
+- Timer acontece perfeitamente.
 ```javascript
+function statusDisplay(mode) {
+
+	if (mode === 'work') {
+	
+		updateTimerDisplay(workTime);
+		isPause = false;
+		setTimerStatus(true);
+		completedPomodoros++;
+		pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
+		console.log("em mode work",completedPomodoros);
+		
+		} else if (mode === 'short') {
+		completedShortBreaks = 0;
+		completedShortBreaks++;
+		updateTimerDisplay(shortBreakTime);
+		isPause = true;
+		setTimerStatus(false);		
+		console.log("em mode short",completedShortBreaks);
+		
+		} else if (mode === 'long') {
+		
+		updateTimerDisplay(longBreakTime);
+		isPause = true;
+		setTimerStatus(false);
+		completedShortBreaks = 0;
+		console.log("em mode long",completedShortBreaks);
+	}
+}
+
 
 skipBtn.addEventListener('click', () => {
 	  
@@ -28,6 +59,10 @@ skipBtn.addEventListener('click', () => {
 });
 
 ```
+
+
+
+
 
 new try
 
