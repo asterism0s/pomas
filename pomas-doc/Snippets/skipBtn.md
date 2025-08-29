@@ -105,3 +105,102 @@ skipBtn.addEventListener('click', () => {
 });
 
 ```
+
+
+Código corrigido:
+
+```javascript
+skipBtn.addEventListener('click', () => {
+
+//interromper qualquer time ativo
+clearInterval(workTimeInterval);
+clearInterval(pauseTimeInterval);
+clearInterval(colonInterval);
+
+
+	if (isPause === false) {
+	
+	const nextBreak = (completedShortBreaks < breakInterval) ? 'short' : 'long';
+	completeWorkSession();
+	statusDisplay(nextBreak);
+	
+	console.log("Next break is:",nextBreak);
+	console.log("skipando work -> entrando em pausa");
+	
+	} else {
+	
+		if (currentMode === 'short') {
+		completeShortBreak();
+		console.log("skipando a pausa -> entrando em work");
+		
+		} else if (currentMode === 'long') {
+		completeLongBreak();
+		}
+	
+	statusDisplay('work');
+	console.log("skipando a pausa -> entrando em work");
+	
+	}
+
+
+colon.style.visibility = 'visible';
+playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+playBtn.setAttribute('aria-pressed', false);
+stopBtn.style.display = 'inline-flex';
+skipBtn.style.display = 'inline-flex';
+
+});
+
+```
+
+Corrigido com !==
+
+```javascript
+skipBtn.addEventListener('click', () => {
+
+//interromper qualquer time ativo
+
+clearInterval(workTimeInterval);
+clearInterval(pauseTimeInterval);
+clearInterval(colonInterval);
+
+  
+  
+
+if(isPause !== true) {
+
+	const nextBreak = (completedShortBreaks < breakInterval) ? 'short' : 'long';
+	completeWorkSession();
+	statusDisplay(nextBreak);
+	
+	console.log("Next break is:",nextBreak);
+	console.log("skipando work -> entrando em pausa");
+	
+	}
+	
+	if(isPause !== false) {
+	
+		if (currentMode !== 'long') {
+		
+		completeShortBreak();
+		
+		console.log("skipando a pausa -> entrando em work");
+		}
+		
+		if(currentMode !== 'short') {
+		completeLongBreak();
+		
+		}
+		
+		statusDisplay('work');
+		console.log("skipando a pausa -> entrando em work");
+	}
+
+colon.style.visibility = 'visible';
+playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+playBtn.setAttribute('aria-pressed', false);
+stopBtn.style.display = 'inline-flex';
+skipBtn.style.display = 'inline-flex';
+
+});
+```
