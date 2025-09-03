@@ -870,7 +870,7 @@ body {
 }
 .timer-card__counter-bar-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   float: right;
   gap: 0.125rem;
   justify-content: space-evenly;

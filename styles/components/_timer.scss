@@ -239,7 +239,7 @@ gap: 0.25rem;
     &-bar-container {
         
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
         float: right;
         gap: 0.125rem;
         justify-content: space-evenly;
