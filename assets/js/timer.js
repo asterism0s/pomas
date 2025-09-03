@@ -3,6 +3,7 @@ import './settings-modal.js';
 import { getUserBreakInterval, getUserPomoTime } from './settings-modal.js';
 import { getUserShortBreak } from './settings-modal.js';
 import { getUserLongBreak } from './settings-modal.js';
+import { updateProgressBar } from './progress-bar.js';
 
 // === SAVE USER PREFERENCES ===
 const workTime = getUserPomoTime() * 60;
@@ -144,6 +145,9 @@ function pauseTimeHandler(isSelfInitiated) {
                 isPause = true;
                 setTimerStatus(false);
                 updateTimerDisplay(currentBreakTime);
+                updateProgressBar(currentBreakTime, shortBreakTime);
+
+
                 console.log('Decrementando break curto', currentBreakTime);
             } else {
                 clearInterval(pauseTimeInterval);
@@ -172,6 +176,8 @@ function pauseTimeHandler(isSelfInitiated) {
                 isPause = true;
                 setTimerStatus(false);
                 updateTimerDisplay(currentBreakTime);
+                updateProgressBar(currentBreakTime, longBreakTime);
+
                 console.log('Decrementando break longo', currentBreakTime);
             } else {
                 clearInterval(pauseTimeInterval);
@@ -179,6 +185,7 @@ function pauseTimeHandler(isSelfInitiated) {
                 setTimerStatus(true);
                 isPause = false;
                 countdownWorkTime(true);
+
                 console.log('final do break longo', completedLongBreaks);
             }
         }, 1000)
@@ -215,7 +222,8 @@ function countdownWorkTime (isSelfInitiated){
             setTimerStatus(true);
             updateTimerDisplay(currentWorkTime);
             currentMode = 'work';
-            
+            updateProgressBar(currentWorkTime, workTime);
+
             console.log('Decrementando work time', currentWorkTime);
         } else {
             clearInterval(workTimeInterval);

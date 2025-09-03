@@ -9,7 +9,7 @@ export function updateProgressBar(timeRemaining, totalTime) {
     
     // Calculate how many bars should be active
     const totalBars = bars.length;
-    const activeBars = Math.ceil(progress * totalBars);
+    const activeBars = Math.ceil[^1](progress * totalBars);
     
     // Update bar states
     bars.forEach((bar, index) => {
@@ -58,6 +58,13 @@ Remember to:
 
 The progress bar will automatically adjust based on whatever Pomodoro duration is set in your settings.
 
+Barra de tempo restante:
+```javascript
+const activeBars = Math.ceil (progress * totalBars);
+```
+
+
+[^1]: arredonda pra cima, garantindo que pelo menos uma barra acenda enquanto ainda resta tempo.
 
 ---
 
@@ -168,3 +175,34 @@ Key improvements and explanations:
 - **Corrected Progress Calculation:** The `activeBars` calculation is changed to `Math.ceil((1 - progress) * totalBars)` so that the progress bar starts full and depletes as time goes on.
 
 Remember to link your `progressBar.js` file in your `main.js` file. Also, make sure that the `updateTimer` function is being called at regular intervals using `setInterval`.
+
+Barra de tempo passado:
+```javascript
+const activeBars = Math.ceil((1 - progress) * totalBars);
+```
+
+
+---
+
+
+```javascript
+
+export function updateProgressBar(timeRemaining, totalTime) {
+  const bars = document.querySelectorAll('.bar');
+  const progress = timeRemaining / totalTime;
+
+  const totalBars = bars.length;
+  const activeBars = Math.ceil(progress * totalBars);
+
+  bars.forEach((bar, index) => {
+    if (index < activeBars) {
+      bar.classList.add('bar-active');
+      bar.classList.remove('bar-inactive');
+    } else {
+      bar.classList.add('bar-inactive');
+      bar.classList.remove('bar-active');
+    }
+  });
+}
+
+```
