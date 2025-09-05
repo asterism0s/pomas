@@ -3,6 +3,7 @@ import './settings-modal.js';
 import { getUserBreakInterval, getUserPomoTime, getUserShortBreak, getUserLongBreak  } from './settings-modal.js';
 import { getAutoStartBreaks, getAutoStartPomos, getSoundEnabled } from './settings-modal.js';
 import { updateProgressBar } from './progress-bar.js';
+import { showToast } from './notifications.js';
 
 // === SAVE USER PREFERENCES ===
 const workTime = getUserPomoTime() * 60;
@@ -44,7 +45,6 @@ function playNotificationSound(mode) {
         return;
     }
 
-    
     try {
         
         const alarm = new Audio('/assets/sounds/alarm.mp3');
@@ -56,16 +56,13 @@ function playNotificationSound(mode) {
             message = 'Time for a break!';
         }
 
-        alarm.addEventListener('ended', () => {
-            alert(message);
-        });
-
         alarm.play();
 
         setTimeout(() => {
             alarm.pause();
             alarm.currentTime = 0; 
-        }, 2000);
+            showToast(message);
+        }, 3000);
 
         console.log('Som de notificação tocado');
     } catch (error) {
