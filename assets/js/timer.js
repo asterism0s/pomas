@@ -245,7 +245,7 @@ function pauseTimeHandler(isSelfInitiated) {
                 completeLongBreak();
                 setTimerStatus(true);
                 isPause = false;
-                // countdownWorkTime(true);
+                countdownWorkTime(true);
 
                 autoStartTimer('work', 1500);
 
