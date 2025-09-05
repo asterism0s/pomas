@@ -38,79 +38,83 @@ let completedShortBreaks = 0;
 let completedLongBreaks = 0;
 let currentMode = 'work';
 
-function playNotificationSound() {
+function playNotificationSound(mode) {
     if (!getSoundEnabled()) {
         console.log('Som desabilitado pelo usuário');
         return;
     }
+
     
     try {
-        // Criar um som simples usando Web Audio API
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
         
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        // Configurar som de notificação (bip suave)
-        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.3);
-        
-        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-        
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.3);
-        
+        const alarm = new Audio('/assets/sounds/alarm.mp3');
+        let message;
+
+        if (mode === 'work'){
+            message = 'Time for work!';
+        } else {
+            message = 'Time for a break!';
+        }
+
+        alarm.addEventListener('ended', () => {
+            alert(message);
+        });
+
+        alarm.play();
+
+        setTimeout(() => {
+            alarm.pause();
+            alarm.currentTime = 0; 
+        }, 2000);
+
         console.log('Som de notificação tocado');
     } catch (error) {
         console.log('Erro ao tocar som:', error);
     }
 }
 
-function autoStartTimer(mode, delay = 1000) {
-    let shouldAutoStart = false;
+// function autoStartTimer(mode, delay = 1000) {
+//     let shouldAutoStart = false;
     
-    if (mode === 'break' && getAutoStartBreaks()) {
-        shouldAutoStart = true;
-    } else if (mode === 'work' && getAutoStartPomos()) {
-        shouldAutoStart = true;
-    }
+//     if (mode === 'break' && getAutoStartBreaks()) {
+//         shouldAutoStart = true;
+//     } else if (mode === 'work' && getAutoStartPomos()) {
+//         shouldAutoStart = true;
+//     }
     
-    if (shouldAutoStart) {
-        console.log(`Auto-iniciando ${mode} em ${delay}ms`);
+//     if (shouldAutoStart) {
+//         console.log(`Auto-iniciando ${mode} em ${delay}ms`);
         
-        setTimeout(() => {
-            // Simular clique no botão play
-            if (playBtn.classList.contains('play-controls__button--play')) {
-                playBtn.click();
-                console.log(`${mode} iniciado automaticamente`);
-            }
-        }, delay);
-    } else {
-        console.log(`Auto-start desabilitado para ${mode}`);
-    }
-}
+//         setTimeout(() => {
+//             // Simular clique no botão play
+//             if (playBtn.classList.contains('play-controls__button--play')) {
+//                 playBtn.click();
+//                 console.log(`${mode} iniciado automaticamente`);
+//             }
+//         }, delay);
+//     } else {
+//         console.log(`Auto-start desabilitado para ${mode}`);
+//     }
+// }
 
 function completeWorkSession() {
   completedPomodoros++;
   pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
 
-  playNotificationSound();
+  playNotificationSound('break');
 }
 
 function completeShortBreak() {
   completedShortBreaks++;
-
-  playNotificationSound();
+  
+  playNotificationSound('work');
 }
 
 function completeLongBreak() {
   completedLongBreaks++;
   completedShortBreaks = 0;
 
-  playNotificationSound();
+  playNotificationSound('break');
 }
 
 //Get the user selected value from settings, and put it on display 
@@ -213,9 +217,7 @@ function pauseTimeHandler(isSelfInitiated) {
                 completeShortBreak();
                 isPause = false;
                 setTimerStatus(true);
-                // countdownWorkTime(true);
-
-                autoStartTimer('work', 1500);
+                countdownWorkTime(true);
                 
                 console.log('final do break curto', completedShortBreaks);
             };
@@ -246,8 +248,6 @@ function pauseTimeHandler(isSelfInitiated) {
                 setTimerStatus(true);
                 isPause = false;
                 countdownWorkTime(true);
-
-                autoStartTimer('work', 1500);
 
                 console.log('final do break longo', completedLongBreaks);
             }
@@ -292,14 +292,8 @@ function countdownWorkTime (isSelfInitiated){
             clearInterval(workTimeInterval);
             completeWorkSession();
             isPause = true;
-            // pauseTimeHandler(true);
+            pauseTimeHandler(true);
             setTimerStatus(false);
-
-            if (getAutoStartBreaks()) {
-                autoStartTimer('break', 1500);
-            } else {
-                pauseTimeHandler(true);
-            }
             
             console.log('final do work', completedPomodoros);
             // endTimer();
