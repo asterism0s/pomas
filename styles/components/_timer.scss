@@ -291,18 +291,16 @@
 
 .toast {
   position: fixed;
-  top: 1.25rem;                /* distância do topo da página */
+  top: 1.25rem;
   left: 50%;
   transform: translateX(-50%) translateY(-8px);
   background: colors.$surface-background-highlight-secondary-idle;
   color: colors.$surface-text-and-icons-active;
   padding: 0.6rem 0.8rem;
   border-radius: 0.6rem;
-//   box-shadow: 0 6px 20px rgba(0,0,0,.25);
   opacity: 0;
   transition: opacity .2s ease, transform .2s ease;
   z-index: 9999;
-//   font: 14px/1.4 system-ui, sans-serif;
 }
 .toast.visible {
   opacity: 1;
