@@ -189,10 +189,10 @@ const activeBars = Math.ceil((1 - progress) * totalBars);
 
 export function updateProgressBar(timeRemaining, totalTime) {
   const bars = document.querySelectorAll('.bar');
-  const progress = timeRemaining / totalTime;
-
   const totalBars = bars.length;
-  const activeBars = Math.ceil(progress * totalBars);
+
+  // Regra de três: (barras totais * segundos restantes) / segundos totais
+  let activeBars = Math.ceil((totalBars * timeRemaining) / totalTime);
 
   bars.forEach((bar, index) => {
     if (index < activeBars) {
