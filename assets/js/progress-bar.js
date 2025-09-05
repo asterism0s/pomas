@@ -2,8 +2,6 @@ export function updateProgressBar(timeRemaining, totalTime) {
     const bars = document.querySelectorAll('.bar');
     const totalBars = bars.length;
 
-    // const progress = timeRemaining / totalTime;
-
     let activeBars = Math.ceil((totalBars * timeRemaining) / totalTime);
 
     bars.forEach((bar, index) => {
@@ -17,4 +15,3 @@ export function updateProgressBar(timeRemaining, totalTime) {
     });
 }
 
-   // const activeBars = (totalBars * timeRemaining) / totalTime

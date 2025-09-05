@@ -1,8 +1,7 @@
 // === IMPORTS  - GET USER PREFERENCES ===
 import './settings-modal.js';
-import { getUserBreakInterval, getUserPomoTime } from './settings-modal.js';
-import { getUserShortBreak } from './settings-modal.js';
-import { getUserLongBreak } from './settings-modal.js';
+import { getUserBreakInterval, getUserPomoTime, getUserShortBreak, getUserLongBreak  } from './settings-modal.js';
+import { getAutoStartBreaks, getAutoStartPomos, getSoundEnabled } from './settings-modal.js';
 import { updateProgressBar } from './progress-bar.js';
 
 // === SAVE USER PREFERENCES ===
@@ -10,7 +9,7 @@ const workTime = getUserPomoTime() * 60;
 const shortBreakTime = getUserShortBreak() * 60;
 const longBreakTime = getUserLongBreak() * 60;
 const breakInterval = parseInt(getUserBreakInterval() ?? '4', 10);
-console.log(breakInterval);
+
 
 // === UI ELEMENTS ===
 const playBtn = document.getElementById('togglePlayControlBtn');
@@ -39,19 +38,79 @@ let completedShortBreaks = 0;
 let completedLongBreaks = 0;
 let currentMode = 'work';
 
+function playNotificationSound() {
+    if (!getSoundEnabled()) {
+        console.log('Som desabilitado pelo usuário');
+        return;
+    }
+    
+    try {
+        // Criar um som simples usando Web Audio API
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        // Configurar som de notificação (bip suave)
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+        oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.3);
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.3);
+        
+        console.log('Som de notificação tocado');
+    } catch (error) {
+        console.log('Erro ao tocar som:', error);
+    }
+}
+
+function autoStartTimer(mode, delay = 1000) {
+    let shouldAutoStart = false;
+    
+    if (mode === 'break' && getAutoStartBreaks()) {
+        shouldAutoStart = true;
+    } else if (mode === 'work' && getAutoStartPomos()) {
+        shouldAutoStart = true;
+    }
+    
+    if (shouldAutoStart) {
+        console.log(`Auto-iniciando ${mode} em ${delay}ms`);
+        
+        setTimeout(() => {
+            // Simular clique no botão play
+            if (playBtn.classList.contains('play-controls__button--play')) {
+                playBtn.click();
+                console.log(`${mode} iniciado automaticamente`);
+            }
+        }, delay);
+    } else {
+        console.log(`Auto-start desabilitado para ${mode}`);
+    }
+}
 
 function completeWorkSession() {
   completedPomodoros++;
   pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
+
+  playNotificationSound();
 }
 
 function completeShortBreak() {
   completedShortBreaks++;
+
+  playNotificationSound();
 }
 
 function completeLongBreak() {
   completedLongBreaks++;
   completedShortBreaks = 0;
+
+  playNotificationSound();
 }
 
 //Get the user selected value from settings, and put it on display 
@@ -154,7 +213,9 @@ function pauseTimeHandler(isSelfInitiated) {
                 completeShortBreak();
                 isPause = false;
                 setTimerStatus(true);
-                countdownWorkTime(true);
+                // countdownWorkTime(true);
+
+                autoStartTimer('work', 1500);
                 
                 console.log('final do break curto', completedShortBreaks);
             };
@@ -184,7 +245,9 @@ function pauseTimeHandler(isSelfInitiated) {
                 completeLongBreak();
                 setTimerStatus(true);
                 isPause = false;
-                countdownWorkTime(true);
+                // countdownWorkTime(true);
+
+                autoStartTimer('work', 1500);
 
                 console.log('final do break longo', completedLongBreaks);
             }
@@ -229,8 +292,14 @@ function countdownWorkTime (isSelfInitiated){
             clearInterval(workTimeInterval);
             completeWorkSession();
             isPause = true;
-            pauseTimeHandler(true);
+            // pauseTimeHandler(true);
             setTimerStatus(false);
+
+            if (getAutoStartBreaks()) {
+                autoStartTimer('break', 1500);
+            } else {
+                pauseTimeHandler(true);
+            }
             
             console.log('final do work', completedPomodoros);
             // endTimer();
