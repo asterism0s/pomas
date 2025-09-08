@@ -1,18 +1,15 @@
-// === IMPORTS  - GET USER PREFERENCES ===
 import './settings-modal.js';
 import { getUserBreakInterval, getUserPomoTime, getUserShortBreak, getUserLongBreak  } from './settings-modal.js';
 import { getAutoStartBreaks, getAutoStartPomos, getSoundEnabled } from './settings-modal.js';
 import { updateProgressBar } from './progress-bar.js';
 import { showToast } from './notifications.js';
 
-// === SAVE USER PREFERENCES ===
 const workTime = getUserPomoTime() * 60;
 const shortBreakTime = getUserShortBreak() * 60;
 const longBreakTime = getUserLongBreak() * 60;
 const breakInterval = parseInt(getUserBreakInterval() ?? '4', 10);
 
 
-// === UI ELEMENTS ===
 const playBtn = document.getElementById('togglePlayControlBtn');
 const colon = document.querySelector('.timer-card__separator--colon');
 const stopBtn = document.querySelector('.play-controls__button--stop');
@@ -51,9 +48,9 @@ function playNotificationSound(mode) {
         let message;
 
         if (mode === 'work'){
-            message = 'Time for work!';
+            message = 'Time to work!';
         } else {
-            message = 'Time for a break!';
+            message = 'It is time for a break!';
         }
 
         alarm.play();
@@ -69,30 +66,6 @@ function playNotificationSound(mode) {
         console.log('Erro ao tocar som:', error);
     }
 }
-
-// function autoStartTimer(mode, delay = 1000) {
-//     let shouldAutoStart = false;
-    
-//     if (mode === 'break' && getAutoStartBreaks()) {
-//         shouldAutoStart = true;
-//     } else if (mode === 'work' && getAutoStartPomos()) {
-//         shouldAutoStart = true;
-//     }
-    
-//     if (shouldAutoStart) {
-//         console.log(`Auto-iniciando ${mode} em ${delay}ms`);
-        
-//         setTimeout(() => {
-//             // Simular clique no botão play
-//             if (playBtn.classList.contains('play-controls__button--play')) {
-//                 playBtn.click();
-//                 console.log(`${mode} iniciado automaticamente`);
-//             }
-//         }, delay);
-//     } else {
-//         console.log(`Auto-start desabilitado para ${mode}`);
-//     }
-// }
 
 function completeWorkSession() {
   completedPomodoros++;
@@ -379,30 +352,27 @@ skipBtn.addEventListener('click', () => {
     clearInterval(colonInterval);
 
 
-    if(isPause !== true) {
+    if (isPause === false) {
         const nextBreak = (completedShortBreaks < breakInterval) ? 'short' : 'long';
         completeWorkSession();
-		statusDisplay(nextBreak);
+        statusDisplay(nextBreak);
 
-        console.log("Next break is:",nextBreak);
-		console.log("skipando work -> entrando em pausa");
-    }
+        console.log("Next break is:", nextBreak);
+        console.log("skipando work -> entrando em pausa");
+    } else {
+        if (currentMode === 'short') {
+            completeShortBreak();
 
-    if(isPause !== false) {
-        
-        if (currentMode !== 'long') {
-        completeShortBreak();
+            console.log("skipando a pausa -> entrando em work");
+        } else if (currentMode === 'long') {
+            completeLongBreak();
 
-        console.log("skipando a pausa -> entrando em work");
-        }
-
-        if(currentMode !== 'short') {
-        completeLongBreak();
         }
 
         statusDisplay('work');
-        console.log("skipando a pausa -> entrando em work");
-    }
+        
+    }  
+
 
 
     colon.style.visibility = 'visible';
