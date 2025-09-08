@@ -25,33 +25,16 @@
             "id": "836de296b715d3e7",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Code/work-timer.js.canvas",
-                "viewState": {
-                  "x": -630,
-                  "y": 40,
-                  "zoom": -1.8612534984119773
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "work-timer.js"
-            }
-          },
-          {
-            "id": "7c1b642acfcba0be",
-            "type": "leaf",
-            "state": {
               "type": "vscode-editor",
               "state": {
-                "file": "Code/timer.js.ts"
+                "file": "Code/timer.js"
               },
               "icon": "lucide-file",
-              "title": "timer.js"
+              "title": "timer"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -200,10 +183,11 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "7c1b642acfcba0be",
+  "active": "836de296b715d3e7",
   "lastOpenFiles": [
+    "Code/timer.ts",
+    "Code/timer.js",
     "Code/timer.js.md",
-    "Code/timer.js.ts",
     "Code/work-timer.js.canvas",
     "Notes/Claude/Save user selected toogle.md",
     "Notes/Claude",

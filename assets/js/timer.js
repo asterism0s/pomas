@@ -45,20 +45,12 @@ function playNotificationSound(mode) {
     try {
         
         const alarm = new Audio('/assets/sounds/alarm.mp3');
-        let message;
-
-        if (mode === 'work'){
-            message = 'Time to work!';
-        } else {
-            message = 'It is time for a break!';
-        }
 
         alarm.play();
 
         setTimeout(() => {
             alarm.pause();
             alarm.currentTime = 0; 
-            showToast(message);
         }, 3000);
 
         console.log('Som de notificação tocado');
@@ -92,7 +84,7 @@ export function setDisplayTimer(userSelectedTimer) {
 updateTimerDisplay(userSelectedTimer);
 }
 
-//Makes the colon blink
+
 function displayColon() {
 
     if (colonVisible) {
@@ -104,6 +96,18 @@ function displayColon() {
     }
 
 }
+
+// Função auxiliar para resetar o botão de play/pause
+function resetPlayButton() {
+    playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+    playBtn.setAttribute('aria-pressed', false);
+    clearInterval(colonInterval);
+    colon.style.visibility = 'visible';
+    stopBtn.style.display = 'inline-flex';
+    skipBtn.style.display = 'inline-flex';
+}
+
+
 
 //Enable or disable the work time or coffe break icons
 function setTimerStatus(isWork) { 
@@ -151,9 +155,79 @@ function pauseBreakTimer() {
 }
 
 
-
 //criar uma função pra chegar escolha do usuáro e retornar
 //comparar no if statement do pauseTimeHandler
+//v.1
+// function pauseTimeHandler(isSelfInitiated) {
+//     //check if its a short break
+//     clearInterval(workTimeInterval);
+
+//     console.log(breakInterval);
+
+//     if(completedShortBreaks < breakInterval) {
+
+//         let currentBreakTime = shortBreakTime;
+//         currentMode = 'short'; 
+
+//         if (isSelfInitiated === false) {
+//         currentBreakTime = getDisplayTime();
+//         console.log('peguei o display de pausa curta');
+//         };
+
+//         pauseTimeInterval = setInterval(() => {
+
+//             if(currentBreakTime > 0) {
+//                 currentBreakTime--;
+//                 isPause = true;
+//                 setTimerStatus(false);
+//                 updateTimerDisplay(currentBreakTime);
+//                 updateProgressBar(currentBreakTime, shortBreakTime);
+
+
+//                 console.log('Decrementando break curto', currentBreakTime);
+//             } else {
+//                 clearInterval(pauseTimeInterval);
+//                 completeShortBreak();
+//                 isPause = false;
+//                 setTimerStatus(true);
+//                 countdownWorkTime(true);
+                
+//                 console.log('final do break curto', completedShortBreaks);
+//             };
+
+//         }, 1000);
+//     } else {
+
+//         currentMode = 'long';
+//         let currentBreakTime = longBreakTime;
+
+//         if(isSelfInitiated === false) {
+//             currentBreakTime = getDisplayTime();
+//             console.log('peguei o display de pausa longa');
+//         };
+
+//         pauseTimeInterval = setInterval(() => {
+//             if(currentBreakTime > 0) {
+//                 currentBreakTime--;
+//                 isPause = true;
+//                 setTimerStatus(false);
+//                 updateTimerDisplay(currentBreakTime);
+//                 updateProgressBar(currentBreakTime, longBreakTime);
+
+//                 console.log('Decrementando break longo', currentBreakTime);
+//             } else {
+//                 clearInterval(pauseTimeInterval);
+//                 completeLongBreak();
+//                 setTimerStatus(true);
+//                 isPause = false;
+//                 countdownWorkTime(true);
+
+//                 console.log('final do break longo', completedLongBreaks);
+//             }
+//         }, 1000)
+//     }
+    
+// }
 
 function pauseTimeHandler(isSelfInitiated) {
     //check if its a short break
@@ -185,9 +259,22 @@ function pauseTimeHandler(isSelfInitiated) {
             } else {
                 clearInterval(pauseTimeInterval);
                 completeShortBreak();
-                isPause = false;
-                setTimerStatus(true);
-                countdownWorkTime(true);
+                
+                // Verifica se auto-start de pomodoros está ativado
+                if (getAutoStartPomos()) {
+                    isPause = false;
+                    setTimerStatus(true);
+                    countdownWorkTime(true);
+                    showToast('Break finished! It is time to start working.');
+
+                    console.log('Auto-starting work session');
+                } else {
+                    // Prepara o próximo modo mas não inicia
+                    prepareNextMode('work');
+                    resetPlayButton();
+
+                    console.log('Waiting for user to start work session');
+                }
                 
                 console.log('final do break curto', completedShortBreaks);
             };
@@ -215,15 +302,26 @@ function pauseTimeHandler(isSelfInitiated) {
             } else {
                 clearInterval(pauseTimeInterval);
                 completeLongBreak();
-                setTimerStatus(true);
-                isPause = false;
-                countdownWorkTime(true);
+                
+                // Verifica se auto-start de pomodoros está ativado
+                if (getAutoStartPomos()) {
+                    setTimerStatus(true);
+                    isPause = false;
+                    countdownWorkTime(true);
+                    showToast('Break finished! It is time to start working.');
+
+                    console.log('Auto-starting work session after long break');
+                } else {
+                    // Prepara o próximo modo mas não inicia
+                    prepareNextMode('work');
+                    resetPlayButton();
+                    console.log('Waiting for user to start work session after long break');
+                }
 
                 console.log('final do break longo', completedLongBreaks);
             }
         }, 1000)
-    }
-    
+    }   
 }
 
 //Gets the in real time on display
@@ -233,7 +331,46 @@ function getDisplayTime () {
   return mins * 60 + secs;
 }
 
-//Work timer 
+//Work timer -> v.1
+// function countdownWorkTime (isSelfInitiated){
+
+//    let currentWorkTime = workTime;
+
+    
+//     if (isSelfInitiated === false) {
+//         currentWorkTime = getDisplayTime ();
+//         console.log('peguei o display');
+//     }
+        
+//     // updateTimerDisplay(currentWorkTime);
+    
+//     workTimeInterval = setInterval(() => {
+        
+//         if (currentWorkTime > 0) {
+            
+//             currentWorkTime--;
+//             isPause = false;
+//             setTimerStatus(true);
+//             updateTimerDisplay(currentWorkTime);
+//             currentMode = 'work';
+//             updateProgressBar(currentWorkTime, workTime);
+
+//             console.log('Decrementando work time', currentWorkTime);
+//         } else {
+//             clearInterval(workTimeInterval);
+//             completeWorkSession();
+//             isPause = true;
+//             pauseTimeHandler(true);
+//             setTimerStatus(false);
+            
+//             console.log('final do work', completedPomodoros);
+//             // endTimer();
+            
+//         }
+//     }, 1000); 
+
+// }
+
 function countdownWorkTime (isSelfInitiated){
 
    let currentWorkTime = workTime;
@@ -261,12 +398,24 @@ function countdownWorkTime (isSelfInitiated){
         } else {
             clearInterval(workTimeInterval);
             completeWorkSession();
-            isPause = true;
-            pauseTimeHandler(true);
-            setTimerStatus(false);
+            
+            // Verifica se auto-start de breaks está ativado
+            if (getAutoStartBreaks()) {
+                isPause = true;
+                pauseTimeHandler(true);
+                setTimerStatus(false);
+                showToast('Work session completed! It is time to take a break.');
+                
+                console.log('Auto-starting break');
+            } else {
+                // Determina qual tipo de pausa será (curta ou longa)
+                const nextBreakType = (completedShortBreaks < breakInterval) ? 'short' : 'long';
+                prepareNextMode(nextBreakType);
+                resetPlayButton();
+                console.log('Waiting for user to start break');
+            }
             
             console.log('final do work', completedPomodoros);
-            // endTimer();
             
         }
     }, 1000); 
@@ -320,29 +469,61 @@ function statusDisplay(mode) {
     if (mode === 'work') {
         currentMode = 'work';
         updateTimerDisplay(workTime);
+        updateProgressBar(workTime, workTime);
         isPause = false;
         setTimerStatus(true);
-        
+        showToast('Break finished! It is time to start working.');
         pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
         console.log("em mode work",completedPomodoros);
     } else if (mode === 'short') {
         currentMode = 'short';
         updateTimerDisplay(shortBreakTime);
+        updateProgressBar(shortBreakTime, shortBreakTime); 
         isPause = true;
         setTimerStatus(false);
+        showToast('Work session completed! It is time to take a break.');
 
         console.log("em mode short",completedShortBreaks);
         
     } else if (mode === 'long') {
         currentMode = 'long';
         updateTimerDisplay(longBreakTime);
+        updateProgressBar(longBreakTime, longBreakTime); 
         isPause = true;
         setTimerStatus(false);
+        showToast('Work session completed! It is time to take a break.');
 
         console.log("em mode long",completedShortBreaks);
     
     }
 }
+
+// Função para preparar o próximo modo sem iniciar automaticamente
+function prepareNextMode(nextMode) {
+    if (nextMode === 'work') {
+        updateTimerDisplay(workTime);
+        isPause = false;
+        setTimerStatus(true);
+        currentMode = 'work';
+        updateProgressBar(workTime, workTime);
+        showToast('Break finished! Click play to start working.');
+    } else if (nextMode === 'short') {
+        updateTimerDisplay(shortBreakTime);
+        isPause = true;
+        setTimerStatus(false);
+        currentMode = 'short';
+        updateProgressBar(shortBreakTime, shortBreakTime);
+        showToast('Work session completed! Click play to start your break.');
+    } else if (nextMode === 'long') {
+        updateTimerDisplay(longBreakTime);
+        isPause = true;
+        setTimerStatus(false);
+        currentMode = 'long';
+        updateProgressBar(longBreakTime, longBreakTime);
+        showToast('Work session completed! Click play to start your long break.');
+    }
+}
+
 
 
 skipBtn.addEventListener('click', () => {
@@ -404,6 +585,7 @@ function stopTimer() {
 
 stopBtn.addEventListener('click', () => {
     stopTimer();
+    updateProgressBar(workTime, workTime);
 
     workActive.style.display = 'flex';
     workDisabled.style.display = 'none';
