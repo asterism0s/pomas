@@ -4,10 +4,10 @@ import { getAutoStartBreaks, getAutoStartPomos, getSoundEnabled } from './settin
 import { updateProgressBar } from './progress-bar.js';
 import { showToast } from './notifications.js';
 
-const workTime = getUserPomoTime() * 60;
-const shortBreakTime = getUserShortBreak() * 60;
-const longBreakTime = getUserLongBreak() * 60;
-const breakInterval = parseInt(getUserBreakInterval() ?? '4', 10);
+let workTime = getUserPomoTime() * 60;
+let shortBreakTime = getUserShortBreak() * 60;
+let longBreakTime = getUserLongBreak() * 60;
+let breakInterval = parseInt(getUserBreakInterval() ?? '4', 10);
 
 
 const playBtn = document.getElementById('togglePlayControlBtn');

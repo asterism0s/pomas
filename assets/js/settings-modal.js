@@ -67,18 +67,7 @@ cancelBtn.addEventListener('click', () => {
     loadSettings(); 
 });
 
-// cancelBtn.addEventListener('click', () => {
-//     modal.classList.toggle('hidden');
-//     cancelBtn.setAttribute (
-//         'aria-expanded',
-//         modal.classList.contains('hidden') ? 'false' : 'true'
-//     );
 
-//     pomoTime.value ='25'; 
-//     shortBreak.value ='5';
-//     longBreak.value = '20';
-//     breakInterval.value = '2';
-// });
 
 
 //load getters
