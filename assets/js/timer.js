@@ -600,6 +600,35 @@ stopBtn.addEventListener('click', () => {
 
 
 
+export function resetTimerWithNewSettings() {
+
+    clearInterval(workTimeInterval);
+    clearInterval(pauseTimeInterval);
+    clearInterval(colonInterval);
+
+    colon.style.visibility = 'visible';
+    colonVisible = true;
+
+    playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
+    playBtn.setAttribute('aria-pressed', false);
+    stopBtn.style.display = 'none';
+    skipBtn.style.display = 'none';
+
+    workTime = getUserPomoTime() * 60;
+    shortBreakTime = getUserShortBreak() * 60;
+    longBreakTime = getUserLongBreak() * 60;
+    breakInterval = parseInt(getUserBreakInterval() ?? '4', 10);
+
+    isPause = false;
+    currentMode = 'work';
+    
+
+    updateTimerDisplay(workTime);
+    updateProgressBar(workTime, workTime);
+    setTimerStatus(true);
+}
+
+
 
 // function startTimer(){
     

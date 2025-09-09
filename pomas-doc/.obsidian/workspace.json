@@ -25,16 +25,30 @@
             "id": "836de296b715d3e7",
             "type": "leaf",
             "state": {
-              "type": "vscode-editor",
+              "type": "markdown",
               "state": {
-                "file": "Code/timer.js"
+                "file": "Notes/Claude/Untitled.md",
+                "mode": "source",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "timer"
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "08e7d5f923057765",
+            "type": "leaf",
+            "state": {
+              "type": "vscode-editor",
+              "state": {
+                "file": "Notes/Claude/My code file.ts"
+              },
+              "icon": "lucide-file",
+              "title": "My code file"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -183,10 +197,12 @@
       "vscode-editor:Create Code File": false
     }
   },
-  "active": "836de296b715d3e7",
+  "active": "08e7d5f923057765",
   "lastOpenFiles": [
-    "Code/timer.ts",
+    "Notes/Claude/Untitled.md",
+    "Notes/Claude/My code file.ts",
     "Code/timer.js",
+    "Code/timer.ts",
     "Code/timer.js.md",
     "Code/work-timer.js.canvas",
     "Notes/Claude/Save user selected toogle.md",
@@ -224,10 +240,8 @@
     "Notes/Pato",
     "Notes/ChatGPT/Bug no timer UI.md",
     "Notes/ChatGPT",
-    "Notes",
     "Notes/Pato/24-jul-2025.md",
     "Notes/Pato/23-jul-2025.md",
-    "Notes/Chat GPT/Operador ternário explicado.md",
-    "Notes/Chat GPT/Modal settings bug fix.md"
+    "Notes/Chat GPT/Operador ternário explicado.md"
   ]
 }
