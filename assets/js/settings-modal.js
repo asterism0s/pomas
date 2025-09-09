@@ -1,5 +1,6 @@
 import './timer.js';
-import { resetTimerWithNewSettings } from './timer.js';
+import { resetTimerWithNewSettings, isTimerActive, hasCompletedPomodoros } from './timer.js';
+
 
 
 const modal = document.getElementById('settings-modal');
@@ -48,19 +49,38 @@ confirmBtn.addEventListener('click', (event) => {
     const selectedLongBreak = parseInt(longBreak.value, 10);
     const selectedBreakInterval = parseInt(breakInterval.value, 10);
 
-    localStorage.setItem('pomoTime', selectedPomoTime);
-    localStorage.setItem('shortBreak', selectedShortBreak);
-    localStorage.setItem('longBreak', selectedLongBreak);
-    localStorage.setItem('breakInterval', selectedBreakInterval);
+    const applyChanges = () => {
 
-    setBool('autoStartBreaks', autoStartBreaks.checked);
-    setBool('autoStartPomos', autoStartPomos.checked);
-    setBool('soundEnabled', soundToggle.checked);
+        localStorage.setItem('pomoTime', selectedPomoTime);
+        localStorage.setItem('shortBreak', selectedShortBreak);
+        localStorage.setItem('longBreak', selectedLongBreak);
+        localStorage.setItem('breakInterval', selectedBreakInterval);
 
-    resetTimerWithNewSettings(); 
-    modal.classList.add('hidden');
-    settingsBtn.setAttribute('aria-expanded', 'false');
+        setBool('autoStartBreaks', autoStartBreaks.checked);
+        setBool('autoStartPomos', autoStartPomos.checked);
+        setBool('soundEnabled', soundToggle.checked);
 
+        resetTimerWithNewSettings();
+        modal.classList.add('hidden');
+        settingsBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    if (isTimerActive() || hasCompletedPomodoros()) {
+        
+        const confirmation = confirm(
+            "⚠️ Apply new settings?\n\n" +
+            "This will stop the current timer and reset your progress.\n\n" +
+            "Continue?"
+        );
+        
+        if (confirmation) {
+            applyChanges();
+        }
+
+    } else {
+        // Se não há timer ativo nem progresso, aplicar diretamente
+        applyChanges();
+    }
 });
 
 cancelBtn.addEventListener('click', () => {
