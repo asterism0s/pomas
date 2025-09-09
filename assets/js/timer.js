@@ -544,8 +544,6 @@ skipBtn.addEventListener('click', () => {
         
     }  
 
-
-
     colon.style.visibility = 'visible';
     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
     playBtn.setAttribute('aria-pressed', false);
@@ -622,6 +620,14 @@ export function resetTimerWithNewSettings() {
     updateTimerDisplay(workTime);
     updateProgressBar(workTime, workTime);
     setTimerStatus(true);
+}
+
+export function isTimerActive() {
+    return playBtn.classList.contains('play-controls__button--pause');
+}
+
+export function hasCompletedPomodoros() {
+    return completedPomodoros > 0; 
 }
 
 
