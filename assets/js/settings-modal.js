@@ -1,5 +1,5 @@
 import './timer.js';
-import { setDisplayTimer, resetTimerWithNewSettings } from './timer.js';
+import { resetTimerWithNewSettings } from './timer.js';
 
 
 const modal = document.getElementById('settings-modal');

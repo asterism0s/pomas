@@ -79,12 +79,6 @@ function completeLongBreak() {
   playNotificationSound('break');
 }
 
-//Get the user selected value from settings, and put it on display 
-export function setDisplayTimer(userSelectedTimer) {
-updateTimerDisplay(userSelectedTimer);
-}
-
-
 function displayColon() {
 
     if (colonVisible) {
@@ -106,8 +100,6 @@ function resetPlayButton() {
     stopBtn.style.display = 'inline-flex';
     skipBtn.style.display = 'inline-flex';
 }
-
-
 
 //Enable or disable the work time or coffe break icons
 function setTimerStatus(isWork) { 
@@ -430,7 +422,6 @@ playBtn.addEventListener('click', () => {
     if (isPlayState) { //when the play button is pressed
 
         playBtn.classList.replace('play-controls__button--play', 'play-controls__button--pause');
-        
         playBtn.setAttribute('aria-pressed', 'true');
 
         colonInterval = setInterval(displayColon, 1000);
@@ -446,12 +437,11 @@ playBtn.addEventListener('click', () => {
             countdownWorkTime (false);
         };
 
-
     } else { //when the pause button is pressed
 
         playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
-        
         playBtn.setAttribute('aria-pressed', false);
+        
         pauseWorkTimer();
         pauseBreakTimer();
 
@@ -614,6 +604,12 @@ export function resetTimerWithNewSettings() {
     stopBtn.style.display = 'none';
     skipBtn.style.display = 'none';
 
+    completedPomodoros = 0;
+    completedShortBreaks = 0;
+    completedLongBreaks = 0;
+
+    pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
+
     workTime = getUserPomoTime() * 60;
     shortBreakTime = getUserShortBreak() * 60;
     longBreakTime = getUserLongBreak() * 60;
@@ -628,6 +624,11 @@ export function resetTimerWithNewSettings() {
     setTimerStatus(true);
 }
 
+
+//Get the user selected value from settings, and put it on display 
+// export function setDisplayTimer(userSelectedTimer) {
+// updateTimerDisplay(userSelectedTimer);
+// }
 
 
 // function startTimer(){
