@@ -1,5 +1,6 @@
 import './timer.js';
-import { setDisplayTimer } from './timer.js';
+import { setDisplayTimer, resetTimerWithNewSettings } from './timer.js';
+
 
 const modal = document.getElementById('settings-modal');
 const settingsBtn = document.getElementById('settings-btn');
@@ -56,7 +57,7 @@ confirmBtn.addEventListener('click', (event) => {
     setBool('autoStartPomos', autoStartPomos.checked);
     setBool('soundEnabled', soundToggle.checked);
 
-    setDisplayTimer(selectedPomoTime * 60);
+    resetTimerWithNewSettings(); 
     modal.classList.add('hidden');
     settingsBtn.setAttribute('aria-expanded', 'false');
 
