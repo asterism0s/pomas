@@ -18,12 +18,12 @@ const soundToggle = document.querySelector('#sound');
 const cancelBtn = document.querySelector('.cancel-button');
 const confirmBtn =  document.querySelector('.confirm-button');
 
-
+// AI-assisted: Claude suggested the logic for this function.
 const getBool = (key, def = false) => {
     const value = localStorage.getItem(key);
     return value === null ? def : JSON.parse(value);
 };
-
+// AI-assisted: Claude suggested the logic for this function.
 const setBool = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
 };
@@ -40,7 +40,8 @@ settingsBtn.addEventListener('click', () => {
     );
 });
 
-
+// AI-assisted: ChatGPT and Claude suggested a portion of this function.
+// Main functionality was modified by the author.
 confirmBtn.addEventListener('click', (event) => {
     event.preventDefault(); 
 
@@ -89,15 +90,14 @@ cancelBtn.addEventListener('click', () => {
 });
 
 
-//load getters
+// AI-assisted: ChatGPT and Claude suggested a portion of this function.
+// Main functionality was modified by the author.
 function loadSettings () {
 
     const userPomoTime = localStorage.getItem('pomoTime');
     const userShortBreak = localStorage.getItem('shortBreak');
     const userLongBreak = localStorage.getItem('longBreak');
     const userBreakInterval = localStorage.getItem('breakInterval');
-    const userAutoBreaks = localStorage.getItem('autoStartBreaks');
-    const userAutoPomos  = localStorage.getItem('autoStartPomos');
     
     if(userPomoTime !== null) {
         pomoTime.value = userPomoTime;
@@ -120,7 +120,7 @@ function loadSettings () {
     soundToggle.checked = getBool('soundEnabled', true);
 }
 
-//export getters
+
 export function getUserPomoTime() {
     return localStorage.getItem('pomoTime') || '25';
 }

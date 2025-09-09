@@ -1,3 +1,5 @@
+
+// AI-assisted: ChatGPT suggested the logic for this function.
 export function showToast(message, duration = 2000) {
     const el = document.createElement('div');
     el.className = 'toast';

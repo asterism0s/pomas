@@ -9,7 +9,6 @@ let shortBreakTime = getUserShortBreak() * 60;
 let longBreakTime = getUserLongBreak() * 60;
 let breakInterval = parseInt(getUserBreakInterval() ?? '4', 10);
 
-
 const playBtn = document.getElementById('togglePlayControlBtn');
 const colon = document.querySelector('.timer-card__separator--colon');
 const stopBtn = document.querySelector('.play-controls__button--stop');
@@ -36,9 +35,11 @@ let completedShortBreaks = 0;
 let completedLongBreaks = 0;
 let currentMode = 'work';
 
-function playNotificationSound(mode) {
+// AI-assisted: Claude suggested the structure of this function. 
+// Main functionality was modified by the author.
+function playNotificationSound() {
     if (!getSoundEnabled()) {
-        console.log('Som desabilitado pelo usuário');
+        console.log('Sound disabled by the user');
         return;
     }
 
@@ -53,9 +54,8 @@ function playNotificationSound(mode) {
             alarm.currentTime = 0; 
         }, 3000);
 
-        console.log('Som de notificação tocado');
     } catch (error) {
-        console.log('Erro ao tocar som:', error);
+        console.log('Error when playing sound:', error);
     }
 }
 
@@ -63,20 +63,20 @@ function completeWorkSession() {
   completedPomodoros++;
   pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
 
-  playNotificationSound('break');
+  playNotificationSound();
 }
 
 function completeShortBreak() {
   completedShortBreaks++;
   
-  playNotificationSound('work');
+  playNotificationSound();
 }
 
 function completeLongBreak() {
   completedLongBreaks++;
   completedShortBreaks = 0;
 
-  playNotificationSound('break');
+  playNotificationSound();
 }
 
 function displayColon() {
@@ -91,7 +91,7 @@ function displayColon() {
 
 }
 
-// Função auxiliar para resetar o botão de play/pause
+// AI-assisted: Claude suggested the logic for this function.
 function resetPlayButton() {
     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
     playBtn.setAttribute('aria-pressed', false);
@@ -101,7 +101,7 @@ function resetPlayButton() {
     skipBtn.style.display = 'inline-flex';
 }
 
-//Enable or disable the work time or coffe break icons
+
 function setTimerStatus(isWork) { 
 
     if (isWork === true) { 
@@ -130,6 +130,7 @@ function setTimerStatus(isWork) {
 
 }
 
+// AI-assisted: ChatGPT suggested the logic for this function.
 function updateTimerDisplay(seconds) {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60;
@@ -147,82 +148,10 @@ function pauseBreakTimer() {
 }
 
 
-//criar uma função pra chegar escolha do usuáro e retornar
-//comparar no if statement do pauseTimeHandler
-//v.1
-// function pauseTimeHandler(isSelfInitiated) {
-//     //check if its a short break
-//     clearInterval(workTimeInterval);
-
-//     console.log(breakInterval);
-
-//     if(completedShortBreaks < breakInterval) {
-
-//         let currentBreakTime = shortBreakTime;
-//         currentMode = 'short'; 
-
-//         if (isSelfInitiated === false) {
-//         currentBreakTime = getDisplayTime();
-//         console.log('peguei o display de pausa curta');
-//         };
-
-//         pauseTimeInterval = setInterval(() => {
-
-//             if(currentBreakTime > 0) {
-//                 currentBreakTime--;
-//                 isPause = true;
-//                 setTimerStatus(false);
-//                 updateTimerDisplay(currentBreakTime);
-//                 updateProgressBar(currentBreakTime, shortBreakTime);
-
-
-//                 console.log('Decrementando break curto', currentBreakTime);
-//             } else {
-//                 clearInterval(pauseTimeInterval);
-//                 completeShortBreak();
-//                 isPause = false;
-//                 setTimerStatus(true);
-//                 countdownWorkTime(true);
-                
-//                 console.log('final do break curto', completedShortBreaks);
-//             };
-
-//         }, 1000);
-//     } else {
-
-//         currentMode = 'long';
-//         let currentBreakTime = longBreakTime;
-
-//         if(isSelfInitiated === false) {
-//             currentBreakTime = getDisplayTime();
-//             console.log('peguei o display de pausa longa');
-//         };
-
-//         pauseTimeInterval = setInterval(() => {
-//             if(currentBreakTime > 0) {
-//                 currentBreakTime--;
-//                 isPause = true;
-//                 setTimerStatus(false);
-//                 updateTimerDisplay(currentBreakTime);
-//                 updateProgressBar(currentBreakTime, longBreakTime);
-
-//                 console.log('Decrementando break longo', currentBreakTime);
-//             } else {
-//                 clearInterval(pauseTimeInterval);
-//                 completeLongBreak();
-//                 setTimerStatus(true);
-//                 isPause = false;
-//                 countdownWorkTime(true);
-
-//                 console.log('final do break longo', completedLongBreaks);
-//             }
-//         }, 1000)
-//     }
-    
-// }
-
+// AI-assisted: ChatGPT and Claude suggested a small portion of this function. 
+// Main functionality was created by the author.
 function pauseTimeHandler(isSelfInitiated) {
-    //check if its a short break
+
     clearInterval(workTimeInterval);
 
     console.log(breakInterval);
@@ -234,7 +163,6 @@ function pauseTimeHandler(isSelfInitiated) {
 
         if (isSelfInitiated === false) {
         currentBreakTime = getDisplayTime();
-        console.log('peguei o display de pausa curta');
         };
 
         pauseTimeInterval = setInterval(() => {
@@ -247,12 +175,11 @@ function pauseTimeHandler(isSelfInitiated) {
                 updateProgressBar(currentBreakTime, shortBreakTime);
 
 
-                console.log('Decrementando break curto', currentBreakTime);
+                console.log('Short Break', currentBreakTime);
             } else {
                 clearInterval(pauseTimeInterval);
                 completeShortBreak();
                 
-                // Verifica se auto-start de pomodoros está ativado
                 if (getAutoStartPomos()) {
                     isPause = false;
                     setTimerStatus(true);
@@ -261,14 +188,14 @@ function pauseTimeHandler(isSelfInitiated) {
 
                     console.log('Auto-starting work session');
                 } else {
-                    // Prepara o próximo modo mas não inicia
+                    
                     prepareNextMode('work');
                     resetPlayButton();
 
                     console.log('Waiting for user to start work session');
                 }
                 
-                console.log('final do break curto', completedShortBreaks);
+                console.log('End of Short Break', completedShortBreaks);
             };
 
         }, 1000);
@@ -279,7 +206,6 @@ function pauseTimeHandler(isSelfInitiated) {
 
         if(isSelfInitiated === false) {
             currentBreakTime = getDisplayTime();
-            console.log('peguei o display de pausa longa');
         };
 
         pauseTimeInterval = setInterval(() => {
@@ -290,12 +216,12 @@ function pauseTimeHandler(isSelfInitiated) {
                 updateTimerDisplay(currentBreakTime);
                 updateProgressBar(currentBreakTime, longBreakTime);
 
-                console.log('Decrementando break longo', currentBreakTime);
+                console.log('Long break', currentBreakTime);
+
             } else {
                 clearInterval(pauseTimeInterval);
                 completeLongBreak();
-                
-                // Verifica se auto-start de pomodoros está ativado
+
                 if (getAutoStartPomos()) {
                     setTimerStatus(true);
                     isPause = false;
@@ -304,65 +230,27 @@ function pauseTimeHandler(isSelfInitiated) {
 
                     console.log('Auto-starting work session after long break');
                 } else {
-                    // Prepara o próximo modo mas não inicia
+
                     prepareNextMode('work');
                     resetPlayButton();
                     console.log('Waiting for user to start work session after long break');
                 }
 
-                console.log('final do break longo', completedLongBreaks);
+                console.log('End of Long Break', completedLongBreaks);
             }
         }, 1000)
     }   
 }
 
-//Gets the in real time on display
+
 function getDisplayTime () {
   const mins = parseInt(minutesDisplay.textContent, 10);
   const secs = parseInt(secondsDisplay.textContent, 10);
   return mins * 60 + secs;
 }
 
-//Work timer -> v.1
-// function countdownWorkTime (isSelfInitiated){
-
-//    let currentWorkTime = workTime;
-
-    
-//     if (isSelfInitiated === false) {
-//         currentWorkTime = getDisplayTime ();
-//         console.log('peguei o display');
-//     }
-        
-//     // updateTimerDisplay(currentWorkTime);
-    
-//     workTimeInterval = setInterval(() => {
-        
-//         if (currentWorkTime > 0) {
-            
-//             currentWorkTime--;
-//             isPause = false;
-//             setTimerStatus(true);
-//             updateTimerDisplay(currentWorkTime);
-//             currentMode = 'work';
-//             updateProgressBar(currentWorkTime, workTime);
-
-//             console.log('Decrementando work time', currentWorkTime);
-//         } else {
-//             clearInterval(workTimeInterval);
-//             completeWorkSession();
-//             isPause = true;
-//             pauseTimeHandler(true);
-//             setTimerStatus(false);
-            
-//             console.log('final do work', completedPomodoros);
-//             // endTimer();
-            
-//         }
-//     }, 1000); 
-
-// }
-
+// AI-assisted: ChatGPT and Claude suggested a small portion of this function. 
+// Main functionality was created by the author.
 function countdownWorkTime (isSelfInitiated){
 
    let currentWorkTime = workTime;
@@ -372,8 +260,6 @@ function countdownWorkTime (isSelfInitiated){
         currentWorkTime = getDisplayTime ();
         console.log('peguei o display');
     }
-        
-    // updateTimerDisplay(currentWorkTime);
     
     workTimeInterval = setInterval(() => {
         
@@ -386,12 +272,12 @@ function countdownWorkTime (isSelfInitiated){
             currentMode = 'work';
             updateProgressBar(currentWorkTime, workTime);
 
-            console.log('Decrementando work time', currentWorkTime);
+            console.log('Work time', currentWorkTime);
         } else {
             clearInterval(workTimeInterval);
             completeWorkSession();
             
-            // Verifica se auto-start de breaks está ativado
+            
             if (getAutoStartBreaks()) {
                 isPause = true;
                 pauseTimeHandler(true);
@@ -400,7 +286,7 @@ function countdownWorkTime (isSelfInitiated){
                 
                 console.log('Auto-starting break');
             } else {
-                // Determina qual tipo de pausa será (curta ou longa)
+                
                 const nextBreakType = (completedShortBreaks < breakInterval) ? 'short' : 'long';
                 prepareNextMode(nextBreakType);
                 resetPlayButton();
@@ -414,13 +300,13 @@ function countdownWorkTime (isSelfInitiated){
 
 }
 
-
+// AI-assisted: ChatGPT suggested a small portion of this function.
+// Main functionality was modified by the author.
 playBtn.addEventListener('click', () => {
     const isPlayState = playBtn.classList.contains('play-controls__button--play');
     
 
-    if (isPlayState) { //when the play button is pressed
-
+    if (isPlayState) { 
         playBtn.classList.replace('play-controls__button--play', 'play-controls__button--pause');
         playBtn.setAttribute('aria-pressed', 'true');
 
@@ -437,7 +323,7 @@ playBtn.addEventListener('click', () => {
             countdownWorkTime (false);
         };
 
-    } else { //when the pause button is pressed
+    } else {
 
         playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
         playBtn.setAttribute('aria-pressed', false);
@@ -454,7 +340,8 @@ playBtn.addEventListener('click', () => {
 
 });
 
-//When the user skips a session, this sets the display, without initiating another timer display
+// AI-assisted: ChatGPT suggested a portion of this function.
+// Main functionality was modified by the author.
 function statusDisplay(mode) {
     if (mode === 'work') {
         currentMode = 'work';
@@ -464,7 +351,7 @@ function statusDisplay(mode) {
         setTimerStatus(true);
         showToast('Break finished! It is time to start working.');
         pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
-        console.log("em mode work",completedPomodoros);
+        console.log("In work mode",completedPomodoros);
     } else if (mode === 'short') {
         currentMode = 'short';
         updateTimerDisplay(shortBreakTime);
@@ -473,7 +360,7 @@ function statusDisplay(mode) {
         setTimerStatus(false);
         showToast('Work session completed! It is time to take a break.');
 
-        console.log("em mode short",completedShortBreaks);
+        console.log("In short mode",completedShortBreaks);
         
     } else if (mode === 'long') {
         currentMode = 'long';
@@ -483,12 +370,13 @@ function statusDisplay(mode) {
         setTimerStatus(false);
         showToast('Work session completed! It is time to take a break.');
 
-        console.log("em mode long",completedShortBreaks);
+        console.log("In long mode",completedShortBreaks);
     
     }
 }
 
-// Função para preparar o próximo modo sem iniciar automaticamente
+// AI-assisted: Claude suggested a portion of this function.
+// Main functionality was modified by the author.
 function prepareNextMode(nextMode) {
     if (nextMode === 'work') {
         updateTimerDisplay(workTime);
@@ -515,9 +403,10 @@ function prepareNextMode(nextMode) {
 }
 
 
-
+// AI-assisted: ChatGPT suggested the logic for this function.
+// Some functionality was modified by the author.
 skipBtn.addEventListener('click', () => {
-    //interromper qualquer time ativo
+    
     clearInterval(workTimeInterval);
     clearInterval(pauseTimeInterval);
     clearInterval(colonInterval);
@@ -529,12 +418,12 @@ skipBtn.addEventListener('click', () => {
         statusDisplay(nextBreak);
 
         console.log("Next break is:", nextBreak);
-        console.log("skipando work -> entrando em pausa");
+        console.log("skipping work -> going into pause");
     } else {
         if (currentMode === 'short') {
             completeShortBreak();
 
-            console.log("skipando a pausa -> entrando em work");
+            console.log("skipping pause -> going into work");
         } else if (currentMode === 'long') {
             completeLongBreak();
 
@@ -552,7 +441,7 @@ skipBtn.addEventListener('click', () => {
        
 });
 
-//para o timer e reseta o tempo para o temop padrão
+
 function stopTimer() {
     clearInterval(workTimeInterval);
     clearInterval(pauseTimeInterval);
@@ -587,7 +476,7 @@ stopBtn.addEventListener('click', () => {
 });
 
 
-
+// AI-assisted: Claude suggested the logic for this function.
 export function resetTimerWithNewSettings() {
 
     clearInterval(workTimeInterval);

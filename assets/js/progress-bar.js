@@ -1,3 +1,5 @@
+// AI-assisted: Claude suggested a portion of this function.
+// Main functionality was modified by the author.
 export function updateProgressBar(timeRemaining, totalTime) {
     const bars = document.querySelectorAll('.bar');
     const totalBars = bars.length;

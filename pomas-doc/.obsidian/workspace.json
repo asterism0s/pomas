@@ -41,10 +41,10 @@
             "state": {
               "type": "vscode-editor",
               "state": {
-                "file": "Notes/Claude/My code file.ts"
+                "file": "Code/timer.js"
               },
               "icon": "lucide-file",
-              "title": "My code file"
+              "title": "timer"
             }
           }
         ],
@@ -199,8 +199,8 @@
   },
   "active": "08e7d5f923057765",
   "lastOpenFiles": [
-    "Notes/Claude/Untitled.md",
     "Notes/Claude/My code file.ts",
+    "Notes/Claude/Untitled.md",
     "Code/timer.js",
     "Code/timer.ts",
     "Code/timer.js.md",
