@@ -20,12 +20,12 @@ const confirmBtn =  document.querySelector('.confirm-button');
 
 
 const getBool = (key, def = false) => {
-  const value = localStorage.getItem(key);
-  return value === null ? def : JSON.parse(value);
+    const value = localStorage.getItem(key);
+    return value === null ? def : JSON.parse(value);
 };
 
 const setBool = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, JSON.stringify(value));
 };
 
 
@@ -66,7 +66,7 @@ confirmBtn.addEventListener('click', (event) => {
     };
 
     if (isTimerActive() || hasCompletedPomodoros()) {
-        
+
         const confirmation = confirm(
             "⚠️ Apply new settings?\n\n" +
             "This will stop the current timer and reset your progress.\n\n" +
@@ -78,7 +78,7 @@ confirmBtn.addEventListener('click', (event) => {
         }
 
     } else {
-        // Se não há timer ativo nem progresso, aplicar diretamente
+        
         applyChanges();
     }
 });
@@ -87,8 +87,6 @@ cancelBtn.addEventListener('click', () => {
     modal.classList.toggle('hidden');
     loadSettings(); 
 });
-
-
 
 
 //load getters

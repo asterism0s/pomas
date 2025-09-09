@@ -15,14 +15,24 @@
     max-width: none;
     z-index: 2;
 
+    top: auto;
+    left: 0;
+    right: 0;
+    transform: none;
+    max-height: 90vh;
+    overflow-y: auto;
+
     @include mixins.media-breakpoint-up(md){
         border-radius: 1rem 1rem 1rem 1rem;
         bottom: auto; 
         left: 50%;
+        right: auto;   
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 50%; 
+        width: 50%;
         max-width: 40rem;
+
+        max-height: 90vh;
         
     }
 
