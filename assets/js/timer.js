@@ -450,7 +450,19 @@ function stopTimer() {
     colon.style.visibility = 'visible';
     colonVisible = true;
 
+    isPause = false;
+    currentMode = 'work';
+
+    completedPomodoros = 0;
+    completedShortBreaks = 0;
+    completedLongBreaks = 0;
+
+    pomasCounter.innerHTML = String(completedPomodoros).padStart(2, '0');
+
     updateTimerDisplay(workTime);
+    updateProgressBar(workTime, workTime);
+    setTimerStatus(true);
+
 
     playBtn.classList.replace('play-controls__button--pause', 'play-controls__button--play');
     playBtn.setAttribute('aria-pressed', false);
