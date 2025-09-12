@@ -1,4 +1,4 @@
-# Pomas - Pomodoro Timer
+# Pomas - A Pomodoro Timer
 
 #### Video Demo: https://youtu.be/5IH23DnPNvo
 
